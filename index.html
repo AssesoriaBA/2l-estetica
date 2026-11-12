@@ -1,0 +1,2971 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2L Est&eacute;tica Automotiva | Agende seu hor&aacute;rio</title>
+<meta name="description" content="Agende na 2L Est&eacute;tica Automotiva em 1 minuto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Identidade 2L Estética Automotiva: preto + dourado, títulos condensados em itálico */
+:root {
+  color-scheme: dark;
+  --ouro: #ffc107;
+  --ouro-claro: #ffe27a;
+  --ouro-escuro: #d99a00;
+  --grad-ouro: linear-gradient(180deg, #ffe58a 0%, #ffc107 45%, #e3a000 100%);
+  --fundo: #0a0a0a;
+  --card: #141414;
+  --card2: #1c1c1c;
+  --borda: #2b2b2b;
+  --texto: #f4f4f4;
+  --suave: #a6a6a6;
+  --verde: #2ecc71;
+  --whats: #25d366;
+  --amarelo: #ffc107;
+  --azul: #4da3ff;
+  --agua: #ffc107;
+  --vermelho: #ff4d4f;
+  --raio: 16px;
+  --brilho: 0 0 0 1px rgba(255, 193, 7, .55), 0 0 22px rgba(255, 193, 7, .18);
+  --sombra: 0 10px 30px rgba(0, 0, 0, .45);
+  --titulo: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+a { color: var(--ouro); }
+h1, h2, h3 { line-height: 1.05; margin: 0 0 .5rem; }
+h1, h2 { font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; letter-spacing: .01em; }
+.container { width: min(1100px, 100% - 32px); margin-inline: auto; }
+.oculto { display: none !important; }
+s { color: var(--suave); text-decoration-color: var(--vermelho); text-decoration-thickness: 2px; }
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+  border: 0; border-radius: 12px; padding: .8rem 1.35rem;
+  font: inherit; font-weight: 700; cursor: pointer; text-decoration: none;
+  background: var(--grad-ouro); color: #111; transition: transform .1s, filter .15s, box-shadow .15s;
+}
+.btn:hover { filter: brightness(1.06); box-shadow: 0 0 18px rgba(255, 193, 7, .35); }
+.btn:active { transform: scale(.97); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn-vermelho { background: var(--grad-ouro); color: #111; text-transform: uppercase; font-family: var(--titulo); font-style: italic; font-size: 1.15rem; letter-spacing: .02em; }
+.btn-claro { background: transparent; color: var(--texto); border: 1px solid #3a3a3a; }
+.btn-claro:hover { border-color: var(--ouro); box-shadow: none; }
+.btn-whats { background: var(--whats); color: #062b14; }
+.btn-perigo { background: transparent; color: var(--vermelho); border: 1px solid #5a2526; }
+.btn-peq { padding: .42rem .8rem; font-size: .85rem; border-radius: 10px; }
+.btn-bloco { width: 100%; }
+
+/* Cabeçalho */
+.topo {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(10, 10, 10, .9); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 193, 7, .25);
+}
+.topo .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .65rem; }
+.logo { display: flex; align-items: center; gap: .6rem; color: var(--texto); text-decoration: none; }
+.logo-icone {
+  width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; flex: 0 0 auto;
+  background: #000; border: 2px solid var(--ouro); box-shadow: 0 0 14px rgba(255, 193, 7, .35);
+  font-family: var(--titulo); font-style: italic; font-weight: 800; font-size: 1.35rem;
+  color: var(--ouro); letter-spacing: -.02em;
+}
+.logo-txt { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-txt > span { font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: 1.05rem; }
+.logo-txt small { color: var(--ouro); font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; }
+
+/* Faixa da promoção */
+.faixa-oferta {
+  display: flex; justify-content: center; align-items: center; gap: .5rem; flex-wrap: wrap;
+  background: var(--grad-ouro); color: #111; text-decoration: none; text-align: center;
+  padding: .55rem 16px; font-weight: 600; font-size: .92rem;
+}
+.faixa-oferta b { font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: 1.15rem; }
+.faixa-oferta span { background: #111; color: var(--ouro); border-radius: 999px; padding: .1rem .7rem; font-size: .8rem; }
+
+/* Hero */
+.hero {
+  position: relative; overflow: hidden; padding: 4rem 0 4.5rem;
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(255, 193, 7, .22), transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(255, 193, 7, .12), transparent 50%),
+    repeating-linear-gradient(60deg, rgba(255,255,255,.025) 0 2px, transparent 2px 22px),
+    #050505;
+  border-bottom: 2px solid var(--ouro);
+}
+.hero::after {
+  content: ""; position: absolute; left: -10%; right: -10%; bottom: 18%; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 193, 7, .7), transparent);
+  transform: rotate(-4deg); filter: blur(.5px);
+}
+.hero .container { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.8rem, 8vw, 5rem); max-width: 16ch; color: #fff; text-shadow: 0 4px 24px rgba(0, 0, 0, .6); }
+.hero h1 em {
+  font-style: italic; background: var(--grad-ouro); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 14px rgba(255, 193, 7, .35));
+}
+.hero p { font-size: 1.08rem; color: #d6d6d6; max-width: 46ch; }
+.hero .acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.selo {
+  display: inline-block; background: rgba(255, 193, 7, .12); color: var(--ouro); border: 1px solid rgba(255, 193, 7, .5);
+  font-weight: 700; padding: .3rem .85rem; border-radius: 999px; font-size: .8rem; margin-bottom: 1rem;
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.8rem; }
+.chip { background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 193, 7, .3); padding: .35rem .8rem; border-radius: 999px; font-size: .85rem; color: #eee; }
+.bolhas span {
+  position: absolute; border-radius: 50%; border: 1px solid rgba(255, 193, 7, .35); background: rgba(255, 193, 7, .05);
+  animation: subir 9s linear infinite;
+}
+@keyframes subir { from { transform: translateY(0); opacity: .9; } to { transform: translateY(-420px); opacity: 0; } }
+
+/* Avaliações */
+.avaliacoes { background: #000; padding: 1.6rem 0; border-bottom: 1px solid var(--borda); }
+.avaliacoes .container { display: flex; gap: 1.5rem; align-items: center; }
+.nota-google { display: flex; align-items: center; gap: .7rem; flex: 0 0 auto; }
+.nota-google b { font-family: var(--titulo); font-style: italic; font-size: 3.2rem; line-height: 1; background: var(--grad-ouro); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nota-google small { display: block; color: var(--suave); font-size: .8rem; }
+.estrelas { color: var(--ouro); letter-spacing: .1em; }
+.depoimentos { display: flex; gap: .8rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .3rem; }
+.depo {
+  margin: 0; flex: 0 0 min(300px, 80vw); scroll-snap-align: start;
+  background: var(--card); border: 1px solid var(--borda); border-radius: 14px; padding: .9rem 1rem;
+}
+.depo blockquote { margin: .3rem 0 .5rem; font-size: .92rem; }
+.depo figcaption { font-size: .8rem; color: var(--suave); }
+
+/* Seções */
+.secao { padding: 3.5rem 0; }
+.secao-titulo { text-align: center; margin-bottom: 2rem; }
+.secao-titulo h2 { font-size: clamp(2rem, 6vw, 3rem); }
+.secao-titulo h2::after { content: ""; display: block; width: 90px; height: 4px; margin: .5rem auto 0; background: var(--grad-ouro); border-radius: 4px; transform: skewX(-20deg); }
+.secao-titulo p { color: var(--suave); margin: .6rem 0 0; }
+.passo-num {
+  display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; flex: 0 0 auto;
+  background: var(--grad-ouro); color: #111; font-size: .95rem; margin-right: .5rem; font-weight: 800; font-family: var(--titulo); font-style: italic;
+}
+.passo { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); box-shadow: var(--sombra); padding: 1.4rem; margin-bottom: 1.2rem; }
+.passo h3 { display: flex; align-items: center; font-size: 1.15rem; margin-bottom: 1rem; font-family: var(--titulo); font-style: italic; text-transform: uppercase; letter-spacing: .02em; }
+.passo.bloqueado { opacity: .4; pointer-events: none; }
+
+/* Serviços (cartões como os do panfleto) */
+.servicos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .9rem; }
+.servico {
+  position: relative; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  border: 1px solid rgba(255, 193, 7, .35); background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+  border-radius: var(--raio); padding: 1.1rem 1rem 1rem;
+  display: flex; flex-direction: column; gap: .25rem; transition: box-shadow .15s, transform .1s, border-color .15s;
+}
+.servico:hover { box-shadow: var(--brilho); }
+.servico.ativo { border-color: var(--ouro); box-shadow: var(--brilho); background: linear-gradient(180deg, #2a2208, #120f05); }
+.servico strong { font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: 1.25rem; line-height: 1.05; padding-right: 4.5rem; }
+.servico small { color: var(--suave); font-size: .82rem; }
+.servico .preco-de { margin-top: auto; padding-top: .4rem; font-size: .85rem; }
+.servico .preco { font-family: var(--titulo); font-style: italic; font-weight: 800; font-size: 2rem; line-height: 1; background: var(--grad-ouro); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.servico .preco-de + .preco { margin-top: 0; }
+.servico > .preco:first-of-type { margin-top: auto; }
+.selo-off {
+  position: absolute; top: .8rem; right: .8rem; background: var(--grad-ouro); color: #111;
+  font-family: var(--titulo); font-style: italic; font-weight: 800; font-size: .95rem; padding: .1rem .55rem; border-radius: 6px; transform: rotate(-4deg);
+}
+.dica { font-size: .82rem; color: var(--suave); }
+
+/* Dias e horários */
+.dias { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .4rem; scroll-snap-type: x mandatory; }
+.dia {
+  flex: 0 0 auto; scroll-snap-align: start; min-width: 74px; text-align: center; cursor: pointer;
+  border: 1px solid var(--borda); background: var(--card2); border-radius: 12px; padding: .5rem .6rem; font: inherit; color: inherit;
+}
+.dia small { display: block; color: var(--suave); font-size: .72rem; }
+.dia b { font-size: 1.5rem; display: block; font-family: var(--titulo); font-style: italic; }
+.dia .ocup { height: 4px; border-radius: 4px; background: #2e2e2e; margin-top: .3rem; overflow: hidden; }
+.dia .ocup i { display: block; height: 100%; background: var(--ouro); }
+.dia.ativo { border-color: var(--ouro); box-shadow: var(--brilho); }
+.dia:disabled { opacity: .35; cursor: not-allowed; }
+.horas { display: grid; grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); gap: .5rem; }
+.hora {
+  font: inherit; font-weight: 600; cursor: pointer; padding: .6rem; border-radius: 10px;
+  border: 1px solid var(--borda); background: var(--card2); color: var(--texto);
+}
+.hora:hover { border-color: var(--ouro); }
+.hora.ativo { background: var(--grad-ouro); border-color: var(--ouro); color: #111; }
+.vazio { color: var(--suave); font-size: .95rem; }
+
+/* Formulários */
+.campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .9rem; }
+label { display: flex; flex-direction: column; gap: .3rem; font-size: .88rem; font-weight: 500; color: #ddd; }
+label.check { flex-direction: row; align-items: center; gap: .5rem; align-self: end; padding-bottom: .65rem; }
+label.check input { width: 20px; height: 20px; accent-color: var(--ouro); }
+input, select, textarea {
+  font: inherit; padding: .65rem .8rem; border-radius: 10px; border: 1px solid #333;
+  background: #0d0d0d; color: var(--texto); width: 100%;
+}
+input::placeholder, textarea::placeholder { color: #6d6d6d; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--ouro); border-color: transparent; }
+input[type="date"], input[type="time"] { color-scheme: dark; }
+textarea { min-height: 90px; resize: vertical; }
+.linha { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; }
+
+.resumo { background: rgba(255, 193, 7, .08); border: 1px solid rgba(255, 193, 7, .3); border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+.resumo p { margin: .2rem 0; }
+.erro { color: var(--vermelho); font-weight: 600; }
+
+/* Sucesso */
+.sucesso { text-align: center; }
+.sucesso .icone { font-size: 3rem; }
+
+/* Rodapé */
+.rodape { background: #000; color: var(--suave); padding: 2rem 0; font-size: .9rem; border-top: 2px solid var(--ouro); }
+.rodape a { color: var(--ouro); }
+
+/* ===================== PAINEL ===================== */
+.painel-topo .container { flex-wrap: wrap; }
+.abas { display: flex; gap: .3rem; overflow-x: auto; }
+.aba {
+  font: inherit; border: 0; background: transparent; padding: .5rem .85rem; border-radius: 10px;
+  cursor: pointer; color: var(--suave); font-weight: 600; white-space: nowrap; position: relative;
+}
+.aba:hover { color: var(--texto); }
+.aba.ativo { background: rgba(255, 193, 7, .14); color: var(--ouro); }
+.badge {
+  display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px;
+  border-radius: 999px; background: var(--vermelho); color: #fff; font-size: .72rem; margin-left: .3rem;
+}
+.painel { padding: 1.5rem 0 3rem; }
+.barra-dia { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem; margin-bottom: 1rem; }
+.barra-dia h2 { margin: 0; font-size: 1.7rem; }
+.cards-resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin-bottom: 1.2rem; }
+.card-num { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem; }
+.card-num small { color: var(--suave); display: block; }
+.card-num b { font-size: 1.9rem; font-family: var(--titulo); font-style: italic; color: var(--ouro); }
+.barra-ocup { height: 8px; background: #2e2e2e; border-radius: 8px; overflow: hidden; margin-top: .4rem; }
+.barra-ocup i { display: block; height: 100%; background: var(--grad-ouro); }
+
+.lista { display: flex; flex-direction: column; gap: .7rem; }
+.ag {
+  background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem;
+  display: grid; grid-template-columns: 74px 1fr; gap: .4rem 1rem; border-left: 5px solid var(--ouro);
+}
+.ag-hora { font-weight: 800; font-size: 1.5rem; font-family: var(--titulo); font-style: italic; color: var(--ouro); }
+.ag-hora small { display: block; font-weight: 400; font-size: .75rem; color: var(--suave); font-family: "Poppins", sans-serif; font-style: normal; }
+.ag-info strong { font-size: 1.05rem; }
+.ag-info span, .ag-info a { display: block; font-size: .9rem; color: var(--suave); }
+.ag-info a { color: var(--ouro); text-decoration: none; }
+.ag-obs { font-style: italic; }
+.ag-acoes { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; border-top: 1px dashed #333; padding-top: .7rem; }
+.ag-acoes select { width: auto; padding: .35rem .6rem; font-size: .85rem; }
+.btn-msg { background: rgba(37, 211, 102, .1); color: #5fe39a; border: 1px solid rgba(37, 211, 102, .35); }
+.btn-msg.enviado { background: transparent; color: #777; border-color: #333; }
+.ag.st-agendado { border-left-color: #ffc107; }
+.ag.st-confirmado { border-left-color: var(--azul); }
+.ag.st-lavando { border-left-color: #ff9f1a; }
+.ag.st-pronto { border-left-color: var(--verde); }
+.ag.st-entregue { border-left-color: #555; opacity: .8; }
+.ag.st-cancelado, .ag.st-faltou { border-left-color: var(--vermelho); opacity: .55; }
+.tag { display: inline-block; font-size: .72rem; padding: .1rem .5rem; border-radius: 999px; background: rgba(255, 193, 7, .14); color: var(--ouro); font-weight: 600; }
+
+.grupo { margin-bottom: 1.6rem; }
+.grupo h3 { font-size: 1.05rem; display: flex; align-items: center; gap: .4rem; }
+.grupo > p { color: var(--suave); margin-top: 0; font-size: .9rem; }
+.item {
+  background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: .8rem 1rem;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .6rem;
+}
+.item small { color: var(--suave); display: block; }
+
+.tabela { width: 100%; border-collapse: collapse; background: var(--card); border-radius: var(--raio); overflow: hidden; }
+.tabela th, .tabela td { padding: .7rem .8rem; text-align: left; border-bottom: 1px solid var(--borda); font-size: .9rem; vertical-align: middle; }
+.tabela th { background: #1a1a1a; color: var(--suave); font-weight: 600; }
+.tabela small { color: var(--suave); }
+.rolagem { overflow-x: auto; }
+.filtro-cli.ativo { border-color: var(--ouro); color: var(--ouro); }
+
+.caixa { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.3rem; margin-bottom: 1.2rem; }
+.caixa h3 { margin-bottom: 1rem; }
+.dias-check { display: flex; flex-wrap: wrap; gap: .5rem; }
+.dias-check label { flex-direction: row; align-items: center; gap: .3rem; background: #1d1d1d; padding: .35rem .7rem; border-radius: 999px; }
+.dias-check input { width: auto; accent-color: var(--ouro); }
+.serv-linha { display: grid; grid-template-columns: .9fr 1.3fr 1.5fr .65fr .65fr .6fr .55fr auto; gap: .5rem; margin-bottom: .5rem; }
+code { background: rgba(255, 193, 7, .12); color: var(--ouro-claro); padding: .05rem .35rem; border-radius: 6px; font-size: .85em; }
+
+.tela-pin { min-height: 100vh; display: grid; place-items: center; padding: 16px; background: radial-gradient(ellipse at 50% 20%, rgba(255, 193, 7, .2), transparent 60%), #050505; }
+.tela-pin form { background: var(--card); border: 1px solid rgba(255, 193, 7, .4); box-shadow: var(--brilho); padding: 2rem; border-radius: 18px; width: min(360px, 100%); text-align: center; }
+.tela-pin input { text-align: center; font-size: 1.4rem; letter-spacing: .4em; margin: 1rem 0; }
+
+dialog { border: 1px solid rgba(255, 193, 7, .4); border-radius: 18px; padding: 1.5rem; width: min(560px, 100% - 32px); background: var(--card); color: var(--texto); box-shadow: 0 20px 60px rgba(0, 0, 0, .6); }
+dialog::backdrop { background: rgba(0, 0, 0, .7); }
+
+.aviso { background: rgba(255, 193, 7, .08); border: 1px solid rgba(255, 193, 7, .35); color: #f1dfa6; border-radius: 12px; padding: .8rem 1rem; font-size: .9rem; margin-bottom: 1rem; }
+.previa-whats { white-space: pre-wrap; background: #0b2a1a; color: #d8f5e4; border-radius: 12px; padding: .8rem 1rem; margin: 0; }
+
+/* Grupos de serviço + combo */
+.aviso-combo {
+  background: linear-gradient(90deg, rgba(255, 193, 7, .18), rgba(255, 193, 7, .04));
+  border: 1px solid rgba(255, 193, 7, .5); border-radius: 12px; padding: .7rem 1rem; margin-bottom: 1.1rem; font-size: .95rem;
+}
+.aviso-combo b { color: var(--ouro); }
+.grupo-serv { margin-bottom: 1.4rem; }
+.grupo-serv h4 {
+  font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: 1.35rem;
+  margin: 0 0 .7rem; display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap;
+}
+.grupo-serv h4 small { font-family: "Poppins", sans-serif; font-style: normal; text-transform: none; font-weight: 400; font-size: .82rem; color: var(--suave); }
+.grupo-destaque h4 { color: var(--ouro); font-size: 1.7rem; }
+.grupo-destaque .servicos { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.servico.destaque { border-width: 2px; border-color: rgba(255, 193, 7, .6); padding: 1.3rem 1.1rem 1.1rem; background: radial-gradient(ellipse at 100% 0%, rgba(255, 193, 7, .14), transparent 60%), linear-gradient(180deg, #1c1a12, #0e0d09); }
+.servico.destaque strong { font-size: 1.45rem; }
+.servico.destaque .preco { font-size: 2.3rem; }
+.servico .marca {
+  position: absolute; left: .8rem; top: .8rem; width: 22px; height: 22px; border-radius: 6px;
+  border: 2px solid #555; display: grid; place-items: center; font-weight: 800; font-size: .85rem; color: #111;
+}
+.servico.ativo .marca { background: var(--grad-ouro); border-color: var(--ouro); }
+.servico strong { margin-top: 1.4rem; }
+.tag-combo {
+  display: inline-block; align-self: flex-start; margin-top: .35rem; background: rgba(46, 204, 113, .14); color: #6ee7a0;
+  border: 1px solid rgba(46, 204, 113, .4); border-radius: 999px; padding: .1rem .55rem; font-size: .75rem; font-weight: 600;
+}
+.carrinho {
+  position: sticky; bottom: 12px; z-index: 15; display: flex; align-items: center; justify-content: space-between; gap: .8rem; flex-wrap: wrap;
+  background: rgba(20, 20, 20, .96); backdrop-filter: blur(8px); border: 1px solid var(--ouro); box-shadow: var(--brilho), var(--sombra);
+  border-radius: 14px; padding: .75rem 1rem; margin-bottom: 1.2rem;
+}
+.carrinho-total { font-family: var(--titulo); font-style: italic; font-weight: 800; font-size: 1.5rem; color: var(--ouro); margin-left: .4rem; }
+.carrinho-total s { font-size: 1rem; }
+.carrinho small, .economia { color: #6ee7a0; font-weight: 600; }
+.carrinho small { display: block; }
+.sugestao {
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem; flex-wrap: wrap;
+  background: radial-gradient(ellipse at 0% 50%, rgba(255, 193, 7, .2), transparent 70%), #17140a;
+  border: 1px dashed var(--ouro); border-radius: 14px; padding: .8rem 1rem; margin-bottom: .8rem;
+}
+.sugestao .ouro { color: var(--ouro); }
+.itens-resumo { list-style: none; padding: 0; margin: 0 0 .5rem; }
+.itens-resumo li { display: flex; justify-content: space-between; gap: 1rem; padding: .3rem 0; border-bottom: 1px dashed #3a3a2a; }
+.total-resumo { font-size: 1.1rem; }
+
+/* Área do cliente simplificada */
+.info-hero { margin-top: 1.4rem; font-size: .9rem; color: #bdbdbd; line-height: 1.7; }
+.servico.unico .marca { border-radius: 50%; font-size: .7rem; }
+details.mais { margin-top: .9rem; }
+details.mais summary { cursor: pointer; color: var(--ouro); font-size: .88rem; font-weight: 600; list-style: none; }
+details.mais summary::-webkit-details-marker { display: none; }
+.link-dono { color: #6b6b6b !important; text-decoration: none; font-size: .8rem; }
+
+/* Painel: produtos e contas */
+.grade-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .9rem; }
+.prod { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; display: flex; flex-direction: column; }
+.prod-foto.sem { aspect-ratio: auto; height: 56px; font-size: 1.5rem; }
+.prod.alerta { border-color: var(--vermelho); box-shadow: 0 0 0 1px rgba(255, 77, 79, .35); }
+.prod-foto { aspect-ratio: 16 / 9; background: #0d0d0d center / cover no-repeat; display: grid; place-items: center; color: #444; font-size: 2.4rem; }
+.prod-corpo { padding: .9rem 1rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.prod-corpo h4 { margin: 0; font-size: 1.05rem; }
+.prod-corpo .linha-info { display: flex; justify-content: space-between; gap: .5rem; font-size: .86rem; color: var(--suave); }
+.prod-corpo .linha-info b { color: var(--texto); }
+.nivel { height: 8px; background: #2e2e2e; border-radius: 8px; overflow: hidden; margin: .3rem 0; }
+.nivel i { display: block; height: 100%; background: var(--grad-ouro); }
+.prod.alerta .nivel i { background: var(--vermelho); }
+.prod .ag-acoes { margin-top: auto; }
+.conta { display: grid; grid-template-columns: 56px 1fr auto; gap: .8rem; align-items: center; background: var(--card); border: 1px solid var(--borda); border-left: 5px solid var(--ouro); border-radius: 12px; padding: .7rem .9rem; }
+.conta.vencida { border-left-color: var(--vermelho); }
+.conta.paga { border-left-color: var(--verde); opacity: .7; }
+.conta-foto { width: 56px; height: 56px; border-radius: 8px; background: #0d0d0d center / cover no-repeat; display: grid; place-items: center; font-size: 1.4rem; cursor: pointer; border: 0; color: #555; }
+.conta small { color: var(--suave); display: block; }
+.conta-valor { font-family: var(--titulo); font-style: italic; font-weight: 800; font-size: 1.35rem; color: var(--ouro); text-align: right; }
+.conta.vencida .conta-valor { color: var(--vermelho); }
+.conta .linha { justify-content: flex-end; margin-top: .3rem; }
+.foto-campo { display: flex; align-items: center; gap: .8rem; }
+.foto-previa { width: 84px; height: 84px; border-radius: 10px; background: #0d0d0d center / cover no-repeat; border: 1px dashed #444; display: grid; place-items: center; color: #555; font-size: 1.6rem; flex: 0 0 auto; }
+.foto-campo input[type="file"] { display: none; }
+#dlgFoto img { width: 100%; border-radius: 10px; }
+.positivo { color: var(--verde) !important; }
+.negativo { color: var(--vermelho) !important; }
+
+/* Dúvidas */
+.faq { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: .6rem; }
+.faq details { background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: .9rem 1.1rem; }
+.faq details[open] { border-color: rgba(255, 193, 7, .5); }
+.faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--ouro); font-weight: 800; font-size: 1.2rem; line-height: 1; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { color: #cfcfcf; margin: .6rem 0 0; }
+
+/* Antes e depois */
+.galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.antes-depois { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: var(--raio); overflow: hidden; border: 1px solid rgba(255, 193, 7, .4); background: #000; }
+.antes-depois div { position: relative; aspect-ratio: 1; }
+.antes-depois img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.antes-depois span { position: absolute; left: .5rem; top: .5rem; background: #111; color: #fff; font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; padding: .1rem .6rem; border-radius: 6px; }
+.antes-depois span.depois { background: var(--grad-ouro); color: #111; }
+.antes-depois figcaption { grid-column: 1 / -1; padding: .6rem .8rem; font-weight: 600; }
+
+/* Painel: horários por dia */
+.horarios-dia { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; gap: .5rem; align-items: center; margin-bottom: .5rem; }
+.horarios-dia.cab { color: var(--suave); font-size: .8rem; }
+.horarios-dia label.check { padding: 0; }
+
+@media (max-width: 640px) {
+  .horarios-dia { grid-template-columns: 70px 1fr 1fr 1fr; font-size: .85rem; }
+  .horarios-dia input { padding: .5rem .4rem; }
+  .hero { padding: 2.8rem 0 3.2rem; }
+  .avaliacoes .container { flex-direction: column; align-items: stretch; }
+  .ag { grid-template-columns: 1fr; }
+  .serv-linha { grid-template-columns: 1fr 1fr 1fr; }
+  .serv-linha > :first-child, .serv-linha .desc { grid-column: 1 / -1; }
+  .logo-txt small { display: none; }
+  .topo .btn-claro { padding: .45rem .8rem; font-size: .8rem; }
+}
+
+.privacidade { margin-top: .8rem; text-align: center; }
+
+
+</style>
+</head>
+<body>
+<!-- ============ SITE DO CLIENTE ============ -->
+<div id="modoSite">
+
+  <header class="topo">
+    <div class="container">
+      <a class="logo" href="#"><span class="logo-icone">2L</span><span class="logo-txt"><span data-cfg="nome">2L Estética Automotiva</span><small data-cfg="lema"></small></span></a>
+      <a class="btn btn-vermelho btn-peq" href="#agendar">Agendar</a>
+    </div>
+  </header>
+
+  <a class="faixa-oferta oculto" id="faixaOferta" href="#agendar"></a>
+
+  <section class="hero">
+    <div class="bolhas" aria-hidden="true"></div>
+    <div class="container">
+      <h1>Seu carro sempre com <em>cara de novo.</em></h1>
+      <p data-cfg="slogan"></p>
+      <div class="acoes">
+        <a class="btn btn-vermelho" href="#agendar">Agendar agora</a>
+        <a class="btn btn-whats" id="whatsTopo" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <p class="info-hero"><span id="chipHorario"></span><br>📍 <span data-cfg="endereco"></span></p>
+    </div>
+  </section>
+
+  <section class="avaliacoes">
+    <div class="container">
+      <div class="nota-google">
+        <b id="notaGoogle">5,0</b>
+        <div>
+          <span class="estrelas">★★★★★</span>
+          <small id="totalGoogle">avaliações no Google</small>
+        </div>
+      </div>
+      <div class="depoimentos" id="depoimentos"></div>
+    </div>
+  </section>
+
+  <main id="agendar" class="secao">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Agende em 1 minuto</h2>
+      </div>
+
+      <div id="fluxo">
+        <div class="passo">
+          <h3><span class="passo-num">1</span>Escolha os serviços</h3>
+          <div id="servicos"></div>
+        </div>
+        <div class="sugestao oculto" id="sugestao"></div>
+        <div class="carrinho oculto" id="carrinho">
+          <div id="carrinhoTxt"></div>
+          <button type="button" class="btn btn-vermelho btn-peq" id="carrinhoBtn">Escolher dia →</button>
+        </div>
+
+        <div class="passo bloqueado" id="passoDia">
+          <h3><span class="passo-num">2</span>Dia</h3>
+          <div class="dias" id="dias"></div>
+        </div>
+
+        <div class="passo bloqueado" id="passoHora">
+          <h3><span class="passo-num">3</span>Horário</h3>
+          <div class="horas" id="horas"></div>
+        </div>
+
+        <form class="passo bloqueado" id="passoDados" novalidate>
+          <h3><span class="passo-num">4</span>Seus dados</h3>
+          <div class="campos">
+            <label>Nome<input name="nome" required autocomplete="name" placeholder="Seu nome"></label>
+            <label>WhatsApp<input name="telefone" required inputmode="tel" autocomplete="tel" placeholder="(12) 99999-9999"></label>
+            <label>Carro<input name="veiculo" required placeholder="Ex.: Civic prata"></label>
+            <label>Tamanho<select name="porte"></select></label>
+          </div>
+          <details class="mais">
+            <summary>+ mais detalhes (placa, observação)</summary>
+            <div class="campos" style="margin-top:.8rem">
+              <label>Placa<input name="placa" placeholder="ABC1D23" maxlength="8" style="text-transform:uppercase"></label>
+              <label>Observação<input name="obs" placeholder="Algo que a gente precise saber?"></label>
+            </div>
+          </details>
+          <div class="resumo" id="resumo"></div>
+          <p class="erro oculto" id="erro"></p>
+          <button class="btn btn-vermelho btn-bloco" type="submit">Confirmar agendamento</button>
+          <p class="dica privacidade">🔒 Seus dados (nome, WhatsApp e carro) são usados só para o seu agendamento e para avisos do serviço. Não compartilhamos com ninguém. Para apagar seus dados, é só pedir no WhatsApp.</p>
+        </form>
+      </div>
+
+      <div class="passo sucesso oculto" id="sucesso">
+        <div class="icone">✅</div>
+        <h2>Horário reservado!</h2>
+        <div class="resumo" id="resumoFinal"></div>
+        <p>Toque abaixo para mandar o agendamento no nosso WhatsApp. Assim você já recebe a confirmação por lá.</p>
+        <div class="linha" style="justify-content:center">
+          <a class="btn btn-whats" id="whatsSucesso" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+          <button class="btn btn-claro" id="novo">Fazer outro agendamento</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="secao oculto" id="secGaleria">
+    <div class="container">
+      <div class="secao-titulo"><h2>Antes e depois</h2><p>Resultado que se vê.</p></div>
+      <div class="galeria" id="galeria"></div>
+    </div>
+  </section>
+
+  <section class="secao oculto" id="secFaq" style="padding-top:0">
+    <div class="container">
+      <div class="secao-titulo"><h2>Dúvidas</h2></div>
+      <div class="faq" id="faq"></div>
+      <div class="linha" style="justify-content:center;margin-top:1.5rem">
+        <a class="btn btn-whats" id="whatsFaq" target="_blank" rel="noopener">Outra dúvida? Chama no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="container linha" style="justify-content:space-between">
+      <span>© <span id="ano"></span> <span data-cfg="nome"></span></span>
+      <span>
+        <a id="whatsRodape" target="_blank" rel="noopener"></a> ·
+        <a id="whatsRodape2" target="_blank" rel="noopener"></a> ·
+        <a id="instaRodape" target="_blank" rel="noopener"></a> ·
+        <a href="#painel" class="link-dono">Área do dono</a>
+      </span>
+    </div>
+  </footer>
+
+  
+</div>
+<!-- ============ PAINEL DO DONO (abrir com #painel no fim do endereÃ§o) ============ -->
+<div id="modoPainel" hidden>
+
+  <!-- Senha -->
+  <div class="tela-pin" id="telaPin">
+    <form id="formPin">
+      <span class="logo-icone" style="margin:0 auto;width:48px;height:48px">2L</span>
+      <h2 style="margin-top:1rem">Painel do dono</h2>
+      <input type="email" name="email" placeholder="seu e-mail" autocomplete="username" aria-label="E-mail" class="oculto" style="letter-spacing:0;font-size:1rem;margin-bottom:0">
+      <input type="password" inputmode="numeric" name="pin" placeholder="••••" autocomplete="current-password" aria-label="Senha">
+      <p class="erro oculto" id="erroPin">Senha errada.</p>
+      <button class="btn btn-vermelho btn-bloco">Entrar</button>
+      <p class="dica" style="margin-top:1rem" id="dicaPin">Modo demonstração – senha: 1234</p>
+    </form>
+  </div>
+
+  <div id="app" class="oculto">
+    <header class="topo painel-topo">
+      <div class="container">
+        <a class="logo" href="#" title="Ver site"><span class="logo-icone">2L</span><span class="logo-txt"><span data-cfg="nome"></span><small>Painel do dono</small></span></a>
+        <nav class="abas" id="abas">
+          <button class="aba ativo" data-aba="agenda">📅 Agenda</button>
+          <button class="aba" data-aba="fila">💬 Mensagens<span class="badge oculto" id="badgeFila"></span></button>
+          <button class="aba" data-aba="clientes">👥 Clientes</button>
+          <button class="aba" data-aba="produtos">📦 Produtos<span class="badge oculto" id="badgeProd"></span></button>
+          <button class="aba" data-aba="contas">💸 Contas<span class="badge oculto" id="badgeContas"></span></button>
+          <button class="aba" data-aba="campanha">📣 Dia vazio</button>
+          <button class="aba" data-aba="config">⚙️ Configurações</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="painel container">
+      <!-- AGENDA -->
+      <section data-secao="agenda">
+        <div class="barra-dia">
+          <div class="linha">
+            <button class="btn btn-claro btn-peq" id="diaAnt" aria-label="Dia anterior">◀</button>
+            <h2 id="tituloDia"></h2>
+            <button class="btn btn-claro btn-peq" id="diaProx" aria-label="Próximo dia">▶</button>
+          </div>
+          <div class="linha">
+            <input type="date" id="seletorDia" style="width:auto">
+            <button class="btn btn-claro btn-peq" id="irHoje">Hoje</button>
+            <button class="btn btn-claro btn-peq" id="btnFechar" title="Para feriados e folgas">🚫 Fechar este dia</button>
+            <button class="btn btn-vermelho btn-peq" id="btnNovo">+ Novo agendamento</button>
+          </div>
+        </div>
+        <div class="cards-resumo" id="resumoDia"></div>
+        <div class="lista" id="listaDia"></div>
+      </section>
+
+      <!-- FILA DE MENSAGENS -->
+      <section data-secao="fila" class="oculto">
+        <div class="aviso">
+          💡 Aqui ficam as mensagens que precisam ser enviadas. Clique em <b>Enviar</b>: o WhatsApp abre com o texto pronto, é só apertar enviar.
+          Quando ligarmos a API oficial, essa fila passa a ser enviada sozinha.
+        </div>
+        <div id="fila"></div>
+      </section>
+
+      <!-- CLIENTES -->
+      <section data-secao="clientes" class="oculto">
+        <div class="barra-dia">
+          <div class="linha">
+            <button class="btn btn-peq btn-claro filtro-cli ativo" data-filtro="todos">Todos</button>
+            <button class="btn btn-peq btn-claro filtro-cli" data-filtro="sumidos">😴 Sumidos</button>
+          </div>
+          <input type="search" id="buscaCli" placeholder="Buscar nome, telefone ou placa" style="max-width:320px">
+        </div>
+        <p class="dica" id="dicaSumidos"></p>
+        <div class="rolagem"><table class="tabela" id="tabelaCli"></table></div>
+      </section>
+
+      <!-- PRODUTOS -->
+      <section data-secao="produtos" class="oculto">
+        <div class="barra-dia">
+          <h2>Produtos</h2>
+          <button class="btn btn-vermelho btn-peq" id="btnNovoProd">+ Cadastrar produto</button>
+        </div>
+        <p class="dica" style="margin-top:-.5rem">Tire a foto, diga o tamanho da embalagem e quanto usa por carro. O sistema conta os carros feitos e mostra quanto ainda tem e quando vai acabar.</p>
+        <div class="cards-resumo" id="resumoProd"></div>
+        <div class="grade-cards" id="listaProd"></div>
+      </section>
+
+      <!-- CONTAS A PAGAR -->
+      <section data-secao="contas" class="oculto">
+        <div class="barra-dia">
+          <h2>Contas a pagar</h2>
+          <button class="btn btn-vermelho btn-peq" id="btnNovaConta">+ Nova conta</button>
+        </div>
+        <div class="cards-resumo" id="resumoContas"></div>
+        <div id="listaContas"></div>
+      </section>
+
+      <!-- CAMPANHA DIA VAZIO -->
+      <section data-secao="campanha" class="oculto">
+        <div class="aviso">
+          📣 <b>Segunda vazia não é azar, é falta de aviso.</b> Escolha um dia fraco, faça uma oferta com número de vagas e mande para quem lavou com você no último mês.
+        </div>
+        <div class="caixa">
+          <h3>Montar campanha</h3>
+          <div class="campos">
+            <label>Dia<input type="date" id="cpData"></label>
+            <label>Até que horas<input type="time" id="cpAte" value="12:00"></label>
+            <label>Serviço<select id="cpServico"></select></label>
+            <label>Preço promocional (R$)<input type="number" id="cpPreco" min="0" step="1"></label>
+            <label>Vagas<input type="number" id="cpVagas" min="1" step="1"></label>
+            <label>Clientes dos últimos (dias)<input type="number" id="cpJanela" value="30" min="1"></label>
+          </div>
+          <p class="dica" id="cpOcupacao"></p>
+          <label>Mensagem<textarea id="cpTexto" rows="3"></textarea></label>
+          <p class="dica">Variáveis: <code>{nome}</code> <code>{dia}</code> <code>{ate}</code> <code>{servico}</code> <code>{preco}</code> <code>{vagas}</code> <code>{lavajato}</code></p>
+        </div>
+        <div id="cpLista"></div>
+      </section>
+
+      <!-- CONFIG -->
+      <section data-secao="config" class="oculto">
+        <form id="formCfg">
+          <div class="caixa">
+            <h3>Dados do lava-rápido</h3>
+            <div class="campos">
+              <label>Nome<input name="nome"></label>
+              <label>Lema<input name="lema"></label>
+              <label>WhatsApp principal (recebe agendamentos)<input name="whatsapp"></label>
+              <label>WhatsApp 2<input name="whatsapp2"></label>
+              <label>Instagram (sem @)<input name="instagram"></label>
+              <label>Endereço<input name="endereco"></label>
+            </div>
+            <label style="margin-top:.9rem">Frase do site<input name="slogan"></label>
+            <label style="margin-top:.9rem">Observação de preço<input name="observacaoPreco"></label>
+          </div>
+          <div class="caixa">
+            <h3>🏷️ Promoção (ex.: Black Friday)</h3>
+            <div class="campos">
+              <label class="check"><input type="checkbox" name="ofertaAtiva"> Promoção ligada</label>
+              <label>Nome da promoção<input name="ofertaTitulo"></label>
+              <label>Chamada<input name="ofertaTexto"></label>
+              <label>Válida até<input type="date" name="ofertaAte"></label>
+            </div>
+            <p class="dica">Com a promoção ligada, o site mostra "De R$ X por R$ Y" usando a coluna <b>Preço promo</b> dos serviços. Depois da data, volta sozinho ao preço normal.</p>
+          </div>
+          <div class="caixa">
+            <h3>🎁 Combo estética</h3>
+            <div class="campos">
+              <label class="check"><input type="checkbox" name="comboAtivo"> Combo ligado</label>
+              <label>1º serviço de estética no combo (%)<input type="number" name="comboD2" min="0" max="90" step="1"></label>
+              <label>Estéticas seguintes (%)<input type="number" name="comboD3" min="0" max="90" step="1"></label>
+              <label class="check"><input type="checkbox" name="comboAcumula"> Somar com a promoção</label>
+            </div>
+            <p class="dica">Só os serviços do grupo <b>Estética</b> ganham desconto; lavagem sai sempre cheia. Com lavagem junto, a 1ª estética já ganha o desconto. Só estética: a mais cara sai cheia. Com "Somar com a promoção" desligado (recomendado), vale o <b>maior</b> desconto, sem somar.</p>
+          </div>
+          <div class="caixa">
+            <h3>Funcionamento</h3>
+            <div class="horarios-dia cab"><span>Dia</span><span>Abre</span><span>Fecha</span><span>Último carro</span></div>
+            <div id="cfgHorarios"></div>
+            <p style="margin:1rem 0 .4rem;font-weight:600;font-size:.9rem">Pausa (ninguém agenda entrada nesse intervalo)</p>
+            <div class="campos">
+              <label>Início<input type="time" name="pausaInicio"></label>
+              <label>Fim<input type="time" name="pausaFim"></label>
+            </div>
+            <div class="dias-check" id="cfgPausaDias" style="margin-top:.6rem"></div>
+            <div class="campos" style="margin-top:1rem">
+              <label>Vagas (lavagens ao mesmo tempo)<input type="number" name="vagas" min="1" step="0.5"></label>
+              <label>Intervalo entre horários (min)<input type="number" name="intervalo" min="10" step="5"></label>
+              <label>Agenda aberta por (dias)<input type="number" name="diasAntecedencia" min="1"></label>
+              <label>Cliente sumido após (dias)<input type="number" name="diasSumido" min="7"></label>
+            </div>
+            <p class="dica" id="cfgFechados"></p>
+          </div>
+          <div class="caixa">
+            <h3>Serviços e preços</h3>
+            <p class="dica">"Vagas" = quanto do espaço o serviço ocupa. Lavagem = 1. Serviço pesado = 2 a 2,5 (assim cabem só 1 ou 2 por vez).</p>
+            <div id="cfgServicos"></div>
+            <button type="button" class="btn btn-claro btn-peq" id="addServico">+ Adicionar serviço</button>
+            <div class="campos" style="margin-top:1rem">
+              <label>SUV / caminhonete: acréscimo em % (vazio = valor a combinar)<input type="number" name="acrescimoG" min="0" step="1" placeholder="a combinar"></label>
+              <label>Link de avaliação do Google<input name="linkAvaliacao" placeholder="https://g.page/r/..."></label>
+            </div>
+          </div>
+          <div class="caixa">
+            <h3>Mensagens do WhatsApp</h3>
+            <p class="dica">Variáveis: <code>{nome}</code> <code>{servico}</code> <code>{data}</code> <code>{hora}</code> <code>{veiculo}</code> <code>{placa}</code> <code>{preco}</code> <code>{lavajato}</code> <code>{endereco}</code>. Use *texto* para negrito.</p>
+            <div id="cfgMsgs"></div>
+          </div>
+          <div class="caixa">
+            <h3>Segurança</h3>
+            <label style="max-width:260px">Senha do painel<input name="pin" type="text" inputmode="numeric"></label>
+          </div>
+          <div class="linha" style="margin-bottom:2rem">
+            <button class="btn btn-vermelho">Salvar configurações</button>
+            <button type="button" class="btn btn-claro" id="btnBackup">⬇ Baixar backup</button>
+            <button type="button" class="btn btn-claro" id="btnExemplo">Carregar dados de exemplo</button>
+            <button type="button" class="btn btn-perigo" id="btnApagar">Apagar agendamentos</button>
+            <button type="button" class="btn btn-claro oculto" id="btnSair">Sair do painel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Novo agendamento -->
+  <dialog id="dlgNovo">
+    <form method="dialog" id="formNovo">
+      <h2>Novo agendamento</h2>
+      <div class="campos">
+        <label>Serviço<select name="servicoId" required></select></label>
+        <label>Data<input type="date" name="data" required></label>
+        <label>Horário<select name="hora" required></select></label>
+        <label>Nome<input name="nome" required></label>
+        <label>WhatsApp<input name="telefone" required inputmode="tel"></label>
+        <label>Veículo<input name="veiculo"></label>
+        <label>Placa<input name="placa" style="text-transform:uppercase"></label>
+      </div>
+      <label style="margin-top:.9rem">Observação<textarea name="obs" rows="2"></textarea></label>
+      <p class="erro oculto" id="erroNovo"></p>
+      <div class="linha" style="margin-top:1rem;justify-content:flex-end">
+        <button class="btn btn-claro" value="cancelar" formnovalidate>Cancelar</button>
+        <button class="btn btn-vermelho" value="salvar" id="salvarNovo">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Produto -->
+  <dialog id="dlgProduto">
+    <form method="dialog" id="formProd">
+      <h2 id="tituloProd">Produto</h2>
+      <div class="foto-campo">
+        <div class="foto-previa" id="prevProd">📷</div>
+        <div class="linha">
+          <label class="btn btn-claro btn-peq">📷 Tirar foto<input type="file" accept="image/*" capture="environment" data-foto="prevProd"></label>
+          <label class="btn btn-claro btn-peq">🖼️ Galeria<input type="file" accept="image/*" data-foto="prevProd"></label>
+        </div>
+      </div>
+      <div class="campos" style="margin-top:1rem">
+        <label>Nome do produto<input name="nome" required placeholder="Ex.: Shampoo automotivo 5L"></label>
+        <label>Medida<select name="unidade"><option value="ml">ml (líquido)</option><option value="g">g (pasta/pó)</option><option value="un">unidade</option></select></label>
+        <label>Tamanho da embalagem<input name="embalagem" type="number" min="0" step="any" placeholder="Ex.: 5000"></label>
+        <label>Preço da embalagem (R$)<input name="custo" type="number" min="0" step="0.01" placeholder="Ex.: 89,90"></label>
+        <label>Quanto usa por carro<input name="usoPorCarro" type="number" min="0" step="any" placeholder="Ex.: 50"></label>
+        <label>Usado em<select name="aplica"></select></label>
+        <label>Quantas embalagens tem agora<input name="estoque" type="number" min="0" step="0.1" placeholder="Ex.: 2"></label>
+        <label>Avisar quando sobrar (embalagens)<input name="minimo" type="number" min="0" step="0.1" value="0.5"></label>
+      </div>
+      <p class="dica" id="calcProd"></p>
+      <div class="linha" style="margin-top:1rem;justify-content:flex-end">
+        <button class="btn btn-claro" value="cancelar" formnovalidate>Cancelar</button>
+        <button class="btn btn-vermelho" value="salvar">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Conta -->
+  <dialog id="dlgConta">
+    <form method="dialog" id="formConta">
+      <h2 id="tituloConta">Conta</h2>
+      <div class="foto-campo">
+        <div class="foto-previa" id="prevConta">🧾</div>
+        <div class="linha">
+          <label class="btn btn-claro btn-peq">📷 Foto do boleto<input type="file" accept="image/*" capture="environment" data-foto="prevConta"></label>
+          <label class="btn btn-claro btn-peq">🖼️ Galeria<input type="file" accept="image/*" data-foto="prevConta"></label>
+        </div>
+      </div>
+      <div class="campos" style="margin-top:1rem">
+        <label>Descrição<input name="descricao" required placeholder="Ex.: Conta de luz"></label>
+        <label>Valor (R$)<input name="valor" type="number" min="0" step="0.01" required></label>
+        <label>Vencimento<input name="vencimento" type="date" required></label>
+        <label>Categoria<select name="categoria">
+          <option>Aluguel</option><option>Água</option><option>Luz</option><option>Internet/Telefone</option>
+          <option>Produtos</option><option>Funcionário</option><option>Impostos</option><option>Equipamentos</option><option>Outros</option>
+        </select></label>
+        <label class="check"><input type="checkbox" name="recorrente"> Repete todo mês</label>
+      </div>
+      <div class="linha" style="margin-top:1rem;justify-content:flex-end">
+        <button class="btn btn-claro" value="cancelar" formnovalidate>Cancelar</button>
+        <button class="btn btn-vermelho" value="salvar">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlgFoto">
+    <img id="fotoGrande" alt="Foto">
+    <form method="dialog" class="linha" style="justify-content:flex-end;margin-top:.8rem"><button class="btn btn-claro">Fechar</button></form>
+  </dialog>
+
+  
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+// Configuração padrão do lava rápido.
+// Tudo isso pode ser alterado depois pelo Painel > Configurações.
+window.CONFIG_PADRAO = {
+  versao: 7, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
+  nome: "2L Estética Automotiva",
+  lema: "Cuidado que se vê, qualidade que fica!",
+  slogan: "Polimento, higienização, restauração de farol e cristalização de para-brisa. Combine serviços e ganhe até 20% OFF.",
+  whatsapp: "12997904704", // número principal (recebe os agendamentos)
+  whatsapp2: "12988961606",
+  instagram: "2l.esteticaautomotiva",
+  endereco: "Rua Piraquara Clube, nº 450 – Vila Sinhá",
+  // Horário por dia (0=Dom ... 6=Sáb). null = fechado. ultima = último horário para receber carro
+  horarios: [
+    null,
+    { ab: "09:30", fe: "18:00", ultima: "17:00" },
+    { ab: "08:00", fe: "18:00", ultima: "17:00" },
+    { ab: "08:00", fe: "18:00", ultima: "17:00" },
+    { ab: "08:00", fe: "18:00", ultima: "17:00" },
+    { ab: "08:00", fe: "18:00", ultima: "17:00" },
+    { ab: "08:00", fe: "13:00", ultima: "12:00" }
+  ],
+  // Pausa (dono leva o filho na escola): ninguém agenda entrada nesse intervalo
+  pausa: { inicio: "12:00", fim: "12:40", dias: [1, 2, 3, 4, 5] },
+  fechados: [], // dias fechados (feriados): "2026-12-25"
+  intervalo: 90, // janela entre horários: 1h30 (pedido do dono)
+  vagas: 5, // capacidade: até 5 lavagens ao mesmo tempo (serviço pesado ocupa mais de 1 vaga)
+  diasAntecedencia: 7, // até quantos dias à frente o cliente pode agendar
+  diasSumido: 30, // cliente "sumido" depois de X dias sem vir
+  pin: "1234", // senha do painel
+  // Avaliações reais do Google (cole aqui as outras quando quiser)
+  google: { nota: "5,0", total: 7 },
+  depoimentos: [
+    {
+      nome: "Guilherme Ruiz",
+      quando: "há 6 meses",
+      estrelas: 5,
+      texto: "Hoje foi a primeira vez que lavei meu carro na 2L, fui muito bem atendido e com certeza irei voltar mais vezes. Serviço de qualidade, recomendo, parabéns 👍👏"
+    },
+    { nome: "Natan Carmo", quando: "há 4 meses", estrelas: 5, texto: "Atendimento top, serviço exemplar, recomendo." },
+    { nome: "Alessandro Costa", quando: "há 6 meses", estrelas: 5, texto: "Atendimento diferenciado, parabéns pelo atendimento e pelo serviço." },
+    { nome: "Cliente do Google", quando: "há 5 meses", estrelas: 5, texto: "Atendimento ótimo e super qualidade de serviço. Indico muito 🙌" }
+  ],
+  destaques: ["🎁 Estética no combo: até 20% OFF", "⭐ 5,0 no Google"],
+  // Combo (regra em comum.js): desconto só na categoria "estetica"; lavagem sempre cheia.
+  // descontos[1] = 1º serviço de estética com desconto, descontos[2] = os seguintes.
+  // acumulaComOferta: false = vale o MAIOR desconto (combo ou promoção), sem somar
+  combo: { ativo: true, categoria: "estetica", descontos: [0, 15, 20], acumulaComOferta: false },
+  categorias: [
+    { id: "estetica", nome: "Estética automotiva", subtitulo: "Seu carro com cara de novo" },
+    { id: "lavagem", nome: "Lavagem", subtitulo: "escolha 1", escolhaUnica: true }
+  ],
+  // Oferta ativa: mostra "De / Por" usando o precoOferta de cada serviço
+  oferta: { ativa: true, titulo: "Black Friday", texto: "15% OFF em todos os serviços", ate: "2026-11-30" },
+  observacaoPreco: "Preços para carro pequeno/médio. SUV e caminhonete: consulte.",
+  servicos: [
+    // Tabela da 2L (carro P/M).
+    // duracao = minutos que o carro fica (cada carro de lavagem = 1h30, informado pelo dono)
+    // peso = quantas das 5 vagas o serviço ocupa (lavagem 1; pesado 2 a 2,5 → só cabem 1 ou 2)
+    // categoria: "estetica" aparece primeiro e em destaque
+    { id: "polimento", categoria: "estetica", nome: "Polimento comercial", descricao: "Remove riscos leves e devolve o brilho da pintura", preco: 450, precoOferta: 382.5, duracao: 360, peso: 2.5 },
+    { id: "higienizacao", categoria: "estetica", nome: "Higienização completa", descricao: "Bancos, carpetes, teto e painel", preco: 460, precoOferta: 391, duracao: 300, peso: 2.5 },
+    { id: "farol", categoria: "estetica", nome: "Restauração de farol (o par)", descricao: "Tira o amarelado: mais segurança e visibilidade à noite", preco: 270, precoOferta: 229.5, duracao: 120, peso: 2 },
+    { id: "parabrisa", categoria: "estetica", nome: "Cristalização de para-brisa", descricao: "Água escorre e a visibilidade na chuva melhora", preco: 90, precoOferta: 76.5, duracao: 90, peso: 1 },
+    { id: "simples", categoria: "lavagem", nome: "Lavagem simples", descricao: "Externa, aspiração interna, rodas e pneus, finalização com brilho", preco: 70, precoOferta: 59.99, duracao: 90, peso: 1 },
+    { id: "cera", categoria: "lavagem", nome: "Lavagem simples com cera de carnaúba", descricao: "Lavagem simples + proteção e brilho com cera de carnaúba", preco: 105, precoOferta: 89.25, duracao: 90, peso: 1 },
+    { id: "detalhada", categoria: "lavagem", nome: "Lavagem detalhada", descricao: "Limpeza minuciosa por dentro e por fora", preco: 150, precoOferta: 127.5, duracao: 90, peso: 1.5 }
+  ],
+  // Porte do veículo. acrescimo em %; null = preço sob consulta
+  portes: [
+    { id: "pm", nome: "Carro pequeno/médio", acrescimo: 0 },
+    { id: "g", nome: "SUV / caminhonete / carro grande", acrescimo: null }
+  ],
+  linkAvaliacao: "", // link "avalie-nos" do Google (pergunta 30)
+  // Dúvidas frequentes no site (só fatos confirmados; complete com as respostas do dono)
+  faq: [
+    { p: "Como funciona o agendamento?", r: "Você escolhe um ou mais serviços, o dia e o horário aqui no site e confirma pelo WhatsApp. Pode agendar com até 7 dias de antecedência." },
+    { p: "Como funciona o desconto de combo?", r: "Os serviços de estética (polimento, higienização, restauração de farol e cristalização de para-brisa) ganham desconto quando combinados: junto com uma lavagem, o 1º serviço de estética sai com 15% OFF e os seguintes com 20% OFF. Só estética: o de maior valor sai pelo preço normal, o 2º com 15% e o 3º com 20%. Em promoções, vale o maior desconto." },
+    { p: "Até que horas vocês recebem o carro?", r: "De segunda a sexta, até as 17h. Aos sábados, até as 12h." },
+    { p: "Atendem SUV e caminhonete?", r: "Sim! Os preços do site são para carro pequeno/médio. Para SUV e caminhonete, o valor é combinado pelo WhatsApp." }
+  ],
+  // Fotos de antes/depois: { antes: "img/farol-antes.jpg", depois: "img/farol-depois.jpg", legenda: "Restauração de farol" }
+  galeria: [],
+  // Variáveis: {nome} {servico} {data} {hora} {veiculo} {placa} {preco} {lavajato} {endereco}
+  mensagens: {
+    confirmacao:
+      "Olá {nome}! ✅ Seu horário no *{lavajato}* está confirmado:\n🚗 {servico}\n📅 {data} às {hora}\n💰 {preco}\n📍 {endereco}\n\nSe precisar remarcar é só responder aqui.",
+    lembrete:
+      "Oi {nome}! 👋 Passando para lembrar do seu horário amanhã ({data}) às {hora} no *{lavajato}* – {servico}. Te esperamos!",
+    pronto:
+      "{nome}, seu {veiculo} está pronto e brilhando! ✨ Pode vir buscar no *{lavajato}*. Total: {preco}.",
+    avaliacao:
+      "Obrigado pela preferência, {nome}! 🙏 Como foi o serviço hoje? Sua opinião ajuda muito a *{lavajato}*.\n⭐ Deixe sua avaliação no Google: {linkAvaliacao}",
+    retorno:
+      "Oi {nome}, tudo bem? Faz um tempinho que seu {veiculo} não passa aqui no *{lavajato}* 😄 Que tal agendar uma lavagem esta semana? É só responder esta mensagem.",
+    // Campanha para dia vazio. Extras: {dia} {ate} {vagas}
+    promocao:
+      "Oi {nome}! 🚗 {dia} até {ate} tem *{servico} por {preco}* aqui no *{lavajato}*. Só {vagas} vagas – responde aqui pra garantir a sua!",
+    novoAgendamento:
+      "Olá! Acabei de agendar pelo site:\n🚗 {servico}\n📅 {data} às {hora}\n👤 {nomeCompleto} – {veiculo} {placa}\n🚘 {porte}"
+  }
+};
+
+// Camada de dados.
+// HOJE: salva no navegador (localStorage) – ótimo para testar.
+// DEPOIS: trocar só este arquivo para um banco online (ex.: Supabase/Firebase),
+// assim o agendamento feito no celular do cliente aparece no painel do dono.
+// Todas as funções já são async para essa troca não mexer no resto do site.
+window.DB = (() => {
+  const K_AG = "lr_agendamentos";
+  const K_CFG = "lr_config";
+  const K_RET = "lr_retornos";
+  const K_CAMP = "lr_campanhas";
+
+  const ler = (k, padrao) => {
+    try {
+      const v = localStorage.getItem(k);
+      return v ? JSON.parse(v) : padrao;
+    } catch {
+      return padrao;
+    }
+  };
+  const gravar = (k, v) => {
+    try {
+      localStorage.setItem(k, JSON.stringify(v));
+    } catch (e) {
+      alert("Não foi possível salvar os dados neste navegador.");
+      throw e;
+    }
+  };
+  const novoId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  const clonar = (o) => JSON.parse(JSON.stringify(o));
+
+  return {
+    async config() {
+      const salvo = ler(K_CFG, null);
+      const base = clonar(window.CONFIG_PADRAO);
+      if (!salvo || salvo.versao !== base.versao) return base;
+      return { ...base, ...salvo, mensagens: { ...base.mensagens, ...(salvo.mensagens || {}) } };
+    },
+    async salvarConfig(cfg) {
+      gravar(K_CFG, cfg);
+    },
+
+    async agendamentos() {
+      return ler(K_AG, []);
+    },
+    async criar(dados) {
+      const lista = ler(K_AG, []);
+      const ag = { id: novoId(), status: "agendado", msgs: {}, criadoEm: Date.now(), ...dados };
+      lista.push(ag);
+      gravar(K_AG, lista);
+      return ag;
+    },
+    async atualizar(id, patch) {
+      const lista = ler(K_AG, []);
+      const i = lista.findIndex((a) => a.id === id);
+      if (i < 0) return null;
+      lista[i] = { ...lista[i], ...patch, msgs: { ...lista[i].msgs, ...(patch.msgs || {}) } };
+      gravar(K_AG, lista);
+      return lista[i];
+    },
+    async remover(id) {
+      gravar(K_AG, ler(K_AG, []).filter((a) => a.id !== id));
+    },
+    async substituirTudo(lista) {
+      gravar(K_AG, lista);
+    },
+
+    async retornos() {
+      return ler(K_RET, {});
+    },
+    async marcarRetorno(telefone) {
+      const r = ler(K_RET, {});
+      r[telefone] = Date.now();
+      gravar(K_RET, r);
+    },
+
+    // Coleções simples da administração: "produtos", "contas"
+    async lista(nome) {
+      return ler("lr_" + nome, []);
+    },
+    async salvarItem(nome, item) {
+      const l = ler("lr_" + nome, []);
+      const it = { ...item, id: item.id || novoId() };
+      const i = l.findIndex((x) => x.id === it.id);
+      if (i >= 0) l[i] = it;
+      else l.push(it);
+      gravar("lr_" + nome, l);
+      return it;
+    },
+    async removerItem(nome, id) {
+      gravar("lr_" + nome, ler("lr_" + nome, []).filter((x) => x.id !== id));
+    },
+
+    async campanhaEnvios(data) {
+      return ler(K_CAMP, {})[data] || {};
+    },
+    async marcarCampanha(data, telefone) {
+      const c = ler(K_CAMP, {});
+      (c[data] ||= {})[telefone] = Date.now();
+      gravar(K_CAMP, c);
+    },
+
+    async apagarTudo() {
+      [K_AG, K_RET, K_CAMP].forEach((k) => localStorage.removeItem(k));
+    },
+
+    // Avisa quando outra aba/janela mudou os dados (ex.: cliente agendou no site)
+    aoMudar(fn) {
+      window.addEventListener("storage", (e) => {
+        if (!e.key || e.key.startsWith("lr_")) fn();
+      });
+    }
+  };
+})();
+
+// Dados do projeto no Supabase (Project Settings > API).
+// A "anon public key" é pública por natureza – a segurança fica nas regras do banco (supabase/schema.sql).
+// Deixe vazio para o site funcionar só no navegador (modo demonstração).
+window.NUVEM = {
+  url: "https://sgngwnbhhenjodaezebs.supabase.co",
+  chave: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnbmd3bmJoaGVuam9kYWV6ZWJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ1MDkyNjcsImV4cCI6MjExMDA4NTI2N30.4FmEK0y8Gn43pdMeW8nNyZqxugaZSVVkLuF_j9wJkhY"
+};
+
+// =========================================================
+// Banco de dados na NUVEM (Supabase).
+// Se window.NUVEM (js/nuvem-config.js) tiver url e chave, troca o DB do navegador pelo online.
+// Mesmas funções do js/db.js – o resto do site não muda.
+// =========================================================
+(function () {
+  const C = window.NUVEM || {};
+  if (!C.url || !C.chave) return; // sem nuvem configurada: continua no navegador
+  if (!window.supabase || !window.supabase.createClient) {
+    console.error("Biblioteca do Supabase não carregou – usando dados do navegador.");
+    return;
+  }
+  const sb = window.supabase.createClient(C.url, C.chave);
+  const clonar = (o) => JSON.parse(JSON.stringify(o));
+  const novoId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  // leitura: só registra o erro; gravação (avisar=true): mostra aviso para a pessoa tentar de novo
+  const ok = async (consulta, avisar = false) => {
+    const { data, error } = await consulta;
+    if (error) {
+      console.error(error);
+      if (avisar) setTimeout(() => alert("Não foi possível salvar: " + (error.message || "sem conexão") + "\nConfira a internet e tente de novo."), 0);
+      throw error;
+    }
+    return data;
+  };
+  let sessao = null;
+  const logadoAgora = () => !!sessao;
+  const linha = (ag) => ({
+    id: ag.id,
+    data: ag.data,
+    hora: ag.hora,
+    duracao: Math.round(Number(ag.duracao) || 90),
+    peso: Number(ag.peso) || 1,
+    status: ag.status || "agendado",
+    dados: ag
+  });
+
+  // documento único dentro de "itens" (retornos, campanhas)
+  async function lerDoc(colecao, id, padrao) {
+    const d = await ok(sb.from("itens").select("dados").eq("colecao", colecao).eq("id", id).maybeSingle());
+    return d?.dados ?? padrao;
+  }
+  async function gravarDoc(colecao, id, dados) {
+    await ok(sb.from("itens").upsert({ colecao, id, dados, atualizado_em: new Date().toISOString() }), true);
+  }
+
+  window.DB = {
+    nuvem: true,
+
+    // ---------- Login do dono ----------
+    async entrar(email, senha) {
+      const { data, error } = await sb.auth.signInWithPassword({ email, password: senha });
+      if (error) throw error;
+      sessao = data.session;
+      return true;
+    },
+    async logado() {
+      const { data } = await sb.auth.getSession();
+      sessao = data.session;
+      return !!sessao;
+    },
+    async sair() {
+      await sb.auth.signOut();
+      sessao = null;
+    },
+
+    // ---------- Configuração ----------
+    async config() {
+      const d = await ok(sb.from("config").select("dados").eq("id", 1).maybeSingle());
+      const base = clonar(window.CONFIG_PADRAO);
+      const s = d?.dados;
+      if (!s || !Object.keys(s).length) return base;
+      // o que o dono salvou vale; campos novos do sistema vêm do padrão
+      return { ...base, ...s, mensagens: { ...base.mensagens, ...(s.mensagens || {}) }, combo: { ...base.combo, ...(s.combo || {}) } };
+    },
+    async salvarConfig(cfg) {
+      await ok(sb.from("config").upsert({ id: 1, dados: cfg, atualizado_em: new Date().toISOString() }), true);
+    },
+
+    // ---------- Agendamentos ----------
+    async agendamentos() {
+      if (logadoAgora() || (await this.logado())) {
+        const d = await ok(sb.from("agendamentos").select("dados").order("data").limit(5000));
+        return d.map((r) => r.dados);
+      }
+      // visitante: só a ocupação (sem dados pessoais)
+      const d = await ok(sb.rpc("ocupacao"));
+      return d.map((r) => ({ ...r, data: String(r.data).slice(0, 10) }));
+    },
+    async criar(dados) {
+      const ag = { id: novoId(), status: "agendado", msgs: {}, criadoEm: Date.now(), ...dados };
+      await ok(sb.from("agendamentos").insert(linha(ag)), true);
+      return ag;
+    },
+    async atualizar(id, patch) {
+      const atual = await ok(sb.from("agendamentos").select("dados").eq("id", id).maybeSingle());
+      if (!atual) return null;
+      const ag = { ...atual.dados, ...patch, msgs: { ...(atual.dados.msgs || {}), ...(patch.msgs || {}) } };
+      await ok(sb.from("agendamentos").update(linha(ag)).eq("id", id), true);
+      return ag;
+    },
+    async remover(id) {
+      await ok(sb.from("agendamentos").delete().eq("id", id), true);
+    },
+    async substituirTudo(lista) {
+      await ok(sb.from("agendamentos").delete().neq("id", ""));
+      if (lista.length) await ok(sb.from("agendamentos").insert(lista.map(linha)));
+    },
+
+    // ---------- Retornos e campanhas ----------
+    async retornos() {
+      return lerDoc("sistema", "retornos", {});
+    },
+    async marcarRetorno(telefone) {
+      const r = await this.retornos();
+      r[telefone] = Date.now();
+      await gravarDoc("sistema", "retornos", r);
+    },
+    async campanhaEnvios(data) {
+      return (await lerDoc("sistema", "campanhas", {}))[data] || {};
+    },
+    async marcarCampanha(data, telefone) {
+      const c = await lerDoc("sistema", "campanhas", {});
+      (c[data] ||= {})[telefone] = Date.now();
+      await gravarDoc("sistema", "campanhas", c);
+    },
+    async apagarTudo() {
+      await ok(sb.from("agendamentos").delete().neq("id", ""));
+      await ok(sb.from("itens").delete().eq("colecao", "sistema"));
+    },
+
+    // ---------- Produtos e contas ----------
+    async lista(nome) {
+      const d = await ok(sb.from("itens").select("dados").eq("colecao", nome));
+      return d.map((r) => r.dados);
+    },
+    async salvarItem(nome, item) {
+      const it = { ...item, id: item.id || novoId() };
+      await gravarDoc(nome, it.id, it);
+      return it;
+    },
+    async removerItem(nome, id) {
+      await ok(sb.from("itens").delete().eq("colecao", nome).eq("id", id), true);
+    },
+
+    // ---------- Tempo real: agendamento novo aparece sozinho no painel ----------
+    aoMudar(fn) {
+      let t;
+      const avisar = () => {
+        clearTimeout(t);
+        t = setTimeout(fn, 400);
+      };
+      sb.channel("agenda-2l")
+        .on("postgres_changes", { event: "*", schema: "public", table: "agendamentos" }, avisar)
+        .subscribe();
+    }
+  };
+})();
+
+// Funções usadas pelo site e pelo painel.
+window.U = {
+  pad: (n) => String(n).padStart(2, "0"),
+  iso(d) {
+    return `${d.getFullYear()}-${U.pad(d.getMonth() + 1)}-${U.pad(d.getDate())}`;
+  },
+  hoje() {
+    return U.iso(new Date());
+  },
+  dataObj(iso) {
+    const [y, m, d] = iso.split("-").map(Number);
+    return new Date(y, m - 1, d);
+  },
+  somarDias(iso, n) {
+    const d = U.dataObj(iso);
+    d.setDate(d.getDate() + n);
+    return U.iso(d);
+  },
+  diasEntre(a, b) {
+    return Math.round((U.dataObj(b) - U.dataObj(a)) / 86400000);
+  },
+  min(h) {
+    const [a, b] = h.split(":").map(Number);
+    return a * 60 + b;
+  },
+  hora(m) {
+    return `${U.pad(Math.floor(m / 60))}:${U.pad(m % 60)}`;
+  },
+  DIAS: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+  DIAS_CURTO: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+  fmtData(iso) {
+    const d = U.dataObj(iso);
+    return `${U.DIAS[d.getDay()]}, ${U.pad(d.getDate())}/${U.pad(d.getMonth() + 1)}`;
+  },
+  fmtDataCurta(iso) {
+    const d = U.dataObj(iso);
+    return `${U.pad(d.getDate())}/${U.pad(d.getMonth() + 1)}/${d.getFullYear()}`;
+  },
+  moeda(v) {
+    return Number(v || 0).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  },
+  // Deixa o número no formato do WhatsApp: 55 + DDD + número
+  telefone(t) {
+    let d = String(t || "").replace(/\D/g, "");
+    if (d.length === 10 || d.length === 11) d = "55" + d;
+    return d;
+  },
+  fmtTelefone(t) {
+    const d = String(t || "").replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "");
+    if (d.length === 11) return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+    if (d.length === 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+    return t || "";
+  },
+  mascaraTelefone(input) {
+    input.addEventListener("input", () => {
+      const d = input.value.replace(/\D/g, "").slice(0, 11);
+      let v = d;
+      if (d.length > 2) v = `(${d.slice(0, 2)}) ${d.slice(2)}`;
+      if (d.length > 7) v = `(${d.slice(0, 2)}) ${d.slice(2, d.length === 11 ? 7 : 6)}-${d.slice(d.length === 11 ? 7 : 6)}`;
+      input.value = v;
+    });
+  },
+  // Reduz a foto (câmera do celular) para caber no armazenamento: máx. 900px, JPEG
+  fotoComprimida(arquivo, max = 900, qualidade = 0.6) {
+    return new Promise((ok, erro) => {
+      if (!arquivo) return ok("");
+      const leitor = new FileReader();
+      leitor.onerror = erro;
+      leitor.onload = () => {
+        const img = new Image();
+        img.onerror = erro;
+        img.onload = () => {
+          const k = Math.min(1, max / Math.max(img.width, img.height));
+          const c = document.createElement("canvas");
+          c.width = Math.round(img.width * k);
+          c.height = Math.round(img.height * k);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          ok(c.toDataURL("image/jpeg", qualidade));
+        };
+        img.src = leitor.result;
+      };
+      leitor.readAsDataURL(arquivo);
+    });
+  },
+  num(v) {
+    return Number(String(v ?? "").replace(/\s/g, "").replace(/\.(?=\d{3}(\D|$))/g, "").replace(",", ".")) || 0;
+  },
+  esc(s) {
+    return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  }
+};
+
+// Oferta (ex.: Black Friday)
+window.Oferta = {
+  ativa(cfg) {
+    const o = cfg.oferta;
+    return !!(o && o.ativa && (!o.ate || U.hoje() <= o.ate));
+  },
+  // preço cobrado hoje e o preço "de" (riscado) quando há oferta
+  preco(cfg, s) {
+    const promo = Number(s.precoOferta);
+    if (Oferta.ativa(cfg) && promo > 0 && promo < Number(s.preco)) return { preco: promo, de: Number(s.preco) };
+    return { preco: Number(s.preco), de: null };
+  }
+};
+
+// Combo: vários serviços no mesmo carro – o desconto serve para levar o cliente da lavagem para a ESTÉTICA.
+// • Só serviços da categoria com desconto (estética) ganham desconto; lavagem sai sempre cheia.
+// • Com lavagem no carrinho: 1ª estética (a mais cara) descontos[1]%, as seguintes descontos[2]%.
+// • Só estética: a mais cara sai cheia, a 2ª descontos[1]%, da 3ª em diante descontos[2]%.
+// • Precisa de pelo menos 2 serviços. Por padrão não soma com a promoção (vale o maior desconto).
+window.Combo = {
+  descontoDaPosicao(cfg, i) {
+    const c = cfg.combo;
+    if (!c || !c.ativo || !Array.isArray(c.descontos)) return 0;
+    return Number(c.descontos[Math.min(i, c.descontos.length - 1)]) || 0;
+  },
+  temDesconto(cfg, s) {
+    const cat = cfg.combo?.categoria;
+    return !cat || s.categoria === cat;
+  },
+  // desconto (%) que cada serviço recebe dentro do carrinho
+  descontos(cfg, servicos) {
+    const res = {};
+    servicos.forEach((s) => (res[s.id] = 0));
+    if (!cfg.combo?.ativo || servicos.length < 2) return res;
+    const comDesc = servicos.filter((s) => Combo.temDesconto(cfg, s)).sort((a, b) => Number(b.preco) - Number(a.preco));
+    const temOutro = comDesc.length < servicos.length; // tem lavagem (ou outro serviço sem desconto) ancorando
+    comDesc.forEach((s, j) => {
+      const pos = temOutro ? j + 1 : j; // posição no combo (0 = âncora sem desconto)
+      res[s.id] = pos === 0 ? 0 : Combo.descontoDaPosicao(cfg, pos);
+    });
+    return res;
+  },
+  // fator do porte (SUV etc.): número ou null (= a combinar)
+  calcular(cfg, servicos, fatorPorte = 1) {
+    const r2 = (n) => Math.round(n * 100) / 100;
+    const ordenados = servicos.slice().sort((a, b) => Number(b.preco) - Number(a.preco));
+    const descontos = Combo.descontos(cfg, servicos);
+    const f = fatorPorte || 1;
+    const itens = ordenados.map((s) => {
+      const normal = Number(s.preco) * f;
+      const oferta = Oferta.preco(cfg, s).preco * f;
+      const d = descontos[s.id] || 0;
+      let preco;
+      if (cfg.combo?.acumulaComOferta) preco = oferta * (1 - d / 100);
+      else preco = Math.min(oferta, normal * (1 - d / 100));
+      preco = r2(preco);
+      return { id: s.id, nome: s.nome, normal: r2(normal), preco, descontoCombo: d, emOferta: oferta < normal };
+    });
+    const total = r2(itens.reduce((t, it) => t + it.preco, 0));
+    const totalNormal = r2(itens.reduce((t, it) => t + it.normal, 0));
+    return {
+      itens,
+      total,
+      totalNormal,
+      economia: r2(totalNormal - total),
+      nome: itens.map((it) => it.nome).join(" + "),
+      duracao: servicos.reduce((t, s) => t + (Number(s.duracao) || 30), 0),
+      peso: Math.max(...servicos.map((s) => Number(s.peso) || 1))
+    };
+  }
+};
+
+// Regras da agenda
+window.Agenda = {
+  INATIVOS: ["cancelado", "faltou"],
+  ativosNoDia(ags, data) {
+    return ags.filter((a) => a.data === data && !Agenda.INATIVOS.includes(a.status));
+  },
+  // quantos carros estão ocupando o intervalo [ini, fim)
+  lotacao(doDia, ini, fim) {
+    // soma o "peso" de cada carro (lavagem = 1 vaga; serviço pesado ocupa mais)
+    return doDia
+      .filter((a) => {
+        const i = U.min(a.hora);
+        return i < fim && i + (a.duracao || 30) > ini;
+      })
+      .reduce((s, a) => s + (Number(a.peso) || 1), 0);
+  },
+  // horário do dia: { ab, fe, ultima } em minutos, ou null se fechado
+  expediente(cfg, data) {
+    if ((cfg.fechados || []).includes(data)) return null;
+    const dow = U.dataObj(data).getDay();
+    let h;
+    if (Array.isArray(cfg.horarios)) h = cfg.horarios[dow];
+    else h = cfg.dias.includes(dow) ? { ab: cfg.abertura, fe: cfg.fechamento } : null;
+    if (!h || !h.ab || !h.fe) return null;
+    const ab = U.min(h.ab);
+    const fe = U.min(h.fe);
+    const ultima = h.ultima ? Math.min(U.min(h.ultima), fe) : fe - 60;
+    return fe > ab ? { ab, fe, ultima: Math.max(ab, ultima) } : null;
+  },
+  abertoNoDia(cfg, data) {
+    return !!Agenda.expediente(cfg, data);
+  },
+  // capacidade do dia em "minutos x vagas"
+  capacidade(cfg, data) {
+    const e = Agenda.expediente(cfg, data);
+    return e ? (e.fe - e.ab) * cfg.vagas : 0;
+  },
+  usado(cfg, ags, data, ate) {
+    const e = Agenda.expediente(cfg, data);
+    if (!e) return 0;
+    const lim = ate ?? e.fe;
+    return Agenda.ativosNoDia(ags, data).reduce((s, a) => {
+      const i = U.min(a.hora);
+      const f = Math.min(i + (a.duracao || 30), lim);
+      return s + Math.max(0, f - Math.max(i, e.ab)) * (Number(a.peso) || 1);
+    }, 0);
+  },
+  emPausa(cfg, data, t) {
+    const p = cfg.pausa;
+    if (!p || !p.inicio || !p.fim) return false;
+    if (Array.isArray(p.dias) && !p.dias.includes(U.dataObj(data).getDay())) return false;
+    return t >= U.min(p.inicio) && t < U.min(p.fim);
+  },
+  // todos os horários de entrada do dia, com indicação se cabe o serviço
+  grade(cfg, ags, data, servico, ignorarId) {
+    const e = Agenda.expediente(cfg, data);
+    if (!e) return [];
+    const duracao = Number(servico.duracao) || 30;
+    const peso = Number(servico.peso) || 1;
+    const passo = Number(cfg.intervalo) || 30;
+    const doDia = Agenda.ativosNoDia(ags, data).filter((a) => a.id !== ignorarId);
+    let agora = -1;
+    if (data === U.hoje()) {
+      const n = new Date();
+      agora = n.getHours() * 60 + n.getMinutes();
+    }
+    const res = [];
+    for (let t = e.ab; t <= e.ultima; t += passo) {
+      if (Agenda.emPausa(cfg, data, t)) continue;
+      let livre = t > agora;
+      // confere a lotação enquanto o carro estiver lá (até o fechamento)
+      for (let b = t; livre && b < Math.min(t + duracao, e.fe); b += passo) {
+        if (Agenda.lotacao(doDia, b, b + passo) + peso > cfg.vagas + 1e-9) livre = false;
+      }
+      res.push({ hora: U.hora(t), livre });
+    }
+    return res;
+  },
+  livres(cfg, ags, data, servico) {
+    return Agenda.grade(cfg, ags, data, servico).filter((h) => h.livre).map((h) => h.hora);
+  },
+  // "Seg 09:30–18:00 · Ter a Sex 08:00–18:00 · Sáb 08:00–13:00"
+  resumoHorarios(cfg) {
+    const ordem = [1, 2, 3, 4, 5, 6, 0];
+    const grupos = [];
+    ordem.forEach((d) => {
+      const h = Array.isArray(cfg.horarios) ? cfg.horarios[d] : cfg.dias.includes(d) ? { ab: cfg.abertura, fe: cfg.fechamento } : null;
+      const txt = h && h.ab && h.fe ? `${h.ab.replace(":00", "h").replace(":", "h")}–${h.fe.replace(":00", "h").replace(":", "h")}` : null;
+      const g = grupos[grupos.length - 1];
+      if (g && g.txt === txt) g.fim = d;
+      else grupos.push({ ini: d, fim: d, txt });
+    });
+    return grupos
+      .filter((g) => g.txt)
+      .map((g) => `${U.DIAS_CURTO[g.ini]}${g.ini !== g.fim ? " a " + U.DIAS_CURTO[g.fim] : ""} ${g.txt}`)
+      .join(" · ");
+  }
+};
+
+// Mensagens de WhatsApp
+// HOJE: abre o WhatsApp com a mensagem pronta (1 clique para enviar).
+// DEPOIS: trocar Whats.enviar() para chamar a API oficial e enviar sozinho.
+window.Whats = {
+  montar(modelo, ag, cfg, extras = {}) {
+    const v = {
+      ...extras,
+      nome: (ag.nome || "").trim().split(/\s+/)[0],
+      nomeCompleto: ag.nome || "",
+      servico: ag.servicoNome || "",
+      data: ag.data ? U.fmtData(ag.data) : "",
+      hora: ag.hora || "",
+      veiculo: ag.veiculo || "carro",
+      placa: ag.placa || "",
+      porte: ag.porte || "",
+      preco: U.moeda(ag.preco),
+      lavajato: cfg.nome,
+      endereco: cfg.endereco,
+      linkAvaliacao: cfg.linkAvaliacao || ""
+    };
+    // linhas com variável vazia (ex.: link de avaliação ainda não cadastrado) somem da mensagem
+    const linhas = String(modelo || "")
+      .split("\n")
+      .filter((l) => !l.includes("{linkAvaliacao}") || v.linkAvaliacao);
+    return linhas.join("\n").replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
+  },
+  link(telefone, texto) {
+    return `https://wa.me/${U.telefone(telefone)}?text=${encodeURIComponent(texto)}`;
+  },
+  enviar(telefone, texto) {
+    window.open(Whats.link(telefone, texto), "_blank", "noopener");
+  }
+};
+
+</script>
+<script>
+// Site público: o cliente escolhe serviço, dia e horário.
+(async function () {
+  const $ = (s) => document.querySelector(s);
+  let cfg, ags;
+  try {
+    cfg = await DB.config();
+    ags = await DB.agendamentos();
+  } catch {
+    // servidor fora do ar: mostra o site com o padrão (o agendamento é conferido de novo ao enviar)
+    cfg = cfg || JSON.parse(JSON.stringify(window.CONFIG_PADRAO));
+    ags = [];
+  }
+  const escolha = { ids: [], data: null, hora: null };
+
+  // ---------- Informações da loja ----------
+  function preencherInfo() {
+    document.querySelectorAll("[data-cfg]").forEach((el) => (el.textContent = cfg[el.dataset.cfg] || ""));
+    document.title = `${cfg.nome} | Agende seu horário`;
+    if (Oferta.ativa(cfg)) {
+      const o = cfg.oferta;
+      const f = $("#faixaOferta");
+      f.innerHTML = `<b>${U.esc(o.titulo)}</b> · ${U.esc(o.texto || "")}${o.ate ? ` · até ${U.fmtDataCurta(o.ate).slice(0, 5)}` : ""} <span>Agendar →</span>`;
+      f.classList.remove("oculto");
+    }
+    if (cfg.whatsapp2) {
+      $("#whatsRodape2").href = Whats.link(cfg.whatsapp2, `Olá! Vim pelo site da ${cfg.nome}.`);
+      $("#whatsRodape2").textContent = U.fmtTelefone(cfg.whatsapp2);
+    }
+    $("#chipHorario").textContent = `🕗 ${Agenda.resumoHorarios(cfg)}`;
+    const oi = `Olá! Vim pelo site da ${cfg.nome}.`;
+    $("#whatsTopo").href = Whats.link(cfg.whatsapp, oi);
+    $("#whatsRodape").href = Whats.link(cfg.whatsapp, oi);
+    $("#whatsRodape").textContent = `WhatsApp ${U.fmtTelefone(cfg.whatsapp)}`;
+    if (cfg.instagram) {
+      $("#instaRodape").href = `https://instagram.com/${cfg.instagram}`;
+      $("#instaRodape").textContent = `@${cfg.instagram}`;
+    }
+    $("#ano").textContent = new Date().getFullYear();
+
+    if (cfg.google) {
+      $("#notaGoogle").textContent = cfg.google.nota;
+      $("#totalGoogle").textContent = `${cfg.google.total} avaliações no Google`;
+    }
+    $("#depoimentos").innerHTML = (cfg.depoimentos || [])
+      .map(
+        (d) => `<figure class="depo">
+          <span class="estrelas">${"★".repeat(d.estrelas || 5)}</span>
+          <blockquote>${U.esc(d.texto)}</blockquote>
+          <figcaption><b>${U.esc(d.nome)}</b> · ${U.esc(d.quando || "")}</figcaption>
+        </figure>`
+      )
+      .join("");
+
+    // Dúvidas frequentes
+    if ((cfg.faq || []).length) {
+      $("#faq").innerHTML = cfg.faq
+        .map((f) => `<details><summary>${U.esc(f.p)}</summary><p>${U.esc(f.r)}</p></details>`)
+        .join("");
+      $("#whatsFaq").href = Whats.link(cfg.whatsapp, `Olá! Tenho uma dúvida sobre os serviços da ${cfg.nome}.`);
+      $("#secFaq").classList.remove("oculto");
+    }
+    // Antes e depois (aparece quando houver fotos)
+    if ((cfg.galeria || []).length) {
+      $("#galeria").innerHTML = cfg.galeria
+        .map((g) => `<figure class="antes-depois">
+          <div><img src="${U.esc(g.antes)}" alt="Antes – ${U.esc(g.legenda)}" loading="lazy"><span>Antes</span></div>
+          <div><img src="${U.esc(g.depois)}" alt="Depois – ${U.esc(g.legenda)}" loading="lazy"><span class="depois">Depois</span></div>
+          <figcaption>${U.esc(g.legenda || "")}</figcaption>
+        </figure>`)
+        .join("");
+      $("#secGaleria").classList.remove("oculto");
+    }
+
+    // bolhas animadas no topo
+    const b = document.querySelector(".bolhas");
+    for (let i = 0; i < 14; i++) {
+      const s = document.createElement("span");
+      const t = 8 + Math.random() * 28;
+      Object.assign(s.style, {
+        width: t + "px", height: t + "px", left: Math.random() * 100 + "%",
+        bottom: -Math.random() * 60 + "px", animationDelay: Math.random() * 9 + "s"
+      });
+      b.appendChild(s);
+    }
+  }
+
+  // ---------- Passo 1: serviços (pode escolher vários) ----------
+  const selecionados = () => cfg.servicos.filter((s) => escolha.ids.includes(s.id));
+  // serviço "combinado" usado pela agenda: tempo somado e maior ocupação
+  function combinado() {
+    const lista = selecionados();
+    if (!lista.length) return null;
+    const c = Combo.calcular(cfg, lista);
+    return { duracao: c.duracao, peso: c.peso, nome: c.nome };
+  }
+  const fmtDur = (m) => (m >= 60 ? `${Math.floor(m / 60)}h${m % 60 ? String(m % 60).padStart(2, "0") : ""}` : `${m} min`);
+
+  function renderServicos() {
+    const combo = selecionados().length ? Combo.calcular(cfg, selecionados()) : null;
+    const noCombo = Object.fromEntries((combo?.itens || []).map((it, i) => [it.id, { ...it, pos: i + 1 }]));
+    const d2 = Combo.descontoDaPosicao(cfg, 1);
+    const d3 = Combo.descontoDaPosicao(cfg, 2);
+    const cats = (cfg.categorias && cfg.categorias.length ? cfg.categorias : [{ id: "", nome: "" }]);
+    const semCat = cfg.servicos.filter((s) => !cats.some((c) => c.id === s.categoria));
+
+    const cartao = (s, destaque, unico) => {
+      const p = Oferta.preco(cfg, s);
+      const pct = p.de ? Math.ceil((1 - p.preco / p.de) * 100 - 0.01) : 0;
+      const sel = noCombo[s.id];
+      const precoCombo = sel && sel.preco < p.preco - 0.001 ? sel.preco : null;
+      return `<button type="button" class="servico ${destaque ? "destaque" : ""} ${unico ? "unico" : ""} ${sel ? "ativo" : ""}" data-id="${U.esc(s.id)}" aria-pressed="${!!sel}">
+        <span class="marca">${sel ? (unico ? "●" : "✓") : ""}</span>
+        ${pct ? `<span class="selo-off">${pct}% OFF</span>` : ""}
+        <strong>${U.esc(s.nome)}</strong>
+        <small>${U.esc(s.descricao || "")}</small>
+        ${p.de || precoCombo ? `<s class="preco-de">${U.moeda(p.de || p.preco)}</s>` : ""}
+        <span class="preco">${U.moeda(precoCombo ?? p.preco)}</span>
+        ${precoCombo ? `<span class="tag-combo">${sel.descontoCombo}% OFF no combo</span>` : ""}
+      </button>`;
+    };
+
+    $("#servicos").innerHTML =
+      (cfg.combo?.ativo
+        ? `<div class="aviso-combo">🎁 <b>Combo:</b> lavagem + estética = <b>${d2}% OFF</b> na estética (a 2ª estética sai com <b>${d3}% OFF</b>)</div>`
+        : "") +
+      cats
+        .map((c, i) => {
+          const lista = cfg.servicos.filter((s) => s.categoria === c.id || (!c.id && true));
+          if (!lista.length) return "";
+          return `<div class="grupo-serv ${i === 0 ? "grupo-destaque" : ""}">
+            ${c.nome ? `<h4>${i === 0 ? "✨ " : ""}${U.esc(c.nome)} <small>${U.esc(c.subtitulo || "")}</small></h4>` : ""}
+            <div class="servicos">${lista.map((s) => cartao(s, i === 0, c.escolhaUnica)).join("")}</div>
+          </div>`;
+        })
+        .join("") +
+      (semCat.length && cats[0].id ? `<div class="grupo-serv"><h4>Outros</h4><div class="servicos">${semCat.map((s) => cartao(s)).join("")}</div></div>` : "");
+
+    // barra do combo
+    const barra = $("#carrinho");
+    if (!combo) {
+      barra.classList.add("oculto");
+      $("#sugestao").classList.add("oculto");
+      return;
+    }
+    barra.classList.remove("oculto");
+    $("#carrinhoTxt").innerHTML = `<b>${combo.itens.length} serviço${combo.itens.length > 1 ? "s" : ""}</b> · ⏱ ${fmtDur(combo.duracao)}
+      <span class="carrinho-total">${combo.economia > 0 ? `<s>${U.moeda(combo.totalNormal)}</s> ` : ""}${U.moeda(combo.total)}</span>
+      ${combo.economia > 0 ? `<small>Você economiza ${U.moeda(combo.economia)}</small>` : ""}`;
+
+    // Sugestão: escolheu só lavagem → oferece a estética mais barata com o desconto do combo
+    const sug = $("#sugestao");
+    const temEstetica = selecionados().some((s) => Combo.temDesconto(cfg, s));
+    const candidata = cfg.combo?.ativo && !temEstetica
+      ? cfg.servicos.filter((s) => Combo.temDesconto(cfg, s)).sort((a, b) => Number(a.preco) - Number(b.preco))[0]
+      : null;
+    if (!candidata) {
+      sug.classList.add("oculto");
+      return;
+    }
+    const simulado = Combo.calcular(cfg, [...selecionados(), candidata]).itens.find((it) => it.id === candidata.id);
+    const pct = Math.round((1 - simulado.preco / simulado.normal) * 100);
+    sug.innerHTML = `<span>✨ Aproveite: adicione <b>${U.esc(candidata.nome)}</b> por <s>${U.moeda(simulado.normal)}</s> <b class="ouro">${U.moeda(simulado.preco)}</b>${pct ? ` (${pct}% OFF)` : ""}</span>
+      <button type="button" class="btn btn-peq" data-add="${U.esc(candidata.id)}">+ Adicionar</button>`;
+    sug.classList.remove("oculto");
+  }
+
+  $("#sugestao").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-add]");
+    if (b) $(`.servico[data-id="${CSS.escape(b.dataset.add)}"]`)?.click();
+  });
+  $("#servicos").addEventListener("click", (e) => {
+    const b = e.target.closest(".servico");
+    if (!b) return;
+    const id = b.dataset.id;
+    if (escolha.ids.includes(id)) {
+      escolha.ids = escolha.ids.filter((x) => x !== id);
+    } else {
+      // grupo de escolha única (lavagem): troca a anterior pela nova
+      const s = cfg.servicos.find((x) => x.id === id);
+      const cat = (cfg.categorias || []).find((c) => c.id === s?.categoria);
+      if (cat?.escolhaUnica) escolha.ids = escolha.ids.filter((x) => cfg.servicos.find((y) => y.id === x)?.categoria !== cat.id);
+      escolha.ids = [...escolha.ids, id];
+    }
+    escolha.hora = null;
+    renderServicos();
+    if (escolha.ids.length) {
+      liberar("#passoDia");
+      renderDias();
+    } else {
+      ["#passoDia", "#passoHora", "#passoDados"].forEach((s) => $(s).classList.add("bloqueado"));
+      $("#dias").innerHTML = $("#horas").innerHTML = "";
+      escolha.data = null;
+    }
+    renderResumo();
+  });
+  $("#carrinhoBtn").addEventListener("click", () => $("#passoDia").scrollIntoView({ behavior: "smooth", block: "center" }));
+
+  // ---------- Passo 2: dia ----------
+  function renderDias() {
+    const servico = combinado();
+    if (!servico) return;
+    let html = "";
+    for (let i = 0; i <= cfg.diasAntecedencia; i++) {
+      const data = U.somarDias(U.hoje(), i);
+      if (!Agenda.abertoNoDia(cfg, data)) continue;
+      const livres = Agenda.livres(cfg, ags, data, servico).length;
+      const d = U.dataObj(data);
+      const rot = i === 0 ? "Hoje" : i === 1 ? "Amanhã" : U.DIAS_CURTO[d.getDay()];
+      html += `<button type="button" class="dia ${escolha.data === data ? "ativo" : ""}" data-data="${data}" ${livres ? "" : "disabled"}
+        title="${livres ? livres + " horários livres" : "Lotado"}">
+        <small>${rot}</small><b>${U.pad(d.getDate())}</b>${livres ? "" : "<small>Lotado</small>"}
+      </button>`;
+    }
+    $("#dias").innerHTML = html || `<p class="vazio">Nenhum dia disponível.</p>`;
+    if (escolha.data && !$(`.dia[data-data="${escolha.data}"]:not([disabled])`)) {
+      escolha.data = escolha.hora = null;
+      $("#horas").innerHTML = "";
+      ["#passoHora", "#passoDados"].forEach((s) => $(s).classList.add("bloqueado"));
+    }
+    if (escolha.data) renderHoras();
+  }
+  $("#dias").addEventListener("click", (e) => {
+    const b = e.target.closest(".dia");
+    if (!b || b.disabled) return;
+    escolha.data = b.dataset.data;
+    escolha.hora = null;
+    renderDias();
+    liberar("#passoHora");
+    $("#passoHora").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  // ---------- Passo 3: horário ----------
+  function renderHoras() {
+    const livres = Agenda.livres(cfg, ags, escolha.data, combinado());
+    if (escolha.hora && !livres.includes(escolha.hora)) escolha.hora = null;
+    $("#horas").innerHTML = livres.length
+      ? livres.map((h) => `<button type="button" class="hora ${escolha.hora === h ? "ativo" : ""}" data-hora="${h}">${h}</button>`).join("")
+      : `<p class="vazio">Esse dia lotou. Escolha outro dia 🙂</p>`;
+    renderResumo();
+  }
+  $("#horas").addEventListener("click", (e) => {
+    const b = e.target.closest(".hora");
+    if (!b) return;
+    escolha.hora = b.dataset.hora;
+    renderHoras();
+    liberar("#passoDados");
+    $("#passoDados").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // ---------- Passo 4: dados ----------
+  const form = $("#passoDados");
+  U.mascaraTelefone(form.telefone);
+  try {
+    const salvo = JSON.parse(localStorage.getItem("lr_meus_dados") || "null");
+    if (salvo) ["nome", "telefone", "veiculo", "placa"].forEach((k) => (form[k].value = salvo[k] || ""));
+  } catch {}
+
+  // Porte do veículo
+  const portes = cfg.portes && cfg.portes.length ? cfg.portes : [{ id: "pm", nome: "Carro pequeno/médio", acrescimo: 0 }];
+  form.porte.innerHTML = portes.map((p) => `<option value="${U.esc(p.id)}">${U.esc(p.nome)}</option>`).join("");
+  form.porte.addEventListener("change", renderResumo);
+  // preço final: combo + porte do veículo
+  function precoFinal() {
+    const porte = portes.find((p) => p.id === form.porte.value) || portes[0];
+    const consulta = porte.acrescimo === null || porte.acrescimo === undefined || porte.acrescimo === "";
+    const fator = consulta ? 1 : 1 + Number(porte.acrescimo) / 100;
+    return { ...Combo.calcular(cfg, selecionados(), fator), consulta, porte };
+  }
+
+  function renderResumo() {
+    if (!escolha.ids.length || !escolha.data || !escolha.hora) {
+      $("#resumo").innerHTML = "";
+      return;
+    }
+    const p = precoFinal();
+    const linhas = p.itens
+      .map((it) => `<li><span>${U.esc(it.nome)}${it.descontoCombo && it.preco < it.normal ? ` <small class="tag-combo">${it.descontoCombo}% combo</small>` : ""}</span>
+        <span>${p.consulta ? "" : `${it.preco < it.normal ? `<s>${U.moeda(it.normal)}</s> ` : ""}${U.moeda(it.preco)}`}</span></li>`)
+      .join("");
+    const total = p.consulta
+      ? `<b>a combinar</b> <small class="dica">(SUV/grande: confirmamos o valor pelo WhatsApp)</small>`
+      : `<b>${U.moeda(p.total)}</b>${p.economia > 0 ? ` <small class="economia">economia de ${U.moeda(p.economia)}</small>` : ""}`;
+    $("#resumo").innerHTML = `<ul class="itens-resumo">${linhas}</ul>
+      <p class="total-resumo">Total: ${total}</p>
+      <p>📅 ${U.fmtData(escolha.data)} às <b>${escolha.hora}</b> · ⏱ ${fmtDur(p.duracao)}</p>`;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const erro = $("#erro");
+    const dados = Object.fromEntries(new FormData(form));
+    const tel = dados.telefone.replace(/\D/g, "");
+    let msg = "";
+    if (!escolha.ids.length || !escolha.data || !escolha.hora) msg = "Escolha os serviços, o dia e o horário.";
+    else if (dados.nome.trim().length < 2) msg = "Digite seu nome.";
+    else if (tel.length < 10) msg = "Digite um WhatsApp válido com DDD.";
+    else if (!dados.veiculo.trim()) msg = "Diga qual é o veículo.";
+    if (msg) {
+      erro.textContent = msg;
+      erro.classList.remove("oculto");
+      return;
+    }
+
+    // confere de novo se o horário ainda está livre
+    ags = await DB.agendamentos();
+    if (!Agenda.livres(cfg, ags, escolha.data, combinado()).includes(escolha.hora)) {
+      erro.textContent = "Esse horário acabou de ser ocupado. Escolha outro, por favor.";
+      erro.classList.remove("oculto");
+      renderDias();
+      return;
+    }
+    erro.classList.add("oculto");
+
+    const pr = precoFinal();
+    const ag = await DB.criar({
+      nome: dados.nome.trim(),
+      telefone: tel,
+      veiculo: dados.veiculo.trim(),
+      placa: dados.placa.trim().toUpperCase(),
+      obs: dados.obs.trim(),
+      porte: pr.porte.nome,
+      precoAConfirmar: pr.consulta,
+      servicoId: pr.itens.map((it) => it.id).join("+"),
+      servicoNome: pr.nome,
+      itens: pr.itens,
+      preco: pr.total,
+      economia: pr.economia,
+      duracao: pr.duracao,
+      peso: pr.peso,
+      data: escolha.data,
+      hora: escolha.hora,
+      origem: "site"
+    });
+    try {
+      localStorage.setItem("lr_meus_dados", JSON.stringify({ nome: ag.nome, telefone: dados.telefone, veiculo: ag.veiculo, placa: ag.placa }));
+    } catch {}
+
+    $("#resumoFinal").innerHTML = `<p>👤 ${U.esc(ag.nome)} · ${U.esc(ag.veiculo)} ${U.esc(ag.placa)}</p>
+      <p>🚗 <b>${U.esc(ag.servicoNome)}</b> · ${ag.precoAConfirmar ? "valor a combinar (SUV/grande)" : U.moeda(ag.preco)}${!ag.precoAConfirmar && ag.economia > 0 ? ` <small class="economia">(economia de ${U.moeda(ag.economia)})</small>` : ""}</p>
+      <p>📅 ${U.fmtData(ag.data)} às <b>${ag.hora}</b></p>`;
+    $("#whatsSucesso").href = Whats.link(cfg.whatsapp, Whats.montar(cfg.mensagens.novoAgendamento, ag, cfg));
+    $("#fluxo").classList.add("oculto");
+    $("#sucesso").classList.remove("oculto");
+    $("#agendar").scrollIntoView({ behavior: "smooth" });
+  });
+
+  $("#novo").addEventListener("click", async () => {
+    Object.assign(escolha, { ids: [], data: null, hora: null });
+    ags = await DB.agendamentos();
+    ["#passoDia", "#passoHora", "#passoDados"].forEach((s) => $(s).classList.add("bloqueado"));
+    $("#dias").innerHTML = $("#horas").innerHTML = "";
+    renderServicos();
+    renderResumo();
+    $("#sucesso").classList.add("oculto");
+    $("#fluxo").classList.remove("oculto");
+  });
+
+  function liberar(sel) {
+    $(sel).classList.remove("bloqueado");
+  }
+
+  // atualiza horários se outra aba mudar a agenda
+  DB.aoMudar(async () => {
+    cfg = await DB.config();
+    ags = await DB.agendamentos();
+    renderServicos();
+    renderDias();
+  });
+
+  preencherInfo();
+  renderServicos();
+})();
+
+</script>
+<script>
+// Painel do dono: agenda do dia, fila de mensagens, clientes, campanha e configurações.
+(async function () {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+  // Online (nuvem): login com e-mail e senha do Supabase. Demonstração: senha simples.
+  if (DB.nuvem) {
+    const f = $("#formPin");
+    f.email.classList.remove("oculto");
+    f.email.required = true;
+    f.pin.removeAttribute("inputmode");
+    f.pin.placeholder = "senha";
+    f.pin.style.letterSpacing = "normal";
+    f.pin.style.fontSize = "1rem";
+    $("#dicaPin").textContent = "Acesso só para o dono. Esqueceu a senha? Fale com o suporte.";
+  }
+
+  const comLimite = (p, ms = 6000) => Promise.race([p, new Promise((_, r) => setTimeout(() => r(new Error("tempo esgotado")), ms))]);
+  let cfg;
+  try {
+    cfg = await comLimite(DB.config());
+  } catch {
+    cfg = JSON.parse(JSON.stringify(window.CONFIG_PADRAO)); // sem internet: segue com o padrão
+  }
+  let ags = [];
+  let dia = U.hoje();
+  let filtroCli = "todos";
+
+  const STATUS = {
+    agendado: "🟡 Agendado",
+    confirmado: "🔵 Confirmado",
+    lavando: "💦 Lavando",
+    pronto: "✅ Pronto",
+    entregue: "🏁 Entregue",
+    faltou: "🚫 Não veio",
+    cancelado: "❌ Cancelado"
+  };
+  const MSGS = {
+    confirmacao: "Confirmar",
+    lembrete: "Lembrete",
+    pronto: "Carro pronto",
+    avaliacao: "Pedir avaliação"
+  };
+
+  // ---------- Senha ----------
+  const logado = () => {
+    try { return sessionStorage.getItem("lr_auth") === "1"; } catch { return false; }
+  };
+  $("#formPin").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const erro = $("#erroPin");
+    if (DB.nuvem) {
+      try {
+        await DB.entrar(f.email.value.trim(), f.pin.value);
+        try { sessionStorage.setItem("lr_auth", "1"); } catch {}
+        f.pin.value = "";
+        abrirApp();
+      } catch {
+        erro.textContent = "E-mail ou senha incorretos.";
+        erro.classList.remove("oculto");
+      }
+      return;
+    }
+    if (f.pin.value === String(cfg.pin)) {
+      try { sessionStorage.setItem("lr_auth", "1"); } catch {}
+      abrirApp();
+    } else {
+      erro.classList.remove("oculto");
+      f.pin.select();
+    }
+  });
+
+  async function abrirApp() {
+    $("#telaPin").classList.add("oculto");
+    $("#app").classList.remove("oculto");
+    await recarregar();
+  }
+
+  async function recarregar() {
+    cfg = await DB.config();
+    ags = await DB.agendamentos();
+    $$("[data-cfg]").forEach((el) => (el.textContent = cfg[el.dataset.cfg] || ""));
+    renderAgenda();
+    renderFila();
+    renderClientes();
+    renderCampanha();
+  }
+
+  // ---------- Abas ----------
+  $("#abas").addEventListener("click", (e) => {
+    const b = e.target.closest(".aba");
+    if (!b) return;
+    $$(".aba").forEach((x) => x.classList.toggle("ativo", x === b));
+    $$("[data-secao]").forEach((s) => s.classList.toggle("oculto", s.dataset.secao !== b.dataset.aba));
+    if (b.dataset.aba === "config") renderConfig();
+  });
+
+  // ---------- Agenda ----------
+  function renderAgenda() {
+    const hoje = U.hoje();
+    const rot = dia === hoje ? "Hoje · " : dia === U.somarDias(hoje, 1) ? "Amanhã · " : "";
+    $("#tituloDia").textContent = rot + U.fmtData(dia);
+    $("#seletorDia").value = dia;
+
+    const doDia = ags.filter((a) => a.data === dia).sort((a, b) => a.hora.localeCompare(b.hora));
+    const ativos = doDia.filter((a) => !Agenda.INATIVOS.includes(a.status));
+    const previsto = ativos.reduce((s, a) => s + Number(a.preco || 0), 0);
+    const recebido = doDia.filter((a) => a.status === "entregue").reduce((s, a) => s + Number(a.preco || 0), 0);
+    const capacidade = Agenda.capacidade(cfg, dia);
+    const ocup = capacidade ? Math.min(100, Math.round((Agenda.usado(cfg, ags, dia) / capacidade) * 100)) : 0;
+    const fechadoManual = (cfg.fechados || []).includes(dia);
+    $("#btnFechar").textContent = fechadoManual ? "✅ Reabrir este dia" : "🚫 Fechar este dia";
+
+    $("#resumoDia").innerHTML = `
+      <div class="card-num"><small>Carros no dia</small><b>${ativos.length}</b></div>
+      <div class="card-num"><small>Previsto</small><b>${U.moeda(previsto)}</b></div>
+      <div class="card-num"><small>Já entregue</small><b>${U.moeda(recebido)}</b></div>
+      <div class="card-num"><small>Agenda ocupada</small><b>${Agenda.abertoNoDia(cfg, dia) ? ocup + "%" : "Fechado"}</b>
+        <div class="barra-ocup"><i style="width:${ocup}%"></i></div></div>`;
+
+    $("#listaDia").innerHTML = doDia.length
+      ? doDia.map(cartao).join("")
+      : `<div class="caixa vazio">Nenhum agendamento neste dia. ${Agenda.abertoNoDia(cfg, dia) ? "Que tal uma campanha de <b>Dia vazio</b>? 📣" : fechadoManual ? "(dia fechado – feriado/folga)" : "(dia fechado)"}</div>`;
+  }
+
+  // Fechar/reabrir um dia (feriado, folga)
+  $("#btnFechar").onclick = async () => {
+    const lista = new Set(cfg.fechados || []);
+    if (lista.has(dia)) lista.delete(dia);
+    else {
+      const qtd = Agenda.ativosNoDia(ags, dia).length;
+      if (!confirm(`Fechar ${U.fmtData(dia)}? O site não vai mais oferecer horários nesse dia.${qtd ? `\n\n⚠️ Já existem ${qtd} agendamento(s) nesse dia – avise os clientes.` : ""}`)) return;
+      lista.add(dia);
+    }
+    cfg.fechados = [...lista].filter((d) => d >= U.hoje()).sort();
+    await DB.salvarConfig(cfg);
+    await recarregar();
+  };
+
+  function fimTexto(a) {
+    const fim = U.min(a.hora) + (a.duracao || 30);
+    const e = Agenda.expediente(cfg, a.data);
+    if (e && fim > e.fe) return "continua no dia seguinte";
+    return `até ${U.hora(fim)}`;
+  }
+
+  function cartao(a) {
+    const botoes = Object.entries(MSGS)
+      .map(([tipo, rot]) => {
+        const enviado = a.msgs?.[tipo];
+        const destaque = (tipo === "pronto" && a.status === "pronto" && !enviado) ? "btn-whats" : "btn-msg";
+        return `<button class="btn btn-peq ${enviado ? "btn-msg enviado" : destaque}" data-acao="msg" data-tipo="${tipo}" data-id="${a.id}"
+          title="${enviado ? "Enviado em " + new Date(enviado).toLocaleString("pt-BR") : "Abrir WhatsApp com a mensagem pronta"}">
+          ${enviado ? "✓ " : "💬 "}${rot}</button>`;
+      })
+      .join("");
+    return `<article class="ag st-${a.status}">
+      <div class="ag-hora">${a.hora}<small>${fimTexto(a)}</small></div>
+      <div class="ag-info">
+        <strong>${U.esc(a.nome)}</strong> ${a.origem === "site" ? '<span class="tag" style="display:inline-block">pelo site</span>' : ""}
+        <span>🚗 ${U.esc(a.veiculo || "-")} ${a.placa ? "· " + U.esc(a.placa) : ""} ${a.porte && !/pequeno/i.test(a.porte) ? `<span class="tag" style="display:inline-block">${U.esc(a.porte)}</span>` : ""}</span>
+        <span>🧽 ${U.esc(a.servicoNome)} · ${a.precoAConfirmar
+          ? `<b style="color:var(--ouro)">valor a combinar</b> <button class="btn btn-peq btn-claro" data-acao="valor" data-id="${a.id}">Definir valor</button>`
+          : `<b>${U.moeda(a.preco)}</b>`}</span>
+        <a href="${Whats.link(a.telefone, "")}" target="_blank" rel="noopener">📱 ${U.fmtTelefone(a.telefone)}</a>
+        ${a.obs ? `<span class="ag-obs">📝 ${U.esc(a.obs)}</span>` : ""}
+      </div>
+      <div class="ag-acoes">
+        <select data-acao="status" data-id="${a.id}" aria-label="Status">
+          ${Object.entries(STATUS).map(([k, v]) => `<option value="${k}" ${a.status === k ? "selected" : ""}>${v}</option>`).join("")}
+        </select>
+        ${botoes}
+        <button class="btn btn-peq btn-perigo" data-acao="excluir" data-id="${a.id}" style="margin-left:auto">Excluir</button>
+      </div>
+    </article>`;
+  }
+
+  $("#diaAnt").onclick = () => { dia = U.somarDias(dia, -1); renderAgenda(); };
+  $("#diaProx").onclick = () => { dia = U.somarDias(dia, 1); renderAgenda(); };
+  $("#irHoje").onclick = () => { dia = U.hoje(); renderAgenda(); };
+  $("#seletorDia").onchange = (e) => { if (e.target.value) { dia = e.target.value; renderAgenda(); } };
+
+  // Ações dos cartões e da fila
+  document.addEventListener("click", async (e) => {
+    const b = e.target.closest("[data-acao]");
+    if (!b || b.tagName === "SELECT") return;
+    const id = b.dataset.id;
+    if (b.dataset.acao === "msg") await enviarMsg(id, b.dataset.tipo);
+    if (b.dataset.acao === "valor") {
+      const v = prompt("Valor combinado (R$):", "");
+      const n = Number(String(v || "").replace(/[^\d,.]/g, "").replace(/\.(?=\d{3})/g, "").replace(",", "."));
+      if (n > 0) {
+        await DB.atualizar(id, { preco: n, precoAConfirmar: false });
+        await recarregar();
+      }
+    }
+    if (b.dataset.acao === "excluir") {
+      const a = ags.find((x) => x.id === id);
+      if (a && confirm(`Excluir o agendamento de ${a.nome} (${a.hora})?`)) {
+        await DB.remover(id);
+        await recarregar();
+      }
+    }
+    if (b.dataset.acao === "retorno") {
+      const c = clientes().find((x) => x.tel === b.dataset.tel);
+      if (!c) return;
+      Whats.enviar(c.tel, Whats.montar(cfg.mensagens.retorno, c.ultimo, cfg));
+      await DB.marcarRetorno(c.tel);
+      renderClientes();
+    }
+    if (b.dataset.acao === "campanha") {
+      const c = clientes().find((x) => x.tel === b.dataset.tel);
+      if (!c) return;
+      Whats.enviar(c.tel, textoCampanha(c.ultimo));
+      await DB.marcarCampanha($("#cpData").value, c.tel);
+      renderCampanhaLista();
+    }
+  });
+
+  document.addEventListener("change", async (e) => {
+    const s = e.target.closest('select[data-acao="status"]');
+    if (!s) return;
+    await DB.atualizar(s.dataset.id, { status: s.value });
+    await recarregar();
+  });
+
+  async function enviarMsg(id, tipo) {
+    const a = ags.find((x) => x.id === id);
+    if (!a) return;
+    Whats.enviar(a.telefone, Whats.montar(cfg.mensagens[tipo], a, cfg));
+    const patch = { msgs: { [tipo]: Date.now() } };
+    if (tipo === "confirmacao" && a.status === "agendado") patch.status = "confirmado";
+    await DB.atualizar(id, patch);
+    await recarregar();
+  }
+
+  // ---------- Fila de mensagens ----------
+  function renderFila() {
+    const hoje = U.hoje();
+    const amanha = U.somarDias(hoje, 1);
+    const ativos = ags.filter((a) => !Agenda.INATIVOS.includes(a.status));
+    const ordem = (a, b) => (a.data + a.hora).localeCompare(b.data + b.hora);
+    const grupos = [
+      {
+        tipo: "confirmacao", titulo: "✅ Confirmar novos agendamentos",
+        dica: "Clientes que agendaram e ainda não receberam a confirmação.",
+        itens: ativos.filter((a) => a.status === "agendado" && !a.msgs?.confirmacao && a.data >= hoje)
+      },
+      {
+        tipo: "lembrete", titulo: "⏰ Lembretes de amanhã",
+        dica: "Mandar no fim do dia reduz as faltas.",
+        itens: ativos.filter((a) => a.data === amanha && ["agendado", "confirmado"].includes(a.status) && !a.msgs?.lembrete)
+      },
+      {
+        tipo: "pronto", titulo: "✨ Avisar que o carro está pronto",
+        dica: "Carros marcados como Pronto.",
+        itens: ags.filter((a) => a.status === "pronto" && !a.msgs?.pronto)
+      },
+      {
+        tipo: "avaliacao", titulo: "⭐ Pedir avaliação",
+        dica: "Clientes entregues nos últimos 7 dias. Avaliação no Google traz cliente novo!",
+        itens: ags.filter((a) => a.status === "entregue" && !a.msgs?.avaliacao && U.diasEntre(a.data, hoje) <= 7)
+      }
+    ];
+    const total = grupos.reduce((s, g) => s + g.itens.length, 0);
+    const badge = $("#badgeFila");
+    badge.textContent = total;
+    badge.classList.toggle("oculto", !total);
+
+    $("#fila").innerHTML = grupos
+      .map((g) => `<div class="grupo">
+        <h3>${g.titulo} <span class="tag">${g.itens.length}</span></h3>
+        <p>${g.dica}</p>
+        <div class="lista">
+          ${g.itens.length ? g.itens.sort(ordem).map((a) => `
+            <div class="item">
+              <div><b>${U.esc(a.nome)}</b> · ${U.esc(a.servicoNome)}
+                <small>${U.fmtData(a.data)} às ${a.hora} · ${U.esc(a.veiculo || "")} · ${U.fmtTelefone(a.telefone)}</small></div>
+              <button class="btn btn-whats btn-peq" data-acao="msg" data-tipo="${g.tipo}" data-id="${a.id}">💬 Enviar</button>
+            </div>`).join("") : `<p class="vazio">Nada pendente 👍</p>`}
+        </div>
+      </div>`)
+      .join("");
+  }
+
+  // ---------- Clientes ----------
+  function clientes() {
+    const hoje = U.hoje();
+    const mapa = {};
+    ags.forEach((a) => {
+      const tel = U.telefone(a.telefone);
+      const c = (mapa[tel] ||= { tel, nome: a.nome, veiculo: a.veiculo, placa: a.placa, visitas: 0, gasto: 0, ultimaData: null, ultimo: a, proximo: null });
+      if (a.data <= hoje && !Agenda.INATIVOS.includes(a.status)) {
+        c.visitas++;
+        if (!c.ultimaData || a.data > c.ultimaData) {
+          c.ultimaData = a.data;
+          c.ultimo = a;
+          c.nome = a.nome;
+          c.veiculo = a.veiculo || c.veiculo;
+          c.placa = a.placa || c.placa;
+        }
+      }
+      if (a.status === "entregue") c.gasto += Number(a.preco || 0);
+      if (a.data > hoje && !Agenda.INATIVOS.includes(a.status) && (!c.proximo || a.data < c.proximo)) c.proximo = a.data;
+    });
+    return Object.values(mapa).map((c) => ({
+      ...c,
+      diasSemVir: c.ultimaData ? U.diasEntre(c.ultimaData, hoje) : null
+    }));
+  }
+
+  async function renderClientes() {
+    const retornos = await DB.retornos();
+    const busca = $("#buscaCli").value.trim().toLowerCase();
+    let lista = clientes();
+    if (filtroCli === "sumidos") lista = lista.filter((c) => c.diasSemVir >= cfg.diasSumido && !c.proximo);
+    if (busca) lista = lista.filter((c) => [c.nome, c.tel, c.placa, c.veiculo].join(" ").toLowerCase().includes(busca.replace(/\D/g, "") || busca) || [c.nome, c.placa, c.veiculo].join(" ").toLowerCase().includes(busca));
+    lista.sort((a, b) => (b.ultimaData || "").localeCompare(a.ultimaData || ""));
+
+    $("#dicaSumidos").textContent = filtroCli === "sumidos"
+      ? `Clientes que não vêm há ${cfg.diasSumido}+ dias e não têm horário marcado. Mande um "chamar de volta" 👇`
+      : `${lista.length} cliente(s).`;
+
+    $("#tabelaCli").innerHTML = `<thead><tr><th>Cliente</th><th>Veículo</th><th>Visitas</th><th>Gasto</th><th>Última vez</th><th></th></tr></thead>
+      <tbody>${lista.length ? lista.map((c) => {
+        const chamado = retornos[c.tel];
+        return `<tr>
+          <td><b>${U.esc(c.nome)}</b><br><small>${U.fmtTelefone(c.tel)}</small></td>
+          <td>${U.esc(c.veiculo || "-")}<br><small>${U.esc(c.placa || "")}</small></td>
+          <td>${c.visitas}</td>
+          <td>${U.moeda(c.gasto)}</td>
+          <td>${c.ultimaData ? `${U.fmtDataCurta(c.ultimaData)}<br><small>há ${c.diasSemVir} dia(s)</small>` : "-"}
+            ${c.proximo ? `<br><span class="tag">volta ${U.fmtDataCurta(c.proximo)}</span>` : ""}</td>
+          <td><button class="btn btn-peq ${chamado ? "btn-msg enviado" : "btn-whats"}" data-acao="retorno" data-tel="${c.tel}"
+            title="${chamado ? "Chamado em " + new Date(chamado).toLocaleDateString("pt-BR") : ""}">
+            ${chamado ? "✓ Chamado " + new Date(chamado).toLocaleDateString("pt-BR").slice(0, 5) : "💬 Chamar de volta"}</button></td>
+        </tr>`;
+      }).join("") : `<tr><td colspan="6" class="vazio">Nenhum cliente aqui.</td></tr>`}</tbody>`;
+  }
+  $$(".filtro-cli").forEach((b) =>
+    b.addEventListener("click", () => {
+      filtroCli = b.dataset.filtro;
+      $$(".filtro-cli").forEach((x) => x.classList.toggle("ativo", x === b));
+      $$(".filtro-cli").forEach((x) => (x.style.borderColor = x === b ? "var(--vermelho-marca)" : ""));
+      renderClientes();
+    })
+  );
+  $("#buscaCli").addEventListener("input", renderClientes);
+
+  // ---------- Campanha "dia vazio" ----------
+  function proximoDiaFraco() {
+    let melhor = null;
+    for (let i = 1; i <= 7; i++) {
+      const d = U.somarDias(U.hoje(), i);
+      if (!Agenda.abertoNoDia(cfg, d)) continue;
+      const n = Agenda.ativosNoDia(ags, d).length;
+      if (!melhor || n < melhor.n) melhor = { d, n };
+    }
+    return melhor ? melhor.d : U.somarDias(U.hoje(), 1);
+  }
+  let campanhaIniciada = false;
+  function renderCampanha() {
+    const sel = $("#cpServico");
+    const atual = sel.value;
+    sel.innerHTML = cfg.servicos.map((s) => `<option value="${U.esc(s.id)}">${U.esc(s.nome)} (${U.moeda(s.preco)})</option>`).join("");
+    if (atual) sel.value = atual;
+    if (!campanhaIniciada) {
+      campanhaIniciada = true;
+      $("#cpData").value = proximoDiaFraco();
+      const s = cfg.servicos.find((x) => x.id === "detalhada") || cfg.servicos[0];
+      if (s) {
+        sel.value = s.id;
+        $("#cpPreco").value = Math.round((s.preco * 0.75) / 5) * 5;
+      }
+      $("#cpTexto").value = cfg.mensagens.promocao;
+      sugerirVagas();
+    }
+    renderCampanhaLista();
+  }
+  function sugerirVagas() {
+    const data = $("#cpData").value;
+    const s = cfg.servicos.find((x) => x.id === $("#cpServico").value);
+    if (!data || !s) return;
+    const e = Agenda.expediente(cfg, data);
+    if (!e) {
+      $("#cpVagas").value = 0;
+      $("#cpOcupacao").textContent = "⚠️ Fechado nesse dia.";
+      return;
+    }
+    const ate = Math.min(U.min($("#cpAte").value || U.hora(e.fe)), e.fe);
+    const janela = Math.max(0, ate - e.ab) * cfg.vagas;
+    const usado = Agenda.usado(cfg, ags, data, ate);
+    const vagas = Math.max(0, Math.floor((janela - usado) / ((s.duracao || 30) * (Number(s.peso) || 1))));
+    $("#cpVagas").value = vagas;
+    $("#cpOcupacao").textContent = Agenda.abertoNoDia(cfg, data)
+      ? `${U.fmtData(data)}: ${Agenda.ativosNoDia(ags, data).length} carro(s) marcado(s). Cabem cerca de ${vagas} ${s.nome.toLowerCase()} até ${U.hora(ate)}.`
+      : "⚠️ O lava-rápido está fechado nesse dia.";
+  }
+  ["#cpData", "#cpServico", "#cpAte"].forEach((s) => $(s).addEventListener("change", () => { sugerirVagas(); renderCampanhaLista(); }));
+  ["#cpPreco", "#cpVagas", "#cpTexto", "#cpJanela"].forEach((s) => $(s).addEventListener("input", renderCampanhaLista));
+
+  function textoCampanha(ag) {
+    const s = cfg.servicos.find((x) => x.id === $("#cpServico").value) || {};
+    const data = $("#cpData").value;
+    const d = U.dataObj(data);
+    const diaTxt = data === U.somarDias(U.hoje(), 1) ? "Amanhã" : `${U.DIAS[d.getDay()]} (${U.pad(d.getDate())}/${U.pad(d.getMonth() + 1)})`;
+    return Whats.montar($("#cpTexto").value, { ...ag, servicoNome: s.nome, preco: $("#cpPreco").value }, cfg, {
+      dia: diaTxt,
+      ate: ($("#cpAte").value || "").replace(":00", "h"),
+      vagas: $("#cpVagas").value
+    });
+  }
+  async function renderCampanhaLista() {
+    const data = $("#cpData").value;
+    const janela = Number($("#cpJanela").value) || 30;
+    const enviados = await DB.campanhaEnvios(data);
+    const lista = clientes()
+      .filter((c) => c.diasSemVir !== null && c.diasSemVir <= janela && !ags.some((a) => a.data === data && U.telefone(a.telefone) === c.tel && !Agenda.INATIVOS.includes(a.status)))
+      .sort((a, b) => a.diasSemVir - b.diasSemVir);
+    const exemplo = lista[0]?.ultimo || { nome: "Cliente", veiculo: "carro" };
+    const qtdEnviados = lista.filter((c) => enviados[c.tel]).length;
+    $("#cpLista").innerHTML = `
+      <div class="caixa">
+        <h3>Prévia</h3>
+        <p class="previa-whats">${U.esc(textoCampanha(exemplo))}</p>
+      </div>
+      <div class="grupo">
+        <h3>Enviar para ${lista.length} cliente(s) <span class="tag">${qtdEnviados} enviado(s)</span></h3>
+        <p>Quem veio nos últimos ${janela} dias e ainda não tem horário nesse dia. Faturamento possível: <b>${U.moeda(Number($("#cpVagas").value || 0) * Number($("#cpPreco").value || 0))}</b>.</p>
+        <div class="lista">${lista.length ? lista.map((c) => `
+          <div class="item">
+            <div><b>${U.esc(c.nome)}</b> <small>${U.esc(c.veiculo || "")} · última vez há ${c.diasSemVir} dia(s)</small></div>
+            <button class="btn btn-peq ${enviados[c.tel] ? "btn-msg enviado" : "btn-whats"}" data-acao="campanha" data-tel="${c.tel}">
+              ${enviados[c.tel] ? "✓ Enviado" : "💬 Enviar"}</button>
+          </div>`).join("") : `<p class="vazio">Nenhum cliente nesse período ainda.</p>`}
+        </div>
+      </div>`;
+  }
+
+  // ---------- Novo agendamento (manual) ----------
+  const dlg = $("#dlgNovo");
+  const fNovo = $("#formNovo");
+  U.mascaraTelefone(fNovo.telefone);
+  function atualizarHorasNovo() {
+    const s = cfg.servicos.find((x) => x.id === fNovo.servicoId.value);
+    if (!s || !fNovo.data.value) return;
+    const grade = Agenda.grade(cfg, ags, fNovo.data.value, s);
+    fNovo.hora.innerHTML = grade.length
+      ? grade.map((h) => `<option value="${h.hora}">${h.hora}${h.livre ? "" : " (lotado/encaixe)"}</option>`).join("")
+      : `<option value="">Fechado neste dia</option>`;
+    const primeiro = grade.find((h) => h.livre);
+    if (primeiro) fNovo.hora.value = primeiro.hora;
+  }
+  $("#btnNovo").onclick = () => {
+    fNovo.reset();
+    $("#erroNovo").classList.add("oculto");
+    fNovo.servicoId.innerHTML = cfg.servicos.map((s) => `<option value="${U.esc(s.id)}">${U.esc(s.nome)} – ${U.moeda(Oferta.preco(cfg, s).preco)}</option>`).join("");
+    fNovo.data.value = dia;
+    atualizarHorasNovo();
+    dlg.showModal();
+  };
+  fNovo.servicoId.onchange = fNovo.data.onchange = atualizarHorasNovo;
+  fNovo.addEventListener("submit", async (e) => {
+    if (e.submitter?.value !== "salvar") return;
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(fNovo));
+    const tel = d.telefone.replace(/\D/g, "");
+    const erro = $("#erroNovo");
+    if (!d.nome.trim() || tel.length < 10 || !d.hora) {
+      erro.textContent = "Preencha nome, WhatsApp com DDD e horário.";
+      erro.classList.remove("oculto");
+      return;
+    }
+    const s = cfg.servicos.find((x) => x.id === d.servicoId);
+    await DB.criar({
+      nome: d.nome.trim(), telefone: tel, veiculo: d.veiculo.trim(), placa: d.placa.trim().toUpperCase(), obs: d.obs.trim(),
+      servicoId: s.id, servicoNome: s.nome, preco: Oferta.preco(cfg, s).preco, duracao: s.duracao, peso: s.peso || 1,
+      data: d.data, hora: d.hora, origem: "painel"
+    });
+    dlg.close();
+    dia = d.data;
+    await recarregar();
+  });
+
+  // ---------- Configurações ----------
+  const ROT_MSG = {
+    confirmacao: "Confirmação do agendamento",
+    lembrete: "Lembrete (dia anterior)",
+    pronto: "Carro pronto",
+    avaliacao: "Pedir avaliação",
+    retorno: "Chamar cliente sumido",
+    promocao: "Campanha dia vazio",
+    novoAgendamento: "Mensagem que o cliente manda pelo site"
+  };
+  function linhaServico(s = { id: "", categoria: "estetica", nome: "", descricao: "", preco: "", precoOferta: "", duracao: 90, peso: 1 }) {
+    const cats = cfg.categorias || [];
+    return `<div class="serv-linha" data-id="${U.esc(s.id)}">
+      <select data-f="categoria" aria-label="Categoria">${cats.map((c) => `<option value="${U.esc(c.id)}" ${s.categoria === c.id ? "selected" : ""}>${U.esc(c.nome)}</option>`).join("")}</select>
+      <input placeholder="Nome" value="${U.esc(s.nome)}" data-f="nome" aria-label="Nome do serviço">
+      <input placeholder="Descrição" value="${U.esc(s.descricao)}" data-f="descricao" class="desc" aria-label="Descrição">
+      <input type="number" placeholder="R$" value="${U.esc(s.preco)}" data-f="preco" min="0" step="0.01" aria-label="Preço">
+      <input type="number" placeholder="Promo" value="${U.esc(s.precoOferta ?? "")}" data-f="precoOferta" min="0" step="0.01" aria-label="Preço promocional">
+      <input type="number" placeholder="min" value="${U.esc(s.duracao)}" data-f="duracao" min="10" step="10" aria-label="Duração em minutos">
+      <input type="number" placeholder="vagas" value="${U.esc(s.peso ?? 1)}" data-f="peso" min="0.5" step="0.5" aria-label="Vagas que ocupa">
+      <button type="button" class="btn btn-peq btn-perigo" data-remover-serv aria-label="Remover">✕</button>
+    </div>`;
+  }
+  function renderConfig() {
+    const f = $("#formCfg");
+    ["nome", "lema", "whatsapp", "whatsapp2", "instagram", "endereco", "slogan", "observacaoPreco", "intervalo", "vagas", "diasAntecedencia", "diasSumido", "pin", "linkAvaliacao"]
+      .forEach((k) => (f[k].value = cfg[k] ?? ""));
+    // horários por dia (Seg..Dom)
+    $("#cfgHorarios").innerHTML = [1, 2, 3, 4, 5, 6, 0]
+      .map((d) => {
+        const h = (cfg.horarios || [])[d];
+        return `<div class="horarios-dia" data-dia="${d}">
+          <label class="check"><input type="checkbox" data-h="aberto" ${h ? "checked" : ""}>${U.DIAS_CURTO[d]}</label>
+          <input type="time" data-h="ab" value="${h?.ab || ""}" aria-label="Abre ${U.DIAS[d]}">
+          <input type="time" data-h="fe" value="${h?.fe || ""}" aria-label="Fecha ${U.DIAS[d]}">
+          <input type="time" data-h="ultima" value="${h?.ultima || ""}" aria-label="Último carro ${U.DIAS[d]}">
+        </div>`;
+      })
+      .join("");
+    const p = cfg.pausa || {};
+    f.pausaInicio.value = p.inicio || "";
+    f.pausaFim.value = p.fim || "";
+    $("#cfgPausaDias").innerHTML = [1, 2, 3, 4, 5, 6, 0]
+      .map((d) => `<label><input type="checkbox" value="${d}" ${(p.dias || []).includes(d) ? "checked" : ""}>${U.DIAS_CURTO[d]}</label>`)
+      .join("");
+    const fech = (cfg.fechados || []).filter((d) => d >= U.hoje());
+    $("#cfgFechados").textContent = fech.length
+      ? `Dias fechados (feriados/folgas): ${fech.map(U.fmtDataCurta).join(", ")}. Para reabrir, vá no dia na Agenda.`
+      : "Feriado ou folga? Vá no dia na Agenda e clique em “Fechar este dia”.";
+    const g = (cfg.portes || []).find((x) => x.id === "g");
+    f.acrescimoG.value = g && g.acrescimo !== null && g.acrescimo !== undefined ? g.acrescimo : "";
+    const o = cfg.oferta || {};
+    f.ofertaAtiva.checked = !!o.ativa;
+    f.ofertaTitulo.value = o.titulo || "";
+    f.ofertaTexto.value = o.texto || "";
+    f.ofertaAte.value = o.ate || "";
+    const cb = cfg.combo || {};
+    f.comboAtivo.checked = !!cb.ativo;
+    f.comboD2.value = (cb.descontos || [])[1] ?? 15;
+    f.comboD3.value = (cb.descontos || [])[2] ?? 20;
+    f.comboAcumula.checked = !!cb.acumulaComOferta;
+    $("#cfgServicos").innerHTML = `<div class="serv-linha dica"><span>Grupo</span><span>Serviço</span><span class="desc">Descrição</span><span>Preço</span><span>Preço promo</span><span>Minutos</span><span>Vagas</span><span></span></div>` +
+      cfg.servicos.map(linhaServico).join("");
+    $("#cfgMsgs").innerHTML = Object.entries(ROT_MSG)
+      .map(([k, r]) => `<label style="margin-bottom:.8rem">${r}<textarea data-msg="${k}" rows="3">${U.esc(cfg.mensagens[k] || "")}</textarea></label>`)
+      .join("");
+  }
+  $("#addServico").onclick = () => $("#cfgServicos").insertAdjacentHTML("beforeend", linhaServico());
+  $("#cfgServicos").addEventListener("click", (e) => {
+    if (e.target.closest("[data-remover-serv]")) e.target.closest(".serv-linha").remove();
+  });
+  $("#formCfg").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const novo = { ...cfg };
+    ["nome", "lema", "whatsapp", "whatsapp2", "instagram", "endereco", "slogan", "observacaoPreco", "pin", "linkAvaliacao"].forEach((k) => (novo[k] = f[k].value.trim()));
+    novo.whatsapp2 = novo.whatsapp2.replace(/\D/g, "");
+    novo.oferta = { ativa: f.ofertaAtiva.checked, titulo: f.ofertaTitulo.value.trim(), texto: f.ofertaTexto.value.trim(), ate: f.ofertaAte.value };
+    ["intervalo", "diasAntecedencia", "diasSumido"].forEach((k) => (novo[k] = Math.max(1, Number(f[k].value) || cfg[k])));
+    novo.vagas = Math.max(0.5, Number(f.vagas.value) || cfg.vagas);
+    novo.whatsapp = novo.whatsapp.replace(/\D/g, "");
+    novo.instagram = novo.instagram.replace(/^@/, "");
+    // horários
+    const horarios = [null, null, null, null, null, null, null];
+    let erroHorario = "";
+    $$("#cfgHorarios .horarios-dia").forEach((l) => {
+      const d = Number(l.dataset.dia);
+      const val = (k) => $(`[data-h="${k}"]`, l).value;
+      if (!$('[data-h="aberto"]', l).checked) return;
+      if (!val("ab") || !val("fe") || U.min(val("fe")) <= U.min(val("ab"))) erroHorario = `Confira o horário de ${U.DIAS[d]}.`;
+      horarios[d] = { ab: val("ab"), fe: val("fe"), ultima: val("ultima") || "" };
+    });
+    if (erroHorario) return alert(erroHorario);
+    novo.horarios = horarios;
+    novo.pausa = { inicio: f.pausaInicio.value, fim: f.pausaFim.value, dias: $$("#cfgPausaDias input:checked").map((i) => Number(i.value)) };
+    novo.combo = {
+      ...(cfg.combo || {}),
+      ativo: f.comboAtivo.checked,
+      descontos: [0, Math.min(90, Math.max(0, Number(f.comboD2.value) || 0)), Math.min(90, Math.max(0, Number(f.comboD3.value) || 0))],
+      acumulaComOferta: f.comboAcumula.checked
+    };
+    const acr = f.acrescimoG.value.trim();
+    novo.portes = (cfg.portes || []).map((p) => (p.id === "g" ? { ...p, acrescimo: acr === "" ? null : Number(acr) } : p));
+    novo.servicos = $$("#cfgServicos .serv-linha[data-id]")
+      .map((l) => {
+        const v = (k) => $(`[data-f="${k}"]`, l).value.trim();
+        const nome = v("nome");
+        if (!nome) return null;
+        const id = l.dataset.id || nome.toLowerCase().normalize("NFD").replace(/[^\w]+/g, "-") + "-" + Date.now().toString(36);
+        return { id, categoria: v("categoria"), nome, descricao: v("descricao"), preco: Number(v("preco")) || 0, precoOferta: Number(v("precoOferta")) || null, duracao: Math.max(10, Number(v("duracao")) || 30), peso: Math.max(0.5, Number(v("peso")) || 1) };
+      })
+      .filter(Boolean);
+    novo.mensagens = { ...cfg.mensagens };
+    $$("#cfgMsgs [data-msg]").forEach((t) => (novo.mensagens[t.dataset.msg] = t.value));
+    if (!novo.servicos.length) return alert("Cadastre pelo menos um serviço.");
+    await DB.salvarConfig(novo);
+    await recarregar();
+    renderConfig();
+    alert("Configurações salvas ✅");
+  });
+
+  $("#btnBackup").onclick = async () => {
+    const dados = { config: await DB.config(), agendamentos: await DB.agendamentos(), geradoEm: new Date().toISOString() };
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(dados, null, 2)], { type: "application/json" }));
+    a.download = `backup-lava-rapido-${U.hoje()}.json`;
+    a.click();
+  };
+  $("#btnApagar").onclick = async () => {
+    if (!confirm("Apagar TODOS os agendamentos? Isso não pode ser desfeito (baixe o backup antes).")) return;
+    await DB.apagarTudo();
+    await recarregar();
+  };
+  $("#btnExemplo").onclick = async () => {
+    if (ags.length && !confirm("Isso vai SUBSTITUIR os agendamentos atuais por dados de exemplo. Continuar?")) return;
+    await DB.apagarTudo();
+    await DB.substituirTudo(gerarExemplo());
+    // produtos e contas de exemplo (só se ainda não houver nada cadastrado)
+    const ha30 = Date.now() - 30 * 86400000;
+    if (!(await DB.lista("produtos")).length) {
+      for (const p of [
+        { nome: "Shampoo automotivo 5L", unidade: "ml", embalagem: 5000, custo: 89.9, usoPorCarro: 50, aplica: "todos", estoque: 1.2, minimo: 0.5 },
+        { nome: "Pretinho para pneus 5L", unidade: "ml", embalagem: 5000, custo: 75, usoPorCarro: 30, aplica: "cat:lavagem", estoque: 1, minimo: 0.3 },
+        { nome: "Cera de carnaúba 300g", unidade: "g", embalagem: 300, custo: 65, usoPorCarro: 15, aplica: "cera", estoque: 1, minimo: 0.5 },
+        { nome: "Massa de polir 1kg", unidade: "g", embalagem: 1000, custo: 120, usoPorCarro: 80, aplica: "polimento", estoque: 1, minimo: 0.3 }
+      ]) await DB.salvarItem("produtos", { ...p, atualizadoEm: ha30, foto: "" });
+    }
+    if (!(await DB.lista("contas")).length) {
+      const h = U.hoje();
+      for (const c of [
+        { descricao: "Aluguel", valor: 1500, vencimento: U.somarDias(h, 12), categoria: "Aluguel", recorrente: true, pago: false },
+        { descricao: "Conta de luz", valor: 320.5, vencimento: U.somarDias(h, -3), categoria: "Luz", recorrente: true, pago: false },
+        { descricao: "Conta de água", valor: 140, vencimento: U.somarDias(h, 2), categoria: "Água", recorrente: true, pago: false },
+        { descricao: "Fornecedor de produtos", valor: 480, vencimento: U.somarDias(h, -5), categoria: "Produtos", recorrente: false, pago: true, pagoEm: h }
+      ]) await DB.salvarItem("contas", { ...c, foto: "" });
+    }
+    campanhaIniciada = false;
+    await recarregar();
+    alert("Dados de exemplo carregados. Veja a Agenda, Mensagens, Clientes e Dia vazio.");
+  };
+
+  function gerarExemplo() {
+    const nomes = [
+      ["Carlos Souza", "Gol branco", "FHK2A31"], ["Fernanda Lima", "HB20 prata", "GTR4B12"], ["João Pedro", "Onix preto", "EKP9C77"],
+      ["Mariana Alves", "Compass cinza", "RTA1D45"], ["Ricardo Nunes", "Hilux branca", "QWE2F88"], ["Patrícia Rocha", "Kwid laranja", "BCD3G10"],
+      ["Bruno Teixeira", "Civic grafite", "EEH5G61"], ["Juliana Martins", "T-Cross azul", "JKL7H22"], ["Anderson Silva", "CG 160 vermelha", "MNO8J33"],
+      ["Roberta Dias", "Corolla branco", "PQR1K44"], ["Felipe Moura", "Saveiro prata", "STU2L55"]
+    ];
+    const s = (id) => cfg.servicos.find((x) => x.id === id) || cfg.servicos[0];
+    const hoje = U.hoje();
+    const plano = [
+      [9, -52, "detalhada", "10:00", "entregue"], [10, -37, "simples", "15:00", "entregue"],
+      [0, -45, "cera", "09:00", "entregue"], [1, -40, "simples", "10:00", "entregue"], [2, -38, "farol", "14:00", "entregue"],
+      [3, -20, "detalhada", "08:30", "entregue"], [4, -12, "polimento", "08:00", "entregue"], [5, -6, "parabrisa", "16:00", "entregue"],
+      [0, -2, "simples", "11:00", "entregue"],
+      [6, 0, "cera", "08:00", "entregue"], [7, 0, "simples", "09:30", "pronto"], [3, 0, "farol", "10:00", "lavando"], [8, 0, "higienizacao", "12:00", "confirmado"],
+      [1, 1, "detalhada", "08:30", "confirmado"], [5, 1, "simples", "10:00", "agendado"], [2, 1, "parabrisa", "14:00", "agendado"],
+      [4, 3, "polimento", "08:00", "agendado"]
+    ];
+    return plano.map(([i, off, sid, hora, status], k) => {
+      const [nome, veiculo, placa] = nomes[i];
+      const sv = s(sid);
+      const data = U.somarDias(hoje, off);
+      const msgs = {};
+      if (status !== "agendado") msgs.confirmacao = Date.now();
+      if (off < 0) { msgs.pronto = Date.now(); if (off < -3) msgs.avaliacao = Date.now(); }
+      return {
+        id: "ex" + k, nome, telefone: "129" + String(90000000 + i * 1234567).slice(0, 8), veiculo, placa, obs: k === 9 ? "Cliente quer orçamento de polimento também" : "",
+        servicoId: sv.id, servicoNome: sv.nome, preco: off < -20 ? sv.preco : Oferta.preco(cfg, sv).preco, duracao: sv.duracao, peso: sv.peso || 1,
+        data, hora, status, msgs, origem: k % 2 ? "site" : "painel", criadoEm: Date.now()
+      };
+    });
+  }
+
+  // Atualiza sozinho quando chega agendamento novo pelo site (mesmo navegador)
+  DB.aoMudar(() => logado() && recarregar());
+
+  // Online: esconde o que pode apagar dados reais e mostra "Sair"
+  if (DB.nuvem) {
+    ["#btnExemplo", "#btnApagar"].forEach((s) => $(s)?.classList.add("oculto"));
+    const sair = $("#btnSair");
+    if (sair) {
+      sair.classList.remove("oculto");
+      sair.onclick = async () => {
+        await DB.sair();
+        try { sessionStorage.removeItem("lr_auth"); } catch {}
+        location.reload();
+      };
+    }
+    if (await comLimite(DB.logado()).catch(() => false)) {
+      try { sessionStorage.setItem("lr_auth", "1"); } catch {}
+      abrirApp();
+    }
+  } else if (logado()) abrirApp();
+})();
+
+</script>
+<script>
+// Administração simples: Produtos (consumo por carro) e Contas a pagar.
+(async function () {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const FEITOS = ["entregue", "pronto"]; // carros que já usaram produto
+  let cfg, ags, produtos = [], contas = [];
+
+  async function carregar() {
+    cfg = await DB.config();
+    ags = await DB.agendamentos();
+    produtos = await DB.lista("produtos");
+    contas = await DB.lista("contas");
+    renderProdutos();
+    renderContas();
+  }
+
+  // ---------- Fotos ----------
+  const fotos = {}; // id da prévia -> dataURL escolhida
+  function mostrarPrevia(id, dataUrl, vazio) {
+    const el = $("#" + id);
+    el.style.backgroundImage = dataUrl ? `url("${dataUrl}")` : "";
+    el.textContent = dataUrl ? "" : vazio;
+  }
+  document.addEventListener("change", async (e) => {
+    const inp = e.target.closest("input[data-foto]");
+    if (!inp || !inp.files[0]) return;
+    try {
+      const url = await U.fotoComprimida(inp.files[0]);
+      fotos[inp.dataset.foto] = url;
+      mostrarPrevia(inp.dataset.foto, url, "");
+    } catch {
+      alert("Não consegui ler essa foto. Tente outra.");
+    }
+    inp.value = "";
+  });
+  function verFoto(url) {
+    if (!url) return;
+    $("#fotoGrande").src = url;
+    $("#dlgFoto").showModal();
+  }
+
+  // =====================================================
+  // PRODUTOS
+  // =====================================================
+  function servicosDoAg(a) {
+    return String(a.servicoId || "").split("+").map((id) => cfg.servicos.find((s) => s.id === id)).filter(Boolean);
+  }
+  function aplica(p, a) {
+    if (!p.aplica || p.aplica === "todos") return true;
+    const servs = servicosDoAg(a);
+    if (p.aplica === "cat:lavagem" || p.aplica === "cat:estetica") return servs.some((s) => "cat:" + s.categoria === p.aplica);
+    return servs.some((s) => s.id === p.aplica);
+  }
+  function carrosFeitos(p, desdeIso, ateIso = U.hoje()) {
+    return ags.filter((a) => FEITOS.includes(a.status) && a.data >= desdeIso && a.data <= ateIso && aplica(p, a)).length;
+  }
+  function calcular(p) {
+    const emb = Number(p.embalagem) || 0;
+    const uso = Number(p.usoPorCarro) || 0;
+    const rende = uso > 0 ? emb / uso : 0;
+    const custoCarro = rende > 0 ? (Number(p.custo) || 0) / rende : 0;
+    const desde = p.atualizadoEm ? U.iso(new Date(p.atualizadoEm)) : U.hoje();
+    const feitos = carrosFeitos(p, desde);
+    const totalQtd = (Number(p.estoque) || 0) * emb;
+    const restanteQtd = Math.max(0, totalQtd - feitos * uso);
+    const restanteEmb = emb ? restanteQtd / emb : 0;
+    const carrosRest = uso ? Math.floor(restanteQtd / uso) : 0;
+    const ult30 = carrosFeitos(p, U.somarDias(U.hoje(), -29));
+    const porDia = ult30 / 30;
+    const dias = porDia > 0 ? Math.floor(carrosRest / porDia) : null;
+    const pct = totalQtd ? Math.min(100, (restanteQtd / totalQtd) * 100) : 0;
+    return { rende, custoCarro, feitos, restanteEmb, carrosRest, dias, pct, porSemana: porDia * 7, alerta: restanteEmb <= (Number(p.minimo) || 0) };
+  }
+  const n1 = (v) => v.toLocaleString("pt-BR", { maximumFractionDigits: 1 });
+  const uni = (p) => (p.unidade === "un" ? "un" : p.unidade || "ml");
+  const rotAplica = (v) => {
+    if (!v || v === "todos") return "todos os carros";
+    if (v === "cat:lavagem") return "lavagens";
+    if (v === "cat:estetica") return "serviços de estética";
+    return cfg.servicos.find((s) => s.id === v)?.nome || "—";
+  };
+
+  function renderProdutos() {
+    const calc = produtos.map((p) => ({ p, c: calcular(p) }));
+    const acabando = calc.filter((x) => x.c.alerta).length;
+    const badge = $("#badgeProd");
+    badge.textContent = acabando;
+    badge.classList.toggle("oculto", !acabando);
+
+    const carros30 = ags.filter((a) => FEITOS.includes(a.status) && a.data > U.somarDias(U.hoje(), -30) && a.data <= U.hoje()).length;
+    // custo de produto de uma lavagem simples (produtos usados em todos os carros ou em lavagem)
+    const simples = cfg.servicos.find((s) => s.categoria === "lavagem");
+    const custoLav = calc
+      .filter(({ p }) => !p.aplica || p.aplica === "todos" || p.aplica === "cat:lavagem" || p.aplica === simples?.id)
+      .reduce((t, { c }) => t + c.custoCarro, 0);
+    $("#resumoProd").innerHTML = `
+      <div class="card-num"><small>Carros feitos (30 dias)</small><b>${carros30}</b></div>
+      <div class="card-num"><small>Média por semana</small><b>${n1(carros30 / 30 * 7)}</b></div>
+      <div class="card-num"><small>Produto gasto por lavagem</small><b>${U.moeda(custoLav)}</b></div>
+      <div class="card-num"><small>Produtos acabando</small><b class="${acabando ? "negativo" : ""}">${acabando}</b></div>`;
+
+    $("#listaProd").innerHTML = calc.length
+      ? calc
+          .sort((a, b) => Number(b.c.alerta) - Number(a.c.alerta) || a.p.nome.localeCompare(b.p.nome))
+          .map(({ p, c }) => `<article class="prod ${c.alerta ? "alerta" : ""}">
+            <button class="prod-foto ${p.foto ? "" : "sem"}" style="${p.foto ? `background-image:url('${p.foto}')` : ""};border:0;cursor:${p.foto ? "zoom-in" : "default"}" data-adm="verFotoProd" data-id="${p.id}" aria-label="Ver foto">${p.foto ? "" : "📦"}</button>
+            <div class="prod-corpo">
+              <h4>${U.esc(p.nome)}</h4>
+              <div class="linha-info"><span>Embalagem</span><b>${n1(Number(p.embalagem) || 0)} ${uni(p)} · ${U.moeda(p.custo)}</b></div>
+              <div class="linha-info"><span>Usa por carro</span><b>${n1(Number(p.usoPorCarro) || 0)} ${uni(p)}</b></div>
+              <div class="linha-info"><span>Rende</span><b>~${Math.floor(c.rende)} carros / embalagem</b></div>
+              <div class="linha-info"><span>Custo por carro</span><b>${U.moeda(c.custoCarro)}</b></div>
+              <div class="linha-info"><span>Usado em</span><b>${U.esc(rotAplica(p.aplica))}</b></div>
+              <div class="nivel"><i style="width:${c.pct}%"></i></div>
+              <div class="linha-info"><span>Tem agora (estimado)</span><b class="${c.alerta ? "negativo" : ""}">${n1(c.restanteEmb)} emb. ≈ ${c.carrosRest} carros</b></div>
+              <div class="linha-info"><span>${c.dias !== null ? "Acaba em" : "Ritmo"}</span><b>${c.dias !== null ? `~${c.dias} dia(s)` : "sem carros nos últimos 30 dias"}</b></div>
+              ${c.alerta ? `<p class="erro" style="margin:.2rem 0 0">⚠️ Hora de comprar!</p>` : ""}
+              <div class="ag-acoes">
+                <button class="btn btn-peq" data-adm="repor" data-id="${p.id}">+ Repor</button>
+                <button class="btn btn-peq btn-claro" data-adm="editarProd" data-id="${p.id}">Editar</button>
+                <button class="btn btn-peq btn-perigo" data-adm="excluirProd" data-id="${p.id}" style="margin-left:auto">Excluir</button>
+              </div>
+            </div>
+          </article>`)
+          .join("")
+      : `<div class="caixa vazio">Nenhum produto ainda. Clique em <b>+ Cadastrar produto</b> e tire a foto do primeiro (ex.: shampoo, cera, pretinho).</div>`;
+  }
+
+  const fProd = $("#formProd");
+  let prodEditando = null;
+  function opcoesAplica(sel) {
+    fProd.aplica.innerHTML =
+      `<option value="todos">Todos os carros</option><option value="cat:lavagem">Só lavagens</option><option value="cat:estetica">Só serviços de estética</option>` +
+      cfg.servicos.map((s) => `<option value="${U.esc(s.id)}">Só: ${U.esc(s.nome)}</option>`).join("");
+    fProd.aplica.value = sel || "todos";
+  }
+  function previaCalculoProd() {
+    const emb = U.num(fProd.embalagem.value);
+    const uso = U.num(fProd.usoPorCarro.value);
+    const custo = U.num(fProd.custo.value);
+    $("#calcProd").textContent = emb && uso
+      ? `👉 Rende ~${Math.floor(emb / uso)} carros por embalagem · ${U.moeda(custo / (emb / uso))} de produto por carro`
+      : "Preencha a embalagem e quanto usa por carro para ver o rendimento.";
+  }
+  ["embalagem", "usoPorCarro", "custo"].forEach((k) => fProd[k].addEventListener("input", previaCalculoProd));
+  function abrirProduto(p) {
+    prodEditando = p || null;
+    fProd.reset();
+    delete fotos.prevProd;
+    $("#tituloProd").textContent = p ? "Editar produto" : "Novo produto";
+    opcoesAplica(p?.aplica);
+    if (p) {
+      ["nome", "unidade", "embalagem", "custo", "usoPorCarro", "minimo"].forEach((k) => (fProd[k].value = p[k] ?? ""));
+      fProd.estoque.value = Math.round(calcular(p).restanteEmb * 10) / 10;
+    }
+    mostrarPrevia("prevProd", p?.foto, "📷");
+    previaCalculoProd();
+    $("#dlgProduto").showModal();
+  }
+  $("#btnNovoProd").onclick = () => abrirProduto(null);
+  fProd.addEventListener("submit", async (e) => {
+    if (e.submitter?.value !== "salvar") return;
+    e.preventDefault();
+    if (!fProd.nome.value.trim()) return fProd.nome.focus();
+    const estoque = U.num(fProd.estoque.value);
+    const antes = prodEditando ? Math.round(calcular(prodEditando).restanteEmb * 10) / 10 : null;
+    const p = {
+      ...(prodEditando || {}),
+      nome: fProd.nome.value.trim(),
+      unidade: fProd.unidade.value,
+      embalagem: U.num(fProd.embalagem.value),
+      custo: U.num(fProd.custo.value),
+      usoPorCarro: U.num(fProd.usoPorCarro.value),
+      aplica: fProd.aplica.value,
+      minimo: U.num(fProd.minimo.value),
+      foto: fotos.prevProd ?? prodEditando?.foto ?? ""
+    };
+    // estoque informado vira o novo ponto de partida da contagem
+    if (!prodEditando || estoque !== antes) {
+      p.estoque = estoque;
+      p.atualizadoEm = Date.now();
+    }
+    await DB.salvarItem("produtos", p);
+    $("#dlgProduto").close();
+    await carregar();
+  });
+
+  // =====================================================
+  // CONTAS A PAGAR
+  // =====================================================
+  const somarMes = (iso, n = 1) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    const ult = new Date(y, m - 1 + n + 1, 0).getDate();
+    return U.iso(new Date(y, m - 1 + n, Math.min(d, ult)));
+  };
+  const mesAtual = () => U.hoje().slice(0, 7);
+  const estado = (c) => (c.pago ? "paga" : c.vencimento < U.hoje() ? "vencida" : "aberta");
+
+  function renderContas() {
+    const hoje = U.hoje();
+    const em7 = U.somarDias(hoje, 7);
+    const mes = mesAtual();
+    const vencidas = contas.filter((c) => estado(c) === "vencida");
+    const abertas = contas.filter((c) => estado(c) === "aberta");
+    const pagasMes = contas.filter((c) => c.pago && (c.pagoEm || "").slice(0, 7) === mes);
+    const soma = (l) => l.reduce((t, c) => t + (Number(c.valor) || 0), 0);
+    const prox7 = abertas.filter((c) => c.vencimento <= em7);
+    const aPagarMes = abertas.filter((c) => c.vencimento.slice(0, 7) === mes);
+    const faturamento = ags.filter((a) => a.status === "entregue" && a.data.slice(0, 7) === mes).reduce((t, a) => t + (Number(a.preco) || 0), 0);
+    const resultado = faturamento - soma(pagasMes);
+
+    const badge = $("#badgeContas");
+    const alerta = vencidas.length + prox7.filter((c) => c.vencimento <= U.somarDias(hoje, 2)).length;
+    badge.textContent = alerta;
+    badge.classList.toggle("oculto", !alerta);
+
+    $("#resumoContas").innerHTML = `
+      <div class="card-num"><small>Vencidas</small><b class="${vencidas.length ? "negativo" : ""}">${U.moeda(soma(vencidas))}</b><small>${vencidas.length} conta(s)</small></div>
+      <div class="card-num"><small>Vencem em 7 dias</small><b>${U.moeda(soma(prox7))}</b><small>${prox7.length} conta(s)</small></div>
+      <div class="card-num"><small>Ainda a pagar no mês</small><b>${U.moeda(soma(aPagarMes))}</b></div>
+      <div class="card-num"><small>Resultado do mês</small><b class="${resultado >= 0 ? "positivo" : "negativo"}">${U.moeda(resultado)}</b>
+        <small>${U.moeda(faturamento)} faturado − ${U.moeda(soma(pagasMes))} pago</small></div>`;
+
+    const item = (c) => {
+      const st = estado(c);
+      const dias = U.diasEntre(hoje, c.vencimento);
+      const quando = c.pago
+        ? `paga em ${U.fmtDataCurta(c.pagoEm).slice(0, 5)}`
+        : st === "vencida" ? `venceu há ${-dias} dia(s)` : dias === 0 ? "vence HOJE" : dias === 1 ? "vence amanhã" : `vence ${U.fmtDataCurta(c.vencimento).slice(0, 5)}`;
+      return `<div class="conta ${st}">
+        <button class="conta-foto" style="${c.foto ? `background-image:url('${c.foto}')` : ""}" data-adm="verFotoConta" data-id="${c.id}" aria-label="Ver foto">${c.foto ? "" : "🧾"}</button>
+        <div><b>${U.esc(c.descricao)}</b>${c.recorrente ? ' <span class="tag">mensal</span>' : ""}
+          <small>${U.esc(c.categoria || "")} · ${quando}</small></div>
+        <div>
+          <div class="conta-valor">${U.moeda(c.valor)}</div>
+          <div class="linha">
+            ${c.pago
+              ? `<button class="btn btn-peq btn-claro" data-adm="desfazer" data-id="${c.id}">Desfazer</button>`
+              : `<button class="btn btn-peq btn-whats" data-adm="pagar" data-id="${c.id}">✓ Paguei</button>`}
+            <button class="btn btn-peq btn-claro" data-adm="editarConta" data-id="${c.id}">Editar</button>
+            <button class="btn btn-peq btn-perigo" data-adm="excluirConta" data-id="${c.id}" aria-label="Excluir">✕</button>
+          </div>
+        </div>
+      </div>`;
+    };
+    const ord = (a, b) => a.vencimento.localeCompare(b.vencimento);
+    const grupo = (titulo, lista, vazio) => `<div class="grupo"><h3>${titulo} <span class="tag">${lista.length}</span></h3>
+      <div class="lista">${lista.length ? lista.sort(ord).map(item).join("") : `<p class="vazio">${vazio}</p>`}</div></div>`;
+    $("#listaContas").innerHTML =
+      (vencidas.length ? grupo("🔴 Vencidas", vencidas, "") : "") +
+      grupo("📅 A pagar", abertas, "Nada a pagar 🎉 Cadastre as contas do mês em <b>+ Nova conta</b>.") +
+      grupo("✅ Pagas este mês", pagasMes, "Nenhuma conta paga este mês ainda.");
+  }
+
+  const fConta = $("#formConta");
+  let contaEditando = null;
+  function abrirConta(c) {
+    contaEditando = c || null;
+    fConta.reset();
+    delete fotos.prevConta;
+    $("#tituloConta").textContent = c ? "Editar conta" : "Nova conta";
+    if (c) {
+      ["descricao", "valor", "vencimento", "categoria"].forEach((k) => (fConta[k].value = c[k] ?? ""));
+      fConta.recorrente.checked = !!c.recorrente;
+    } else fConta.vencimento.value = U.hoje();
+    mostrarPrevia("prevConta", c?.foto, "🧾");
+    $("#dlgConta").showModal();
+  }
+  $("#btnNovaConta").onclick = () => abrirConta(null);
+  fConta.addEventListener("submit", async (e) => {
+    if (e.submitter?.value !== "salvar") return;
+    e.preventDefault();
+    const valor = U.num(fConta.valor.value);
+    if (!fConta.descricao.value.trim() || !valor || !fConta.vencimento.value) return alert("Preencha descrição, valor e vencimento.");
+    await DB.salvarItem("contas", {
+      ...(contaEditando || { pago: false }),
+      descricao: fConta.descricao.value.trim(),
+      valor,
+      vencimento: fConta.vencimento.value,
+      categoria: fConta.categoria.value,
+      recorrente: fConta.recorrente.checked,
+      foto: fotos.prevConta ?? contaEditando?.foto ?? ""
+    });
+    $("#dlgConta").close();
+    await carregar();
+  });
+
+  // ---------- Ações ----------
+  document.addEventListener("click", async (e) => {
+    const aba = e.target.closest(".aba");
+    if (aba && ["produtos", "contas"].includes(aba.dataset.aba)) return carregar();
+    const b = e.target.closest("[data-adm]");
+    if (!b) return;
+    const id = b.dataset.id;
+    const p = produtos.find((x) => x.id === id);
+    const c = contas.find((x) => x.id === id);
+    switch (b.dataset.adm) {
+      case "verFotoProd": return verFoto(p?.foto);
+      case "verFotoConta": return verFoto(c?.foto);
+      case "editarProd": return abrirProduto(p);
+      case "editarConta": return abrirConta(c);
+      case "repor": {
+        const qtd = U.num(prompt(`Quantas embalagens de "${p.nome}" chegaram?`, "1"));
+        if (qtd > 0) {
+          const atual = calcular(p).restanteEmb;
+          await DB.salvarItem("produtos", { ...p, estoque: Math.round((atual + qtd) * 100) / 100, atualizadoEm: Date.now() });
+        }
+        break;
+      }
+      case "excluirProd":
+        if (confirm(`Excluir o produto "${p.nome}"?`)) await DB.removerItem("produtos", id);
+        break;
+      case "excluirConta":
+        if (confirm(`Excluir a conta "${c.descricao}"?`)) await DB.removerItem("contas", id);
+        break;
+      case "pagar":
+        await DB.salvarItem("contas", { ...c, pago: true, pagoEm: U.hoje() });
+        // conta mensal: já cria a do próximo mês
+        if (c.recorrente && !contas.some((x) => x.serieDe === (c.serieDe || c.id) && x.vencimento === somarMes(c.vencimento))) {
+          const { id: _, pago, pagoEm, foto, ...resto } = c;
+          await DB.salvarItem("contas", { ...resto, serieDe: c.serieDe || c.id, vencimento: somarMes(c.vencimento), pago: false, foto: "" });
+        }
+        break;
+      case "desfazer":
+        await DB.salvarItem("contas", { ...c, pago: false, pagoEm: null });
+        break;
+      default:
+        return;
+    }
+    await carregar();
+  });
+
+  DB.aoMudar(carregar);
+  await carregar();
+})();
+
+</script>
+<script>
+// Alterna entre o site do cliente e o painel do dono (#painel)
+(function () {
+  function modo() {
+    var p = location.hash === "#painel";
+    document.getElementById("modoSite").hidden = p;
+    document.getElementById("modoPainel").hidden = !p;
+    var nome = "2L Est" + String.fromCharCode(233) + "tica Automotiva";
+    document.title = p ? "Painel | " + nome : nome + " | Agende seu hor" + String.fromCharCode(225) + "rio";
+    if (p || location.hash === "" ) window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", modo);
+  modo();
+})();
+</script>
+</body>
+</html>
