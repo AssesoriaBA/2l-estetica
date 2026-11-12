@@ -431,6 +431,22 @@ details.mais summary::-webkit-details-marker { display: none; }
 .privacidade { margin-top: .8rem; text-align: center; }
 
 
+#tabelaCli td:last-child { white-space: nowrap; }
+#tabelaCli td:last-child .btn + .btn { margin-left: .3rem; }
+
+
+/* Clientes no celular: vira cartão (botões sempre visíveis) */
+@media (max-width: 640px) {
+  #tabelaCli thead { display: none; }
+  #tabelaCli, #tabelaCli tbody, #tabelaCli tr, #tabelaCli td { display: block; width: 100%; }
+  #tabelaCli tr { border-bottom: 1px solid var(--borda); padding: .7rem .3rem; }
+  #tabelaCli td { border: 0; padding: .15rem .6rem; }
+  #tabelaCli td[data-rot] { display: flex; justify-content: space-between; gap: 1rem; font-size: .88rem; }
+  #tabelaCli td[data-rot]::before { content: attr(data-rot); color: var(--suave); }
+  #tabelaCli td:last-child { white-space: normal; display: flex; gap: .4rem; padding-top: .5rem; }
+  #tabelaCli td:last-child .btn + .btn { margin-left: auto; }
+}
+
 </style>
 </head>
 <body>
@@ -2116,6 +2132,18 @@ window.Whats = {
         await recarregar();
       }
     }
+    if (b.dataset.acao === "excluirCliente") {
+      const c = clientes().find((x) => x.tel === b.dataset.tel);
+      if (!c) return;
+      const doCliente = ags.filter((a) => U.telefone(a.telefone) === c.tel);
+      const futuros = doCliente.filter((a) => a.data >= U.hoje() && !Agenda.INATIVOS.includes(a.status)).length;
+      const aviso = `Excluir ${c.nome} (${U.fmtTelefone(c.tel)})?\n\nIsso apaga os ${doCliente.length} agendamento(s) dele, inclusive o histórico de faturamento.` +
+        (futuros ? `\n⚠️ Ele tem ${futuros} horário(s) marcado(s) daqui pra frente.` : "") +
+        `\n\nNão dá para desfazer.`;
+      if (!confirm(aviso)) return;
+      for (const a of doCliente) await DB.remover(a.id);
+      await recarregar();
+    }
     if (b.dataset.acao === "retorno") {
       const c = clientes().find((x) => x.tel === b.dataset.tel);
       if (!c) return;
@@ -2242,13 +2270,14 @@ window.Whats = {
         return `<tr>
           <td><b>${U.esc(c.nome)}</b><br><small>${U.fmtTelefone(c.tel)}</small></td>
           <td>${U.esc(c.veiculo || "-")}<br><small>${U.esc(c.placa || "")}</small></td>
-          <td>${c.visitas}</td>
-          <td>${U.moeda(c.gasto)}</td>
-          <td>${c.ultimaData ? `${U.fmtDataCurta(c.ultimaData)}<br><small>há ${c.diasSemVir} dia(s)</small>` : "-"}
+          <td data-rot="Visitas">${c.visitas}</td>
+          <td data-rot="Gasto">${U.moeda(c.gasto)}</td>
+          <td data-rot="Última vez">${c.ultimaData ? `${U.fmtDataCurta(c.ultimaData)}<br><small>há ${c.diasSemVir} dia(s)</small>` : "-"}
             ${c.proximo ? `<br><span class="tag">volta ${U.fmtDataCurta(c.proximo)}</span>` : ""}</td>
           <td><button class="btn btn-peq ${chamado ? "btn-msg enviado" : "btn-whats"}" data-acao="retorno" data-tel="${c.tel}"
             title="${chamado ? "Chamado em " + new Date(chamado).toLocaleDateString("pt-BR") : ""}">
-            ${chamado ? "✓ Chamado " + new Date(chamado).toLocaleDateString("pt-BR").slice(0, 5) : "💬 Chamar de volta"}</button></td>
+            ${chamado ? "✓ Chamado " + new Date(chamado).toLocaleDateString("pt-BR").slice(0, 5) : "💬 Chamar de volta"}</button>
+            <button class="btn btn-peq btn-perigo" data-acao="excluirCliente" data-tel="${c.tel}" title="Excluir cliente" aria-label="Excluir cliente">🗑️</button></td>
         </tr>`;
       }).join("") : `<tr><td colspan="6" class="vazio">Nenhum cliente aqui.</td></tr>`}</tbody>`;
   }
