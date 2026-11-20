@@ -447,6 +447,192 @@ details.mais summary::-webkit-details-marker { display: none; }
   #tabelaCli td:last-child .btn + .btn { margin-left: auto; }
 }
 
+.servico .preco.preco-consulta { margin-top: auto; font-size: 1.5rem; }
+
+
+/* Passo 1: veículo e estado */
+.opcoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .55rem; }
+.opcao {
+  font: inherit; color: var(--texto); cursor: pointer; text-align: left;
+  background: var(--card2); border: 1px solid var(--borda); border-radius: 12px; padding: .7rem .85rem;
+  display: flex; align-items: center; gap: .55rem; font-weight: 600; transition: border-color .15s, box-shadow .15s;
+}
+.opcao:hover { border-color: var(--ouro); }
+.opcao.ativo { border-color: var(--ouro); box-shadow: var(--brilho); background: linear-gradient(180deg, #2a2208, #120f05); }
+.opcao-icone { font-size: 1.4rem; }
+.opcoes-estado .opcao { flex-direction: column; align-items: flex-start; gap: .1rem; }
+.opcoes-estado .opcao small { color: var(--suave); font-weight: 400; font-size: .78rem; }
+.rotulo { font-weight: 600; margin: 0 0 .5rem; }
+
+/* Configurações: preço por veículo embaixo de cada serviço */
+.serv-linha .serv-precos { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: .4rem; padding: .2rem 0 .7rem; border-bottom: 1px dashed #333; }
+.serv-precos label { font-size: .75rem; color: var(--suave); gap: .15rem; }
+.serv-precos input { padding: .4rem .55rem; font-size: .85rem; }
+
+/* Sinal e leva e traz */
+.aviso-sinal { background: rgba(255, 193, 7, .1); border: 1px solid rgba(255, 193, 7, .5); border-radius: 10px; padding: .6rem .8rem; margin: .6rem 0; color: #f6e2a4; }
+.leva-traz { margin-top: .9rem; padding: .8rem; border: 1px dashed #3a3a3a; border-radius: 12px; }
+
+/* Foto de fundo no topo */
+.hero.com-foto {
+  background:
+    linear-gradient(90deg, rgba(5,5,5,.95) 0%, rgba(5,5,5,.82) 45%, rgba(5,5,5,.35) 100%),
+    var(--foto-topo) center 60% / cover no-repeat, #050505;
+}
+@media (max-width: 640px) {
+  .hero.com-foto { background: linear-gradient(180deg, rgba(5,5,5,.7) 0%, rgba(5,5,5,.92) 70%), var(--foto-topo) center / cover no-repeat, #050505; }
+}
+
+/* Nosso trabalho */
+.fotos-secao { padding-top: 2.5rem; padding-bottom: 1rem; }
+.filtros-fotos { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+.chip-filtro { font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; padding: .35rem .9rem; border-radius: 999px; border: 1px solid #3a3a3a; background: transparent; color: var(--texto); }
+.chip-filtro.ativo { background: var(--grad-ouro); color: #111; border-color: var(--ouro); }
+.fotos { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 240px); gap: .7rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+.foto { position: relative; padding: 0; border: 1px solid rgba(255,193,7,.35); border-radius: 14px; overflow: hidden; cursor: zoom-in; background: #000; scroll-snap-align: start; aspect-ratio: 3 / 4; }
+.foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.foto:hover img { transform: scale(1.04); }
+.foto span { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem .7rem .55rem; font-size: .8rem; font-weight: 600; color: #fff; text-align: left; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
+.dlg-foto { padding: .8rem; width: min(560px, 100% - 24px); }
+.dlg-foto img { width: 100%; border-radius: 10px; display: block; }
+.dlg-foto p { margin: .6rem 0; font-weight: 600; }
+
+/* avaliações agora ficam mais embaixo: borda em cima também */
+.avaliacoes { border-top: 1px solid var(--borda); margin-top: 1.5rem; }
+
+
+/* ================= ESTILO APP ================= */
+body { padding-bottom: 92px; }
+.wizard .passo.bloqueado { opacity: 1; pointer-events: auto; }
+.wizard .botao-form { display: none; }
+.progresso { position: sticky; top: 61px; z-index: 12; background: rgba(10,10,10,.94); backdrop-filter: blur(8px); padding: .6rem 0 .7rem; margin-bottom: .8rem; }
+.progresso-barra { height: 6px; background: #262626; border-radius: 6px; overflow: hidden; }
+.progresso-barra i { display: block; height: 100%; width: 25%; background: var(--grad-ouro); border-radius: 6px; transition: width .3s; }
+.progresso-txt { margin-top: .4rem; font-size: .82rem; color: var(--suave); }
+.progresso-txt b { color: var(--texto); }
+.tela { animation: entrar .25s ease-out; }
+@keyframes entrar { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+
+/* cartões de serviço com foto */
+.servico.com-foto { padding-top: 0; overflow: hidden; }
+.servico-foto { display: block; margin: 0 -1rem .7rem; height: 130px; background: #111 center / cover no-repeat; border-bottom: 1px solid rgba(255,193,7,.25); }
+.servico.destaque .servico-foto { margin: 0 -1.1rem .7rem; height: 150px; }
+.servico.com-foto .marca { top: .7rem; left: .7rem; background: rgba(0,0,0,.6); }
+.servico.com-foto .selo-off { top: .7rem; }
+.servico.com-foto strong { margin-top: 0; }
+.servico.ativo .servico-foto { filter: saturate(1.15); }
+
+/* barra fixa embaixo */
+.barra-app { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: rgba(12,12,12,.97); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,193,7,.45); box-shadow: 0 -8px 30px rgba(0,0,0,.5); padding: .65rem 0 calc(.65rem + env(safe-area-inset-bottom)); }
+.barra-app-in { display: flex; align-items: center; gap: .7rem; }
+.barra-resumo { flex: 1; min-width: 0; font-size: .85rem; line-height: 1.3; }
+.barra-resumo .carrinho-total { font-size: 1.25rem; }
+.barra-resumo #carrinhoTxt small { display: inline; margin-left: .3rem; }
+.barra-resumo .dica { margin: 0; color: #cfcfcf; }
+#btnAvancar { min-width: 130px; }
+#btnAvancar:disabled { filter: grayscale(1); opacity: .45; }
+#btnVoltar { padding: .55rem .8rem; }
+@media (max-width: 640px) {
+  .barra-resumo #carrinhoTxt b, .barra-resumo #carrinhoTxt small { display: none; }
+  .servico-foto { height: 110px; }
+  #btnAvancar { min-width: 112px; padding: .7rem .9rem; }
+}
+
+.pacotes-det { display: inline; }
+.pacotes-det summary { display: inline; cursor: pointer; color: var(--ouro); text-decoration: underline; font-size: .82rem; margin-left: .3rem; }
+.pacotes-det[open] div { margin-top: .3rem; font-size: .85rem; }
+@media (max-width: 640px) {
+  .barra-resumo .cx-info { display: none; }
+  .barra-resumo .carrinho-total { margin-left: 0; display: block; }
+  .aviso-combo { font-size: .85rem; }
+}
+
+/* ================= AGENDAMENTO SIMPLES ================= */
+.progresso-linha { display: flex; align-items: center; gap: .7rem; margin-bottom: .45rem; }
+.btn-voltar { font: inherit; font-weight: 700; font-size: .9rem; cursor: pointer; color: var(--ouro); background: rgba(255,193,7,.1); border: 1px solid rgba(255,193,7,.5); border-radius: 10px; padding: .4rem .8rem; }
+.progresso-txt { margin-top: 0; }
+.wizard .passo h3 { font-family: "Poppins", sans-serif; font-style: normal; text-transform: none; font-size: 1.05rem; letter-spacing: 0; }
+/* veículos: botões grandes e simples */
+.opcoes-veiculo { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+.opcoes-veiculo .opcao { flex-direction: column; justify-content: center; text-align: center; padding: .7rem .4rem; gap: .2rem; font-size: .85rem; }
+.opcoes-veiculo .opcao-icone { font-size: 1.7rem; }
+/* lista de serviços em linhas */
+.grupo-serv h4 { font-family: "Poppins", sans-serif; font-style: normal; text-transform: none; font-size: .95rem; color: var(--suave); margin: 1rem 0 .5rem; }
+.grupo-serv h4 small { font-size: .8rem; }
+.lista-serv { display: flex; flex-direction: column; gap: .5rem; }
+.servico.serv-item {
+  display: grid; grid-template-columns: 58px 1fr auto 30px; align-items: center; gap: .7rem;
+  padding: .45rem .6rem .45rem .45rem; border-radius: 14px; border: 1px solid #2f2f2f; background: var(--card2); text-align: left;
+}
+.servico.serv-item:hover { box-shadow: none; border-color: rgba(255,193,7,.6); }
+.servico.serv-item.ativo { border-color: var(--ouro); background: linear-gradient(90deg, #2a2208, #161208); box-shadow: 0 0 0 1px rgba(255,193,7,.5); }
+.si-foto { width: 58px; height: 58px; border-radius: 10px; background: #222 center / cover no-repeat; }
+.si-txt { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.si-txt b { font-size: .95rem; line-height: 1.2; }
+.si-txt small { font-size: .74rem; color: #6ee7a0; font-weight: 600; }
+.si-preco { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; }
+.si-preco b { font-family: var(--titulo); font-style: italic; font-size: 1.25rem; color: var(--ouro); white-space: nowrap; }
+.si-preco s { font-size: .72rem; }
+.si-preco .si-consulta { font-family: "Poppins", sans-serif; font-style: normal; font-size: .8rem; color: var(--suave); }
+.si-check { width: 26px; height: 26px; border-radius: 8px; border: 2px solid #555; display: grid; place-items: center; font-weight: 800; color: #111; }
+.servico.serv-item.unico .si-check { border-radius: 50%; }
+.servico.serv-item.ativo .si-check { background: var(--grad-ouro); border-color: var(--ouro); }
+.aviso-combo { font-size: .85rem; padding: .55rem .8rem; }
+@media (max-width: 640px) {
+  .servico.serv-item { grid-template-columns: 52px 1fr auto 26px; gap: .55rem; }
+  .si-foto { width: 52px; height: 52px; }
+  .si-preco b { font-size: 1.1rem; }
+  .opcoes-veiculo { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* o atributo hidden sempre esconde (mesmo em .btn) */
+[hidden] { display: none !important; }
+.opcoes-veiculo { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+@media (max-width: 640px) { .opcoes-veiculo { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.opcoes-veiculo .opcao small { display: block; font-weight: 400; font-size: .7rem; color: var(--suave); }
+
+
+/* fotos maiores na lista de serviços */
+.servico.serv-item { grid-template-columns: 100px 1fr auto 28px; padding: .5rem .7rem .5rem .5rem; }
+.si-foto { width: 100px; height: 100px; border-radius: 12px; }
+.si-txt b { font-size: 1rem; }
+@media (max-width: 640px) {
+  .servico.serv-item { grid-template-columns: 88px 1fr auto 26px; gap: .6rem; }
+  .si-foto { width: 88px; height: 88px; }
+}
+
+/* foto grande à esquerda · nome, selo e preço empilhados · ✓ à direita */
+.servico.serv-item {
+  grid-template-columns: 100px 1fr 28px;
+  grid-template-areas: "foto txt check" "foto preco check";
+  row-gap: .25rem; align-items: center;
+}
+.si-foto { grid-area: foto; }
+.si-txt { grid-area: txt; align-self: end; }
+.si-preco { grid-area: preco; align-self: start; flex-direction: row; align-items: baseline; gap: .45rem; justify-content: flex-start; }
+.si-check { grid-area: check; }
+@media (max-width: 640px) {
+  .servico.serv-item { grid-template-columns: 92px 1fr 26px; column-gap: .7rem; }
+  .si-foto { width: 92px; height: 92px; }
+}
+
+/* aviso discreto do que falta */
+#btnAvancar.inativo { filter: grayscale(1); opacity: .5; }
+.aviso-falta {
+  position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translate(-50%, 8px);
+  background: #1d1d1d; color: var(--texto); border: 1px solid rgba(255,193,7,.6); border-radius: 999px;
+  padding: .4rem .95rem; font-size: .85rem; font-weight: 600; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; box-shadow: 0 6px 20px rgba(0,0,0,.5);
+}
+.aviso-falta::before { content: "⚠️ "; }
+.aviso-falta.mostrar { opacity: 1; transform: translate(-50%, 0); }
+.falta { animation: piscaFalta 1.5s ease-out; border-radius: 14px; }
+@keyframes piscaFalta {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,193,7,0); }
+  20%, 60% { box-shadow: 0 0 0 3px rgba(255,193,7,.75); }
+  40%, 80% { box-shadow: 0 0 0 3px rgba(255,193,7,.15); }
+}
+
 </style>
 </head>
 <body>
@@ -475,6 +661,108 @@ details.mais summary::-webkit-details-marker { display: none; }
     </div>
   </section>
 
+  <main id="agendar" class="secao">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Agende em 1 minuto</h2>
+      </div>
+
+      <div id="fluxo" class="wizard">
+        <!-- progresso -->
+        <div class="progresso" id="progresso">
+          <div class="progresso-linha">
+            <button type="button" class="btn-voltar" id="btnVoltarTopo" hidden>← Voltar</button>
+            <div class="progresso-txt"><span id="progressoPasso">Passo 1 de 3</span> · <b id="progressoNome">O que você precisa?</b></div>
+          </div>
+          <div class="progresso-barra"><i id="progressoBarra"></i></div>
+        </div>
+
+        <section class="tela" data-passo="1">
+          <div class="passo" id="passoServicos">
+            <h3>Qual é o seu veículo?</h3>
+            <div class="opcoes opcoes-veiculo" id="veiculos"></div>
+            <h3 style="margin-top:1.3rem">O que você precisa?</h3>
+            <div id="servicos"></div>
+          </div>
+          <div class="sugestao oculto" id="sugestao"></div>
+        </section>
+
+        <section class="tela" data-passo="2" hidden>
+          <div class="passo" id="passoDia">
+            <h3>Qual dia?</h3>
+            <div class="dias" id="dias"></div>
+            <h3 style="margin-top:1.3rem" id="passoHora">Qual horário?</h3>
+            <div class="horas" id="horas"><p class="vazio">Escolha o dia primeiro 🙂</p></div>
+          </div>
+        </section>
+
+        <section class="tela" data-passo="3" hidden>
+        <form class="passo" id="passoDados" novalidate>
+          <h3>Seus dados</h3>
+          <div class="campos">
+            <label>Nome<input name="nome" required autocomplete="name" placeholder="Seu nome"></label>
+            <label>WhatsApp<input name="telefone" required inputmode="tel" autocomplete="tel" placeholder="(12) 99999-9999"></label>
+            <label>Modelo e cor<input name="veiculo" required placeholder="Ex.: Civic prata"></label>
+            <label>Como está o veículo? <small class="dica">(opcional)</small><select name="estado" id="estadoSel"></select></label>
+          </div>
+          <div class="leva-traz oculto" id="blocoLevaTraz">
+            <label class="check"><input type="checkbox" name="querLevaTraz" id="querLevaTraz"> 🚗 Quero leva e traz (buscamos e devolvemos o veículo)</label>
+            <div class="campos oculto" id="camposLevaTraz" style="margin-top:.6rem">
+              <label>Bairro<select name="bairro" id="bairroLevaTraz"></select></label>
+              <label>Endereço (rua e número)<input name="enderecoLevaTraz" placeholder="Ex.: Rua das Flores, 120" autocomplete="street-address"></label>
+            </div>
+            <p class="dica oculto" id="avisoForaArea">Fora da nossa região o leva e traz tem custo, combinado pelo WhatsApp.</p>
+          </div>
+          <details class="mais">
+            <summary>+ mais detalhes (placa, observação)</summary>
+            <div class="campos" style="margin-top:.8rem">
+              <label>Placa<input name="placa" placeholder="ABC1D23" maxlength="8" style="text-transform:uppercase"></label>
+              <label>Observação<input name="obs" placeholder="Algo que a gente precise saber?"></label>
+            </div>
+          </details>
+          <div class="resumo" id="resumo"></div>
+          <p class="erro oculto" id="erro"></p>
+          <button class="btn btn-vermelho btn-bloco botao-form" type="submit">Confirmar agendamento</button>
+          <p class="dica privacidade">🔒 Seus dados (nome, WhatsApp e carro) são usados só para o seu agendamento e para avisos do serviço. Não compartilhamos com ninguém. Para apagar seus dados, é só pedir no WhatsApp.</p>
+        </form>
+        </section>
+      </div>
+
+      <!-- barra fixa embaixo (estilo app) -->
+      <div class="barra-app" id="barraApp">
+        <div class="aviso-falta" id="avisoFalta" role="status" aria-live="polite"></div>
+        <div class="barra-app-in container">
+          <button type="button" class="btn btn-claro btn-peq" id="btnVoltar" hidden>← Voltar</button>
+          <div class="barra-resumo">
+            <div class="oculto" id="carrinho"><div id="carrinhoTxt"></div></div>
+            <div class="dica" id="barraDica">Escolha o seu veículo</div>
+          </div>
+          <button type="button" class="btn btn-vermelho inativo" id="btnAvancar" aria-disabled="true">Continuar</button>
+        </div>
+      </div>
+
+      <div class="passo sucesso oculto" id="sucesso">
+        <div class="icone">✅</div>
+        <h2>Horário reservado!</h2>
+        <div class="resumo" id="resumoFinal"></div>
+        <div class="aviso-sinal oculto" id="sinalSucesso"></div>
+        <p>Toque abaixo para mandar o agendamento no nosso WhatsApp. Assim você já recebe a confirmação por lá.</p>
+        <div class="linha" style="justify-content:center">
+          <a class="btn btn-whats" id="whatsSucesso" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+          <button class="btn btn-claro" id="novo">Fazer outro agendamento</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="secao fotos-secao oculto" id="secFotos">
+    <div class="container">
+      <div class="secao-titulo"><h2>Nosso trabalho</h2><p>Fotos reais de veículos que passaram pela 2L.</p></div>
+      <div class="filtros-fotos" id="filtrosFotos"></div>
+      <div class="fotos" id="fotos"></div>
+    </div>
+  </section>
+
   <section class="avaliacoes">
     <div class="container">
       <div class="nota-google">
@@ -488,67 +776,11 @@ details.mais summary::-webkit-details-marker { display: none; }
     </div>
   </section>
 
-  <main id="agendar" class="secao">
-    <div class="container">
-      <div class="secao-titulo">
-        <h2>Agende em 1 minuto</h2>
-      </div>
-
-      <div id="fluxo">
-        <div class="passo">
-          <h3><span class="passo-num">1</span>Escolha os serviços</h3>
-          <div id="servicos"></div>
-        </div>
-        <div class="sugestao oculto" id="sugestao"></div>
-        <div class="carrinho oculto" id="carrinho">
-          <div id="carrinhoTxt"></div>
-          <button type="button" class="btn btn-vermelho btn-peq" id="carrinhoBtn">Escolher dia →</button>
-        </div>
-
-        <div class="passo bloqueado" id="passoDia">
-          <h3><span class="passo-num">2</span>Dia</h3>
-          <div class="dias" id="dias"></div>
-        </div>
-
-        <div class="passo bloqueado" id="passoHora">
-          <h3><span class="passo-num">3</span>Horário</h3>
-          <div class="horas" id="horas"></div>
-        </div>
-
-        <form class="passo bloqueado" id="passoDados" novalidate>
-          <h3><span class="passo-num">4</span>Seus dados</h3>
-          <div class="campos">
-            <label>Nome<input name="nome" required autocomplete="name" placeholder="Seu nome"></label>
-            <label>WhatsApp<input name="telefone" required inputmode="tel" autocomplete="tel" placeholder="(12) 99999-9999"></label>
-            <label>Carro<input name="veiculo" required placeholder="Ex.: Civic prata"></label>
-            <label>Tamanho<select name="porte"></select></label>
-          </div>
-          <details class="mais">
-            <summary>+ mais detalhes (placa, observação)</summary>
-            <div class="campos" style="margin-top:.8rem">
-              <label>Placa<input name="placa" placeholder="ABC1D23" maxlength="8" style="text-transform:uppercase"></label>
-              <label>Observação<input name="obs" placeholder="Algo que a gente precise saber?"></label>
-            </div>
-          </details>
-          <div class="resumo" id="resumo"></div>
-          <p class="erro oculto" id="erro"></p>
-          <button class="btn btn-vermelho btn-bloco" type="submit">Confirmar agendamento</button>
-          <p class="dica privacidade">🔒 Seus dados (nome, WhatsApp e carro) são usados só para o seu agendamento e para avisos do serviço. Não compartilhamos com ninguém. Para apagar seus dados, é só pedir no WhatsApp.</p>
-        </form>
-      </div>
-
-      <div class="passo sucesso oculto" id="sucesso">
-        <div class="icone">✅</div>
-        <h2>Horário reservado!</h2>
-        <div class="resumo" id="resumoFinal"></div>
-        <p>Toque abaixo para mandar o agendamento no nosso WhatsApp. Assim você já recebe a confirmação por lá.</p>
-        <div class="linha" style="justify-content:center">
-          <a class="btn btn-whats" id="whatsSucesso" target="_blank" rel="noopener">Enviar no WhatsApp</a>
-          <button class="btn btn-claro" id="novo">Fazer outro agendamento</button>
-        </div>
-      </div>
-    </div>
-  </main>
+  <dialog id="dlgFotoSite" class="dlg-foto">
+    <img id="fotoSiteGrande" alt="">
+    <p id="fotoSiteLegenda"></p>
+    <form method="dialog"><button class="btn btn-claro btn-peq">Fechar</button></form>
+  </dialog>
 
   <section class="secao oculto" id="secGaleria">
     <div class="container">
@@ -733,6 +965,25 @@ details.mais summary::-webkit-details-marker { display: none; }
               <label class="check"><input type="checkbox" name="comboAcumula"> Somar com a promoção</label>
             </div>
             <p class="dica">Só os serviços do grupo <b>Estética</b> ganham desconto; lavagem sai sempre cheia. Com lavagem junto, a 1ª estética já ganha o desconto. Só estética: a mais cara sai cheia. Com "Somar com a promoção" desligado (recomendado), vale o <b>maior</b> desconto, sem somar.</p>
+            <p style="margin:1rem 0 .4rem;font-weight:600;font-size:.9rem">📦 Pacotes com preço fechado (carro P/M)</p>
+            <div id="cfgPacotes"></div>
+          </div>
+          <div class="caixa">
+            <h3>💵 Pagamento, sinal e leva e traz</h3>
+            <div class="campos">
+              <label>Formas de pagamento (aparece no site)<input name="pagamento"></label>
+              <label>Chave Pix (para o sinal)<input name="pix" placeholder="CNPJ, telefone ou e-mail"></label>
+              <label class="check"><input type="checkbox" name="sinalAtivo"> Pedir sinal</label>
+              <label>Sinal (% do valor)<input type="number" name="sinalPct" min="0" max="100" step="5"></label>
+              <label>Sinal mínimo (R$)<input type="number" name="sinalMin" min="0" step="5"></label>
+              <label>Pedir sinal em serviços a partir de (minutos)<input type="number" name="sinalMinutos" min="30" step="30"></label>
+            </div>
+            <p class="dica">O sinal é pedido nos serviços longos (e pernoite) e para SUV/caminhonete em qualquer serviço além da lavagem simples.</p>
+            <div class="campos" style="margin-top:.8rem">
+              <label class="check"><input type="checkbox" name="ltAtivo"> Oferecer leva e traz</label>
+              <label>Bairros atendidos (um por linha)<textarea name="ltBairros" rows="4"></textarea></label>
+              <label>Regras de cancelamento (aparece no site)<textarea name="regras" rows="3"></textarea></label>
+            </div>
           </div>
           <div class="caixa">
             <h3>Funcionamento</h3>
@@ -755,10 +1006,10 @@ details.mais summary::-webkit-details-marker { display: none; }
           <div class="caixa">
             <h3>Serviços e preços</h3>
             <p class="dica">"Vagas" = quanto do espaço o serviço ocupa. Lavagem = 1. Serviço pesado = 2 a 2,5 (assim cabem só 1 ou 2 por vez).</p>
+            <p class="dica">Preço por veículo: <code>80</code> = preço fixo · <code>80-90</code> = faixa (veículo "muito sujo" paga o maior) · <code>?</code> = a combinar · <b>vazio</b> = não faz para esse veículo.</p>
             <div id="cfgServicos"></div>
             <button type="button" class="btn btn-claro btn-peq" id="addServico">+ Adicionar serviço</button>
             <div class="campos" style="margin-top:1rem">
-              <label>SUV / caminhonete: acréscimo em % (vazio = valor a combinar)<input type="number" name="acrescimoG" min="0" step="1" placeholder="a combinar"></label>
               <label>Link de avaliação do Google<input name="linkAvaliacao" placeholder="https://g.page/r/..."></label>
             </div>
           </div>
@@ -874,7 +1125,7 @@ details.mais summary::-webkit-details-marker { display: none; }
 // Configuração padrão do lava rápido.
 // Tudo isso pode ser alterado depois pelo Painel > Configurações.
 window.CONFIG_PADRAO = {
-  versao: 7, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
+  versao: 10, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
   nome: "2L Estética Automotiva",
   lema: "Cuidado que se vê, qualidade que fica!",
   slogan: "Polimento, higienização, restauração de farol e cristalização de para-brisa. Combine serviços e ganhe até 20% OFF.",
@@ -909,6 +1160,7 @@ window.CONFIG_PADRAO = {
       estrelas: 5,
       texto: "Hoje foi a primeira vez que lavei meu carro na 2L, fui muito bem atendido e com certeza irei voltar mais vezes. Serviço de qualidade, recomendo, parabéns 👍👏"
     },
+    { nome: "Aline Leite", quando: "há 6 meses", estrelas: 5, texto: "Excelente trabalho, pontualidade no sistema \"leva e traz\". Indico!" },
     { nome: "Natan Carmo", quando: "há 4 meses", estrelas: 5, texto: "Atendimento top, serviço exemplar, recomendo." },
     { nome: "Alessandro Costa", quando: "há 6 meses", estrelas: 5, texto: "Atendimento diferenciado, parabéns pelo atendimento e pelo serviço." },
     { nome: "Cliente do Google", quando: "há 5 meses", estrelas: 5, texto: "Atendimento ótimo e super qualidade de serviço. Indico muito 🙌" }
@@ -918,30 +1170,64 @@ window.CONFIG_PADRAO = {
   // descontos[1] = 1º serviço de estética com desconto, descontos[2] = os seguintes.
   // acumulaComOferta: false = vale o MAIOR desconto (combo ou promoção), sem somar
   combo: { ativo: true, categoria: "estetica", descontos: [0, 15, 20], acumulaComOferta: false },
+  // Pacotes com preço fechado (valem no lugar do desconto de combo quando o cliente marca todos os serviços do pacote)
+  pacotes: [
+    { id: "hig-pol", nome: "Higienização + Polimento", ids: ["higienizacao", "polimento"], preco: 750, tipos: ["carro"], ativo: true },
+    { id: "lav-crist", nome: "Lavagem + Cristalização", ids: ["simples", "parabrisa"], preco: 100, tipos: ["carro"], ativo: true }
+  ],
+  // Formas de pagamento (aparece nas dúvidas e no resumo)
+  pagamento: "Pix ou cartão – parcelamos em até 2x sem juros.",
+  // Sinal: serviços que ocupam o dia (≥ minutos ou pernoite) e veículos grandes com serviço além da lavagem simples
+  sinal: { ativo: true, percentual: 30, minimo: 50, minutos: 180, tipos: ["suv", "caminhonete"] },
+  pix: "", // chave Pix do dono para o sinal (preencher no painel)
+  // Leva e traz: bairros atendidos; fora deles o custo é combinado
+  levaTraz: { ativo: true, bairros: ["Altos da Ponte", "Minas Gerais", "Altos de Santana", "Telespark", "Santana"] },
+  regras: "Cancelamento ou remarcação até 1 dia antes. Tolerância de 10 minutos de atraso.",
   categorias: [
-    { id: "estetica", nome: "Estética automotiva", subtitulo: "Seu carro com cara de novo" },
+    { id: "estetica", nome: "Estética automotiva", subtitulo: "Seu veículo com cara de novo" },
     { id: "lavagem", nome: "Lavagem", subtitulo: "escolha 1", escolhaUnica: true }
   ],
   // Oferta ativa: mostra "De / Por" usando o precoOferta de cada serviço
   oferta: { ativa: true, titulo: "Black Friday", texto: "15% OFF em todos os serviços", ate: "2026-11-30" },
-  observacaoPreco: "Preços para carro pequeno/médio. SUV e caminhonete: consulte.",
+  // A promoção (precoOferta) vale só para "carro" – é a tabela do panfleto (Carro P/M)
+  observacaoPreco: "O valor final é confirmado na avaliação do veículo.",
+  // Tipos de veículo: o cliente escolhe primeiro; cada serviço tem preço por tipo
+  veiculos: [
+    { id: "carro", nome: "Carro pequeno/médio", curto: "Carro", sub: "pequeno/médio", icone: "🚗" },
+    { id: "suv", nome: "SUV", icone: "🚙" },
+    { id: "caminhonete", nome: "Caminhonete / Hilux", curto: "Caminhonete", sub: "Hilux, S10...", icone: "🚚" },
+    { id: "moto", nome: "Moto", icone: "🏍️" },
+    { id: "motoG", nome: "Moto grande", icone: "🏍️" }
+  ],
+  // Como está o veículo (avaliação). "max" = usa o maior valor quando o preço é uma faixa (ex.: SUV 80–90)
+  estados: [
+    { id: "semanal", nome: "Limpeza semanal", dica: "lavado há até 7 dias" },
+    { id: "pouco", nome: "Pouco sujo", dica: "poeira e sujeira do dia a dia" },
+    { id: "muito", nome: "Muito sujo", dica: "barro, areia, pelo de animal", max: true }
+  ],
   servicos: [
+    // precos: preço por tipo de veículo.  número = preço · "80-90" = faixa (estado "muito sujo" usa o maior)
+    //         "?" = a combinar (o dono define no painel) · sem o tipo = não aparece para aquele veículo
+    // preco/precoOferta = carro pequeno/médio (tabela do panfleto, com Black Friday)
     // Tabela da 2L (carro P/M).
-    // duracao = minutos que o carro fica (cada carro de lavagem = 1h30, informado pelo dono)
+    // duracao = minutos que o carro fica (tempos informados pelo dono em 20/11/2026, usando o MAIOR tempo de cada faixa)
+    //   simples 1h–1h20 · cera 1h20–1h30 · detalhada 2h30–4h · cristalização 1h · farol 2h30–3h
+    //   higienização 6h · polimento 3h–5h · vitrificação: fica de um dia para o outro (pernoite)
+    // preco 0 = "Sob consulta" (o dono define o valor no painel)
     // peso = quantas das 5 vagas o serviço ocupa (lavagem 1; pesado 2 a 2,5 → só cabem 1 ou 2)
     // categoria: "estetica" aparece primeiro e em destaque
-    { id: "polimento", categoria: "estetica", nome: "Polimento comercial", descricao: "Remove riscos leves e devolve o brilho da pintura", preco: 450, precoOferta: 382.5, duracao: 360, peso: 2.5 },
-    { id: "higienizacao", categoria: "estetica", nome: "Higienização completa", descricao: "Bancos, carpetes, teto e painel", preco: 460, precoOferta: 391, duracao: 300, peso: 2.5 },
-    { id: "farol", categoria: "estetica", nome: "Restauração de farol (o par)", descricao: "Tira o amarelado: mais segurança e visibilidade à noite", preco: 270, precoOferta: 229.5, duracao: 120, peso: 2 },
-    { id: "parabrisa", categoria: "estetica", nome: "Cristalização de para-brisa", descricao: "Água escorre e a visibilidade na chuva melhora", preco: 90, precoOferta: 76.5, duracao: 90, peso: 1 },
-    { id: "simples", categoria: "lavagem", nome: "Lavagem simples", descricao: "Externa, aspiração interna, rodas e pneus, finalização com brilho", preco: 70, precoOferta: 59.99, duracao: 90, peso: 1 },
-    { id: "cera", categoria: "lavagem", nome: "Lavagem simples com cera de carnaúba", descricao: "Lavagem simples + proteção e brilho com cera de carnaúba", preco: 105, precoOferta: 89.25, duracao: 90, peso: 1 },
-    { id: "detalhada", categoria: "lavagem", nome: "Lavagem detalhada", descricao: "Limpeza minuciosa por dentro e por fora", preco: 150, precoOferta: 127.5, duracao: 90, peso: 1.5 }
-  ],
-  // Porte do veículo. acrescimo em %; null = preço sob consulta
-  portes: [
-    { id: "pm", nome: "Carro pequeno/médio", acrescimo: 0 },
-    { id: "g", nome: "SUV / caminhonete / carro grande", acrescimo: null }
+    { id: "polimento", foto: "img/carro-civic-brilho.jpg", categoria: "estetica", nome: "Polimento comercial", descricao: "Remove riscos leves e devolve o brilho da pintura", preco: 450, precoOferta: 382.5, duracao: 300, peso: 2.5, precos: { suv: "?", caminhonete: "?" } },
+    { id: "higienizacao", foto: "img/interior-civic.jpg", categoria: "estetica", nome: "Higienização completa", descricao: "Bancos, carpetes, teto e painel", preco: 460, precoOferta: 391, duracao: 360, peso: 2.5, precos: { suv: "?", caminhonete: "?" } },
+    { id: "vitrificacao", foto: "img/carro-fox-preto.jpg", categoria: "estetica", nome: "Vitrificação de pintura", descricao: "Proteção de longa duração: brilho intenso e a água escorre. Retirada no dia seguinte.", preco: 0, precoOferta: null, duracao: 600, peso: 2, pernoite: true, precos: { suv: "?", caminhonete: "?" } },
+    { id: "farol", foto: "img/farol-civic-frente.jpg", categoria: "estetica", nome: "Restauração de farol (o par)", descricao: "Tira o amarelado: mais segurança e visibilidade à noite", preco: 270, precoOferta: 229.5, duracao: 180, peso: 2, precos: { suv: "?", caminhonete: "?" } },
+    { id: "parabrisa", foto: "img/cristalizacao-parabrisa.jpg", categoria: "estetica", nome: "Cristalização de para-brisa", descricao: "Água escorre e a visibilidade na chuva melhora", preco: 90, precoOferta: 76.5, duracao: 60, peso: 1, precos: { suv: "?", caminhonete: "?" } },
+    { id: "simples", foto: "img/carro-bravo-vermelho.jpg", categoria: "lavagem", nome: "Lavagem simples", descricao: "Externa, aspiração interna, rodas e pneus, finalização com brilho", preco: 70, precoOferta: 59.99, duracao: 80, peso: 1, precos: { suv: "80-90", caminhonete: 120 } },
+    { id: "cera", foto: "img/carro-kicks-branco.jpg", categoria: "lavagem", nome: "Lavagem simples com cera de carnaúba", descricao: "Lavagem simples + proteção e brilho com cera de carnaúba", preco: 105, precoOferta: 89.25, duracao: 90, peso: 1, precos: { suv: "?", caminhonete: "?" } },
+    { id: "detalhada", foto: "img/interior-kicks-couro.jpg", categoria: "lavagem", nome: "Lavagem detalhada", descricao: "Limpeza minuciosa por dentro e por fora", preco: 150, precoOferta: 127.5, duracao: 240, peso: 1.5, precos: { suv: "?", caminhonete: "?" } },
+    // Motos (tempos estimados – confirmar com o dono)
+    { id: "moto-lavagem", foto: "img/moto-ninja.jpg", categoria: "lavagem", nome: "Lavagem de moto", descricao: "Lavagem completa com secagem", preco: 0, soMoto: true, duracao: 60, peso: 0.5, precos: { moto: 30, motoG: 40 } },
+    { id: "moto-hig", foto: "img/moto-xre.jpg", categoria: "estetica", nome: "Higienização de moto (sem desmontar)", descricao: "Limpeza profunda de motor, rodas, carenagem e banco", preco: 0, soMoto: true, duracao: 180, peso: 1, precos: { moto: 120, motoG: 150 } },
+    { id: "moto-hig-desm", foto: "img/moto-xre.jpg", categoria: "estetica", nome: "Higienização de moto (desmontada)", descricao: "Desmontamos carenagens para limpar cada detalhe", preco: 0, soMoto: true, duracao: 360, peso: 1, precos: { moto: 200, motoG: "?" } }
   ],
   linkAvaliacao: "", // link "avalie-nos" do Google (pergunta 30)
   // Dúvidas frequentes no site (só fatos confirmados; complete com as respostas do dono)
@@ -949,14 +1235,43 @@ window.CONFIG_PADRAO = {
     { p: "Como funciona o agendamento?", r: "Você escolhe um ou mais serviços, o dia e o horário aqui no site e confirma pelo WhatsApp. Pode agendar com até 7 dias de antecedência." },
     { p: "Como funciona o desconto de combo?", r: "Os serviços de estética (polimento, higienização, restauração de farol e cristalização de para-brisa) ganham desconto quando combinados: junto com uma lavagem, o 1º serviço de estética sai com 15% OFF e os seguintes com 20% OFF. Só estética: o de maior valor sai pelo preço normal, o 2º com 15% e o 3º com 20%. Em promoções, vale o maior desconto." },
     { p: "Até que horas vocês recebem o carro?", r: "De segunda a sexta, até as 17h. Aos sábados, até as 12h." },
-    { p: "Atendem SUV e caminhonete?", r: "Sim! Os preços do site são para carro pequeno/médio. Para SUV e caminhonete, o valor é combinado pelo WhatsApp." }
+    { p: "Atendem SUV, caminhonete e moto?", r: "Sim! Escolha o seu veículo no agendamento que os preços aparecem. Alguns serviços para veículos grandes são combinados pelo WhatsApp." },
+    { p: "Por que perguntam como está o veículo?", r: "Um veículo muito sujo (barro, areia, pelo de animal) leva mais tempo e produto. O valor final é confirmado na avaliação, quando você chega." },
+    { p: "Quais as formas de pagamento?", r: "Pix ou cartão. Parcelamos em até 2x sem juros." },
+    { p: "Vocês buscam e levam o carro?", r: "Sim! Fazemos leva e traz nos bairros Altos da Ponte, Minas Gerais, Altos de Santana, Telespark e Santana. Fora dessas regiões o custo é combinado pelo WhatsApp." },
+    { p: "Posso cancelar ou remarcar?", r: "Pode, até 1 dia antes do horário. Temos tolerância de 10 minutos de atraso." },
+    { p: "Por que alguns serviços pedem sinal?", r: "Serviços de estética mais longos e veículos grandes ocupam o dia todo do box. O sinal garante o seu horário e é descontado do valor final." }
   ],
   // Fotos de antes/depois: { antes: "img/farol-antes.jpg", depois: "img/farol-depois.jpg", legenda: "Restauração de farol" }
   galeria: [],
+  // "Nosso trabalho" (fotos reais da 2L, em img/). cat = filtro
+  fotoTopo: "img/carro-civic-brilho.jpg",
+  fotos: [
+    { src: "img/carro-civic-brilho.jpg", legenda: "Civic – brilho de polimento", cat: "carros" },
+    { src: "img/carro-bravo-vermelho.jpg", legenda: "Bravo – lavagem detalhada", cat: "carros" },
+    { src: "img/interior-civic.jpg", legenda: "Civic – interior higienizado", cat: "interior" },
+    { src: "img/cristalizacao-parabrisa.jpg", legenda: "Cristalização: a água escorre", cat: "cristalizacao" },
+    { src: "img/moto-ninja.jpg", legenda: "Ninja 400 – lavagem de moto", cat: "motos" },
+    { src: "img/carro-kicks-branco.jpg", legenda: "Kicks – lavagem completa", cat: "carros" },
+    { src: "img/interior-kicks-couro.jpg", legenda: "Kicks – bancos de couro", cat: "interior" },
+    { src: "img/caminhonete-hilux.jpg", legenda: "Hilux – caminhonete", cat: "carros" },
+    { src: "img/cristalizacao-aplicacao.jpg", legenda: "Aplicação do cristalizador", cat: "cristalizacao" },
+    { src: "img/moto-xre.jpg", legenda: "XRE – higienização de moto", cat: "motos" },
+    { src: "img/carro-fox-preto.jpg", legenda: "Fox – pintura brilhando", cat: "carros" },
+    { src: "img/interior-bravo.jpg", legenda: "Bravo – interior", cat: "interior" },
+    { src: "img/lavagem-por-baixo.jpg", legenda: "Lavagem por baixo, no elevador", cat: "carros" }
+  ],
+  categoriasFotos: [
+    { id: "", nome: "Todos" }, { id: "carros", nome: "Carros" }, { id: "interior", nome: "Interior" },
+    { id: "cristalizacao", nome: "Cristalização" }, { id: "motos", nome: "Motos" }
+  ],
   // Variáveis: {nome} {servico} {data} {hora} {veiculo} {placa} {preco} {lavajato} {endereco}
   mensagens: {
     confirmacao:
-      "Olá {nome}! ✅ Seu horário no *{lavajato}* está confirmado:\n🚗 {servico}\n📅 {data} às {hora}\n💰 {preco}\n📍 {endereco}\n\nSe precisar remarcar é só responder aqui.",
+      "Olá {nome}! ✅ Seu horário no *{lavajato}* está confirmado:\n🚗 {servico}\n📅 {data} às {hora}\n💰 {preco}\n📍 {endereco}\n🚗 Leva e traz: {levaTraz}\n💵 Sinal: {sinal} – Pix: {pix}\n\nRemarcação ou cancelamento até 1 dia antes. Tolerância de 10 minutos. 😉",
+    // Cobrança do sinal (aparece na aba Mensagens quando o sinal está pendente)
+    sinal:
+      "Oi {nome}! Para garantir seu horário de {data} às {hora} ({servico}) no *{lavajato}*, falta o sinal de *{sinal}* por Pix.\n🔑 Chave Pix: {pix}\nO valor é descontado do total. Obrigado! 🙏",
     lembrete:
       "Oi {nome}! 👋 Passando para lembrar do seu horário amanhã ({data}) às {hora} no *{lavajato}* – {servico}. Te esperamos!",
     pronto:
@@ -969,7 +1284,7 @@ window.CONFIG_PADRAO = {
     promocao:
       "Oi {nome}! 🚗 {dia} até {ate} tem *{servico} por {preco}* aqui no *{lavajato}*. Só {vagas} vagas – responde aqui pra garantir a sua!",
     novoAgendamento:
-      "Olá! Acabei de agendar pelo site:\n🚗 {servico}\n📅 {data} às {hora}\n👤 {nomeCompleto} – {veiculo} {placa}\n🚘 {porte}"
+      "Olá! Acabei de agendar pelo site:\n🚗 {servico}\n📅 {data} às {hora}\n👤 {nomeCompleto} – {veiculo} {placa}\n🚘 {porte} · {estado}\n🚗 Leva e traz: {levaTraz}\n💵 Sinal: {sinal} (vou enviar o Pix)"
   }
 };
 
@@ -1352,11 +1667,61 @@ window.Oferta = {
     const o = cfg.oferta;
     return !!(o && o.ativa && (!o.ate || U.hoje() <= o.ate));
   },
-  // preço cobrado hoje e o preço "de" (riscado) quando há oferta
+  // preço do CARRO P/M hoje e o preço "de" (riscado) quando há oferta (tabela do panfleto)
   preco(cfg, s) {
     const promo = Number(s.precoOferta);
     if (Oferta.ativa(cfg) && promo > 0 && promo < Number(s.preco)) return { preco: promo, de: Number(s.preco) };
     return { preco: Number(s.preco), de: null };
+  },
+  // compatibilidade: "sob consulta" na tabela de carro
+  sobConsulta(s) {
+    const p = Precos.calc({}, s, { tipo: "carro" });
+    return !p || p.consulta;
+  }
+};
+
+// Preço por tipo de veículo e estado (ver "precos" em config.js)
+window.Precos = {
+  // valor configurado: número, "80-90", "?" ou undefined (= não oferece)
+  bruto(s, tipo = "carro") {
+    if (tipo === "carro") {
+      if (s.soMoto) return undefined;
+      const v = s.precos?.carro;
+      if (v !== undefined && v !== null && v !== "") return v;
+      return Number(s.preco) > 0 ? Number(s.preco) : "?";
+    }
+    const v = s.precos?.[tipo];
+    return v === undefined || v === null || String(v).trim() === "" ? undefined : v;
+  },
+  oferece(s, tipo) {
+    return Precos.bruto(s, tipo) !== undefined;
+  },
+  faixa(v) {
+    if (Array.isArray(v)) return v.map(Number);
+    const m = String(v).match(/^\s*([\d.,]+)\s*(?:-|a|até)\s*([\d.,]+)\s*$/i);
+    return m ? [U.num(m[1]), U.num(m[2])] : null;
+  },
+  // { normal, oferta, consulta, faixa:[min,max]|null }  ou null se não oferece
+  calc(cfg, s, ctx = {}) {
+    const tipo = ctx.tipo || "carro";
+    const v = Precos.bruto(s, tipo);
+    if (v === undefined) return null;
+    if (v === "?" || v === 0 || v === "0") return { normal: 0, oferta: 0, consulta: true, faixa: null };
+    const fx = Precos.faixa(v);
+    const max = !!(cfg.estados || []).find((e) => e.id === ctx.estado)?.max;
+    const n = fx ? (max ? fx[1] : fx[0]) : U.num(v);
+    if (!(n > 0)) return { normal: 0, oferta: 0, consulta: true, faixa: null };
+    // promoção (Black Friday) vale para a tabela de carro P/M
+    const oferta = tipo === "carro" && !s.precos?.carro ? Oferta.preco(cfg, s).preco : n;
+    return { normal: n, oferta: Math.min(n, oferta || n), consulta: false, faixa: fx };
+  },
+  // texto curto para o cartão: "R$ 80 a R$ 90", "Sob consulta"...
+  texto(cfg, s, ctx) {
+    const p = Precos.calc(cfg, s, ctx);
+    if (!p) return "";
+    if (p.consulta) return "Sob consulta";
+    if (p.faixa && !ctx?.estado) return `${U.moeda(p.faixa[0])} a ${U.moeda(p.faixa[1])}`;
+    return U.moeda(p.oferta);
   }
 };
 
@@ -1376,33 +1741,63 @@ window.Combo = {
     return !cat || s.categoria === cat;
   },
   // desconto (%) que cada serviço recebe dentro do carrinho
-  descontos(cfg, servicos) {
+  descontos(cfg, servicos, ctx = {}, temAncoraExterna = false) {
     const res = {};
     servicos.forEach((s) => (res[s.id] = 0));
-    if (!cfg.combo?.ativo || servicos.length < 2) return res;
-    const comDesc = servicos.filter((s) => Combo.temDesconto(cfg, s)).sort((a, b) => Number(b.preco) - Number(a.preco));
-    const temOutro = comDesc.length < servicos.length; // tem lavagem (ou outro serviço sem desconto) ancorando
+    if (!cfg.combo?.ativo || servicos.length + (temAncoraExterna ? 1 : 0) < 2) return res;
+    const preco = (s) => Precos.calc(cfg, s, ctx);
+    // serviço "sob consulta" não entra no cálculo de desconto (o valor é combinado à parte), mas conta como âncora
+    const comDesc = servicos
+      .filter((s) => Combo.temDesconto(cfg, s) && preco(s) && !preco(s).consulta)
+      .sort((a, b) => preco(b).normal - preco(a).normal);
+    const temOutro = temAncoraExterna || comDesc.length < servicos.length; // tem lavagem/pacote ancorando
     comDesc.forEach((s, j) => {
       const pos = temOutro ? j + 1 : j; // posição no combo (0 = âncora sem desconto)
       res[s.id] = pos === 0 ? 0 : Combo.descontoDaPosicao(cfg, pos);
     });
     return res;
   },
-  // fator do porte (SUV etc.): número ou null (= a combinar)
-  calcular(cfg, servicos, fatorPorte = 1) {
+  // ctx = { tipo: "carro"|"suv"|..., estado: "semanal"|"pouco"|"muito" }
+  calcular(cfg, servicos, ctx = {}) {
+    if (typeof ctx !== "object" || ctx === null) ctx = {};
     const r2 = (n) => Math.round(n * 100) / 100;
-    const ordenados = servicos.slice().sort((a, b) => Number(b.preco) - Number(a.preco));
-    const descontos = Combo.descontos(cfg, servicos);
-    const f = fatorPorte || 1;
+    const preco = (s) => Precos.calc(cfg, s, ctx) || { normal: 0, oferta: 0, consulta: true };
+    const ordenados = servicos.slice().sort((a, b) => preco(b).normal - preco(a).normal);
+
+    // Pacotes com preço fechado (ex.: Higienização + Polimento = R$ 750)
+    const tipo = ctx.tipo || "carro";
+    let restantes = servicos.slice();
+    const noPacote = {}; // id -> { valor, pacote }
+    const pacotes = [];
+    for (const pk of (cfg.pacotes || []).filter((p) => p.ativo !== false && Number(p.preco) > 0 && (!p.tipos || p.tipos.includes(tipo)))) {
+      const itensPk = (pk.ids || []).map((id) => restantes.find((s) => s.id === id));
+      if (!itensPk.length || itensPk.some((s) => !s || preco(s).consulta)) continue;
+      const normais = itensPk.map((s) => preco(s).normal);
+      const soma = normais.reduce((a, b) => a + b, 0);
+      if (soma <= 0) continue;
+      let acumulado = 0;
+      itensPk.forEach((s, i) => {
+        const v = i === itensPk.length - 1 ? r2(Number(pk.preco) - acumulado) : r2((Number(pk.preco) * normais[i]) / soma);
+        acumulado += v;
+        noPacote[s.id] = { valor: v, pacote: pk.nome };
+      });
+      restantes = restantes.filter((s) => !pk.ids.includes(s.id));
+      pacotes.push({ nome: pk.nome, preco: Number(pk.preco), normal: r2(soma) });
+    }
+
+    const descontos = Combo.descontos(cfg, restantes, ctx, pacotes.length > 0);
     const itens = ordenados.map((s) => {
-      const normal = Number(s.preco) * f;
-      const oferta = Oferta.preco(cfg, s).preco * f;
+      const p = preco(s);
+      const normal = p.normal;
+      const oferta = p.oferta;
+      if (noPacote[s.id]) {
+        return { id: s.id, nome: s.nome, normal: r2(normal), preco: noPacote[s.id].valor, descontoCombo: 0, pacote: noPacote[s.id].pacote, emOferta: false, consulta: false };
+      }
       const d = descontos[s.id] || 0;
-      let preco;
-      if (cfg.combo?.acumulaComOferta) preco = oferta * (1 - d / 100);
-      else preco = Math.min(oferta, normal * (1 - d / 100));
-      preco = r2(preco);
-      return { id: s.id, nome: s.nome, normal: r2(normal), preco, descontoCombo: d, emOferta: oferta < normal };
+      let valor;
+      if (cfg.combo?.acumulaComOferta) valor = oferta * (1 - d / 100);
+      else valor = Math.min(oferta, normal * (1 - d / 100));
+      return { id: s.id, nome: s.nome, normal: r2(normal), preco: r2(valor), descontoCombo: d, emOferta: oferta < normal, consulta: p.consulta };
     });
     const total = r2(itens.reduce((t, it) => t + it.preco, 0));
     const totalNormal = r2(itens.reduce((t, it) => t + it.normal, 0));
@@ -1411,6 +1806,8 @@ window.Combo = {
       total,
       totalNormal,
       economia: r2(totalNormal - total),
+      temConsulta: itens.some((it) => it.consulta),
+      pacotes,
       nome: itens.map((it) => it.nome).join(" + "),
       duracao: servicos.reduce((t, s) => t + (Number(s.duracao) || 30), 0),
       peso: Math.max(...servicos.map((s) => Number(s.peso) || 1))
@@ -1532,15 +1929,20 @@ window.Whats = {
       veiculo: ag.veiculo || "carro",
       placa: ag.placa || "",
       porte: ag.porte || "",
-      preco: U.moeda(ag.preco),
+      estado: ag.estado || "",
+      preco: ag.precoAConfirmar ? (Number(ag.preco) > 0 ? U.moeda(ag.preco) + " + a combinar" : "a combinar") : U.moeda(ag.preco),
       lavajato: cfg.nome,
       endereco: cfg.endereco,
-      linkAvaliacao: cfg.linkAvaliacao || ""
+      linkAvaliacao: cfg.linkAvaliacao || "",
+      levaTraz: ag.levaTraz ? `${ag.levaTraz.bairro}${ag.levaTraz.endereco ? " – " + ag.levaTraz.endereco : ""}${ag.levaTraz.foraArea ? " (custo a combinar)" : ""}` : "",
+      sinal: Number(ag.sinal) > 0 && !ag.sinalPago ? U.moeda(ag.sinal) : "",
+      pix: cfg.pix || ""
     };
-    // linhas com variável vazia (ex.: link de avaliação ainda não cadastrado) somem da mensagem
+    // linhas com variável opcional vazia (link de avaliação, leva e traz, sinal, Pix...) somem da mensagem
+    const OPCIONAIS = ["linkAvaliacao", "levaTraz", "sinal", "pix", "estado"];
     const linhas = String(modelo || "")
       .split("\n")
-      .filter((l) => !l.includes("{linkAvaliacao}") || v.linkAvaliacao);
+      .filter((l) => !OPCIONAIS.some((k) => l.includes(`{${k}}`) && !v[k]));
     return linhas.join("\n").replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
   },
   link(telefone, texto) {
@@ -1565,7 +1967,7 @@ window.Whats = {
     cfg = cfg || JSON.parse(JSON.stringify(window.CONFIG_PADRAO));
     ags = [];
   }
-  const escolha = { ids: [], data: null, hora: null };
+  const escolha = { tipo: null, estado: null, ids: [], data: null, hora: null };
 
   // ---------- Informações da loja ----------
   function preencherInfo() {
@@ -1582,6 +1984,10 @@ window.Whats = {
       $("#whatsRodape2").textContent = U.fmtTelefone(cfg.whatsapp2);
     }
     $("#chipHorario").textContent = `🕗 ${Agenda.resumoHorarios(cfg)}`;
+    const extrasHero = [];
+    if (cfg.levaTraz?.ativo) extrasHero.push("🚗 Leva e traz na região");
+    if (cfg.pagamento) extrasHero.push("💳 " + cfg.pagamento);
+    if (extrasHero.length) $("#chipHorario").insertAdjacentHTML("afterend", "<br>" + extrasHero.map(U.esc).join("<br>"));
     const oi = `Olá! Vim pelo site da ${cfg.nome}.`;
     $("#whatsTopo").href = Whats.link(cfg.whatsapp, oi);
     $("#whatsRodape").href = Whats.link(cfg.whatsapp, oi);
@@ -1614,6 +2020,43 @@ window.Whats = {
       $("#whatsFaq").href = Whats.link(cfg.whatsapp, `Olá! Tenho uma dúvida sobre os serviços da ${cfg.nome}.`);
       $("#secFaq").classList.remove("oculto");
     }
+    // Nosso trabalho (fotos reais)
+    if ((cfg.fotos || []).length) {
+      let filtro = "";
+      const cats = (cfg.categoriasFotos || []).filter((c) => !c.id || cfg.fotos.some((f) => f.cat === c.id));
+      const desenhar = () => {
+        $("#filtrosFotos").innerHTML = cats
+          .map((c) => `<button type="button" class="chip-filtro ${filtro === c.id ? "ativo" : ""}" data-cat="${U.esc(c.id)}">${U.esc(c.nome)}</button>`)
+          .join("");
+        $("#fotos").innerHTML = cfg.fotos
+          .filter((f) => !filtro || f.cat === filtro)
+          .map((f) => `<button type="button" class="foto" data-src="${U.esc(f.src)}" data-leg="${U.esc(f.legenda || "")}">
+              <img src="${U.esc(f.src)}" alt="${U.esc(f.legenda || "")}" loading="lazy"><span>${U.esc(f.legenda || "")}</span></button>`)
+          .join("");
+      };
+      $("#filtrosFotos").addEventListener("click", (e) => {
+        const b = e.target.closest("[data-cat]");
+        if (!b) return;
+        filtro = b.dataset.cat;
+        desenhar();
+      });
+      $("#fotos").addEventListener("click", (e) => {
+        const b = e.target.closest(".foto");
+        if (!b) return;
+        $("#fotoSiteGrande").src = b.dataset.src;
+        $("#fotoSiteGrande").alt = b.dataset.leg;
+        $("#fotoSiteLegenda").textContent = b.dataset.leg;
+        $("#dlgFotoSite").showModal();
+      });
+      $("#dlgFotoSite").addEventListener("click", (e) => { if (e.target.id === "dlgFotoSite") e.target.close(); });
+      desenhar();
+      $("#secFotos").classList.remove("oculto");
+    }
+    if (cfg.fotoTopo) {
+      document.querySelector(".hero").style.setProperty("--foto-topo", `url("${cfg.fotoTopo}")`);
+      document.querySelector(".hero").classList.add("com-foto");
+    }
+
     // Antes e depois (aparece quando houver fotos)
     if ((cfg.galeria || []).length) {
       $("#galeria").innerHTML = cfg.galeria
@@ -1639,56 +2082,103 @@ window.Whats = {
     }
   }
 
-  // ---------- Passo 1: serviços (pode escolher vários) ----------
+  // ---------- Passo 1: veículo e estado ----------
+  const veiculos = cfg.veiculos && cfg.veiculos.length ? cfg.veiculos : [{ id: "carro", nome: "Carro", icone: "🚗" }];
+  const estados = cfg.estados || [];
+  const ctx = () => ({ tipo: escolha.tipo || "carro", estado: escolha.estado });
+  const veiculoAtual = () => veiculos.find((v) => v.id === escolha.tipo);
+  const estadoAtual = () => estados.find((e) => e.id === escolha.estado);
+
+  function renderVeiculo() {
+    $("#veiculos").innerHTML = veiculos
+      .map((v) => `<button type="button" class="opcao ${escolha.tipo === v.id ? "ativo" : ""}" data-tipo="${U.esc(v.id)}">
+        <span class="opcao-icone">${v.icone || ""}</span>${U.esc(v.curto || v.nome)}${v.sub ? `<small>${U.esc(v.sub)}</small>` : ""}</button>`)
+      .join("");
+  }
+  function aposVeiculo() {
+    // tira serviços que não existem para o novo veículo
+    escolha.ids = escolha.ids.filter((id) => Precos.oferece(cfg.servicos.find((s) => s.id === id) || {}, escolha.tipo));
+    renderVeiculo();
+    renderServicos();
+    if (escolha.ids.length) renderDias();
+    renderResumo();
+  }
+  $("#veiculos").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-tipo]");
+    if (!b) return;
+    escolha.tipo = b.dataset.tipo;
+    aposVeiculo();
+  });
+  // estado do veículo: pergunta opcional na última tela
+  $("#estadoSel").innerHTML = `<option value="">Prefiro não dizer</option>` + estados.map((e) => `<option value="${U.esc(e.id)}">${U.esc(e.nome)} – ${U.esc(e.dica || "")}</option>`).join("");
+  $("#estadoSel").addEventListener("change", (e) => {
+    escolha.estado = e.target.value || null;
+    renderServicos();
+    renderResumo();
+  });
+
+  // ---------- Passo 2: serviços (pode escolher vários) ----------
   const selecionados = () => cfg.servicos.filter((s) => escolha.ids.includes(s.id));
   // serviço "combinado" usado pela agenda: tempo somado e maior ocupação
   function combinado() {
     const lista = selecionados();
     if (!lista.length) return null;
-    const c = Combo.calcular(cfg, lista);
+    const c = Combo.calcular(cfg, lista, ctx());
     return { duracao: c.duracao, peso: c.peso, nome: c.nome };
   }
   const fmtDur = (m) => (m >= 60 ? `${Math.floor(m / 60)}h${m % 60 ? String(m % 60).padStart(2, "0") : ""}` : `${m} min`);
 
   function renderServicos() {
-    const combo = selecionados().length ? Combo.calcular(cfg, selecionados()) : null;
+    const c0 = ctx();
+    const combo = selecionados().length ? Combo.calcular(cfg, selecionados(), c0) : null;
     const noCombo = Object.fromEntries((combo?.itens || []).map((it, i) => [it.id, { ...it, pos: i + 1 }]));
     const d2 = Combo.descontoDaPosicao(cfg, 1);
     const d3 = Combo.descontoDaPosicao(cfg, 2);
     const cats = (cfg.categorias && cfg.categorias.length ? cfg.categorias : [{ id: "", nome: "" }]);
-    const semCat = cfg.servicos.filter((s) => !cats.some((c) => c.id === s.categoria));
+    const disponiveis = cfg.servicos.filter((s) => Precos.oferece(s, c0.tipo));
+    const semCat = disponiveis.filter((s) => !cats.some((c) => c.id === s.categoria));
 
+    // linha simples: foto pequena · nome · preço · ✓
     const cartao = (s, destaque, unico) => {
-      const p = Oferta.preco(cfg, s);
-      const pct = p.de ? Math.ceil((1 - p.preco / p.de) * 100 - 0.01) : 0;
+      const p = Precos.calc(cfg, s, c0);
       const sel = noCombo[s.id];
-      const precoCombo = sel && sel.preco < p.preco - 0.001 ? sel.preco : null;
-      return `<button type="button" class="servico ${destaque ? "destaque" : ""} ${unico ? "unico" : ""} ${sel ? "ativo" : ""}" data-id="${U.esc(s.id)}" aria-pressed="${!!sel}">
-        <span class="marca">${sel ? (unico ? "●" : "✓") : ""}</span>
-        ${pct ? `<span class="selo-off">${pct}% OFF</span>` : ""}
-        <strong>${U.esc(s.nome)}</strong>
-        <small>${U.esc(s.descricao || "")}</small>
-        ${p.de || precoCombo ? `<s class="preco-de">${U.moeda(p.de || p.preco)}</s>` : ""}
-        <span class="preco">${U.moeda(precoCombo ?? p.preco)}</span>
-        ${precoCombo ? `<span class="tag-combo">${sel.descontoCombo}% OFF no combo</span>` : ""}
+      let precoHtml, tag = "";
+      if (p.consulta) {
+        precoHtml = `<b class="si-consulta">Sob consulta</b>`;
+        if (s.pernoite) tag = "🌙 retirada no dia seguinte";
+      } else {
+        const de = p.oferta < p.normal ? p.normal : null;
+        const precoCombo = sel && sel.preco < p.oferta - 0.001 ? sel.preco : null;
+        const faixaTxt = p.faixa && !escolha.estado ? `${U.moeda(p.faixa[0])} a ${U.moeda(p.faixa[1])}` : null;
+        precoHtml = `${(de || precoCombo) && !faixaTxt ? `<s>${U.moeda(de || p.oferta)}</s>` : ""}<b>${faixaTxt || U.moeda(precoCombo ?? p.oferta)}</b>`;
+        if (sel?.pacote) tag = `📦 pacote ${sel.pacote}`;
+        else if (precoCombo) tag = `🎁 ${sel.descontoCombo}% OFF no combo`;
+        else if (de) tag = `🔥 ${Math.ceil((1 - p.oferta / de) * 100 - 0.01)}% OFF`;
+      }
+      return `<button type="button" class="servico serv-item ${unico ? "unico" : ""} ${sel ? "ativo" : ""}" data-id="${U.esc(s.id)}" aria-pressed="${!!sel}">
+        <span class="si-foto" ${s.foto ? `style="background-image:url('${U.esc(s.foto)}')"` : ""}></span>
+        <span class="si-txt"><b>${U.esc(s.nome)}</b>${tag ? `<small>${U.esc(tag)}</small>` : ""}</span>
+        <span class="si-preco">${precoHtml}</span>
+        <span class="si-check">${sel ? "✓" : ""}</span>
       </button>`;
     };
+    const pacotesTipo = (cfg.pacotes || []).filter((pk) => pk.ativo !== false && Number(pk.preco) > 0 && (!pk.tipos || pk.tipos.includes(c0.tipo)));
 
     $("#servicos").innerHTML =
       (cfg.combo?.ativo
-        ? `<div class="aviso-combo">🎁 <b>Combo:</b> lavagem + estética = <b>${d2}% OFF</b> na estética (a 2ª estética sai com <b>${d3}% OFF</b>)</div>`
+        ? `<div class="aviso-combo">🎁 Lavagem + estética = <b>${d2}% OFF</b>${pacotesTipo.length ? ` · 📦 Pacotes a partir de <b>${U.moeda(Math.min(...pacotesTipo.map((pk) => Number(pk.preco))))}</b>` : ""}</div>`
         : "") +
       cats
         .map((c, i) => {
-          const lista = cfg.servicos.filter((s) => s.categoria === c.id || (!c.id && true));
+          const lista = disponiveis.filter((s) => s.categoria === c.id || (!c.id && true));
           if (!lista.length) return "";
-          return `<div class="grupo-serv ${i === 0 ? "grupo-destaque" : ""}">
-            ${c.nome ? `<h4>${i === 0 ? "✨ " : ""}${U.esc(c.nome)} <small>${U.esc(c.subtitulo || "")}</small></h4>` : ""}
-            <div class="servicos">${lista.map((s) => cartao(s, i === 0, c.escolhaUnica)).join("")}</div>
+          return `<div class="grupo-serv">
+            ${c.nome ? `<h4>${U.esc(c.nome)}${c.escolhaUnica ? ` <small>(escolha 1)</small>` : ""}</h4>` : ""}
+            <div class="lista-serv">${lista.map((s) => cartao(s, i === 0, c.escolhaUnica)).join("")}</div>
           </div>`;
         })
         .join("") +
-      (semCat.length && cats[0].id ? `<div class="grupo-serv"><h4>Outros</h4><div class="servicos">${semCat.map((s) => cartao(s)).join("")}</div></div>` : "");
+      (semCat.length && cats[0].id ? `<div class="grupo-serv"><h4>Outros</h4><div class="lista-serv">${semCat.map((s) => cartao(s)).join("")}</div></div>` : "");
 
     // barra do combo
     const barra = $("#carrinho");
@@ -1698,23 +2188,30 @@ window.Whats = {
       return;
     }
     barra.classList.remove("oculto");
-    $("#carrinhoTxt").innerHTML = `<b>${combo.itens.length} serviço${combo.itens.length > 1 ? "s" : ""}</b> · ⏱ ${fmtDur(combo.duracao)}
-      <span class="carrinho-total">${combo.economia > 0 ? `<s>${U.moeda(combo.totalNormal)}</s> ` : ""}${U.moeda(combo.total)}</span>
+    const pernoite = selecionados().some((s) => s.pernoite);
+    const soConsulta = combo.itens.every((it) => it.consulta);
+    $("#carrinhoTxt").innerHTML = `<span class="cx-info"><b>${combo.itens.length} serviço${combo.itens.length > 1 ? "s" : ""}</b> · ${pernoite ? "🌙 retirada no dia seguinte" : "⏱ " + fmtDur(combo.duracao)}</span>
+      <span class="carrinho-total">${soConsulta ? "Sob consulta" : `${combo.economia > 0 ? `<s>${U.moeda(combo.totalNormal)}</s> ` : ""}${U.moeda(combo.total)}${combo.temConsulta ? " + a combinar" : ""}`}</span>
       ${combo.economia > 0 ? `<small>Você economiza ${U.moeda(combo.economia)}</small>` : ""}`;
 
     // Sugestão: escolheu só lavagem → oferece a estética mais barata com o desconto do combo
     const sug = $("#sugestao");
     const temEstetica = selecionados().some((s) => Combo.temDesconto(cfg, s));
+    const pc = (s) => Precos.calc(cfg, s, c0);
     const candidata = cfg.combo?.ativo && !temEstetica
-      ? cfg.servicos.filter((s) => Combo.temDesconto(cfg, s)).sort((a, b) => Number(a.preco) - Number(b.preco))[0]
+      ? disponiveis.filter((s) => Combo.temDesconto(cfg, s) && pc(s) && !pc(s).consulta).sort((a, b) => pc(a).normal - pc(b).normal)[0]
       : null;
     if (!candidata) {
       sug.classList.add("oculto");
       return;
     }
-    const simulado = Combo.calcular(cfg, [...selecionados(), candidata]).itens.find((it) => it.id === candidata.id);
-    const pct = Math.round((1 - simulado.preco / simulado.normal) * 100);
-    sug.innerHTML = `<span>✨ Aproveite: adicione <b>${U.esc(candidata.nome)}</b> por <s>${U.moeda(simulado.normal)}</s> <b class="ouro">${U.moeda(simulado.preco)}</b>${pct ? ` (${pct}% OFF)` : ""}</span>
+    // quanto o total sobe ao adicionar (já considera pacote e combo)
+    const comCandidata = Combo.calcular(cfg, [...selecionados(), candidata], c0);
+    const acrescimo = Math.round((comCandidata.total - combo.total) * 100) / 100;
+    const normalCand = pc(candidata).normal;
+    const pacoteNovo = comCandidata.pacotes.find((pk) => !combo.pacotes.some((x) => x.nome === pk.nome));
+    sug.innerHTML = `<span>✨ Aproveite: adicione <b>${U.esc(candidata.nome)}</b> por apenas <b class="ouro">+ ${U.moeda(acrescimo)}</b>
+        ${acrescimo < normalCand ? `<s>${U.moeda(normalCand)}</s>` : ""}${pacoteNovo ? ` · pacote ${U.esc(pacoteNovo.nome)} por ${U.moeda(pacoteNovo.preco)}` : ""}</span>
       <button type="button" class="btn btn-peq" data-add="${U.esc(candidata.id)}">+ Adicionar</button>`;
     sug.classList.remove("oculto");
   }
@@ -1739,16 +2236,14 @@ window.Whats = {
     escolha.hora = null;
     renderServicos();
     if (escolha.ids.length) {
-      liberar("#passoDia");
       renderDias();
     } else {
-      ["#passoDia", "#passoHora", "#passoDados"].forEach((s) => $(s).classList.add("bloqueado"));
-      $("#dias").innerHTML = $("#horas").innerHTML = "";
+      $("#dias").innerHTML = "";
+      $("#horas").innerHTML = `<p class="vazio">Escolha o dia primeiro 🙂</p>`;
       escolha.data = null;
     }
     renderResumo();
   });
-  $("#carrinhoBtn").addEventListener("click", () => $("#passoDia").scrollIntoView({ behavior: "smooth", block: "center" }));
 
   // ---------- Passo 2: dia ----------
   function renderDias() {
@@ -1769,10 +2264,10 @@ window.Whats = {
     $("#dias").innerHTML = html || `<p class="vazio">Nenhum dia disponível.</p>`;
     if (escolha.data && !$(`.dia[data-data="${escolha.data}"]:not([disabled])`)) {
       escolha.data = escolha.hora = null;
-      $("#horas").innerHTML = "";
-      ["#passoHora", "#passoDados"].forEach((s) => $(s).classList.add("bloqueado"));
+      $("#horas").innerHTML = `<p class="vazio">Escolha o dia primeiro 🙂</p>`;
     }
     if (escolha.data) renderHoras();
+    atualizarBarra();
   }
   $("#dias").addEventListener("click", (e) => {
     const b = e.target.closest(".dia");
@@ -1780,8 +2275,7 @@ window.Whats = {
     escolha.data = b.dataset.data;
     escolha.hora = null;
     renderDias();
-    liberar("#passoHora");
-    $("#passoHora").scrollIntoView({ behavior: "smooth", block: "center" });
+    $("#passoHora").scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 
   // ---------- Passo 3: horário ----------
@@ -1798,9 +2292,79 @@ window.Whats = {
     if (!b) return;
     escolha.hora = b.dataset.hora;
     renderHoras();
-    liberar("#passoDados");
-    $("#passoDados").scrollIntoView({ behavior: "smooth", block: "start" });
+    // escolheu o horário → vai sozinho para os dados
+    setTimeout(() => passo === 2 && irPara(3), 300);
   });
+
+  // ---------- Estilo app: 3 telas + barra fixa ----------
+  const TOTAL = 3;
+  const NOMES_PASSO = ["", "O que você precisa?", "Quando?", "Seus dados"];
+  let passo = 1;
+  function valido(n) {
+    if (n === 1) return !!escolha.tipo && escolha.ids.length > 0;
+    if (n === 2) return !!escolha.data && !!escolha.hora;
+    return true;
+  }
+  function irPara(n) {
+    // não deixa pular passo sem completar o anterior
+    while (n > 1 && !valido(n - 1)) n--;
+    passo = n;
+    document.querySelectorAll("#fluxo .tela").forEach((t) => (t.hidden = Number(t.dataset.passo) !== n));
+    $("#progressoBarra").style.width = `${(n / TOTAL) * 100}%`;
+    $("#progressoPasso").textContent = `Passo ${n} de ${TOTAL}`;
+    $("#progressoNome").textContent = NOMES_PASSO[n];
+    $("#btnVoltarTopo").hidden = n === 1;
+    if (n === 2) renderDias();
+    if (n === 3) renderResumo();
+    atualizarBarra();
+    const topo = $("#fluxo").getBoundingClientRect().top + window.scrollY - 70;
+    if (Math.abs(window.scrollY - topo) > 40) window.scrollTo({ top: topo, behavior: "smooth" });
+  }
+  function atualizarBarra() {
+    const ok = valido(passo);
+    const btn = $("#btnAvancar");
+    btn.classList.toggle("inativo", !ok);
+    btn.setAttribute("aria-disabled", String(!ok));
+    btn.textContent = passo === TOTAL ? "Confirmar ✓" : "Continuar →";
+    $("#btnVoltar").hidden = passo === 1;
+    const temServico = escolha.ids.length > 0;
+    let dica = "";
+    if (passo === 1) dica = !escolha.tipo ? "1º toque no seu veículo" : !temServico ? "Agora marque o serviço" : "";
+    if (passo === 2) dica = escolha.data ? (escolha.hora ? `📅 ${U.fmtData(escolha.data)} às ${escolha.hora}` : "Agora escolha o horário") : "Escolha o dia";
+    if (passo === 3) dica = "";
+    $("#barraDica").textContent = dica;
+    $("#barraDica").classList.toggle("oculto", !dica);
+    $("#carrinho").classList.toggle("oculto", !temServico || (passo === 2 && !!dica && !escolha.hora));
+  }
+  // aviso discreto do que falta
+  let tAviso;
+  function avisarFalta() {
+    let msg = "", alvo = null;
+    if (passo === 1 && !escolha.tipo) { msg = "Selecione o seu veículo"; alvo = $("#veiculos"); }
+    else if (passo === 1) { msg = "Marque pelo menos 1 serviço"; alvo = $("#servicos .grupo-serv") || $("#servicos"); }
+    else if (passo === 2 && !escolha.data) { msg = "Escolha o dia"; alvo = $("#dias"); }
+    else if (passo === 2) { msg = "Escolha o horário"; alvo = $("#horas"); }
+    const t = $("#avisoFalta");
+    t.textContent = msg;
+    t.classList.add("mostrar");
+    clearTimeout(tAviso);
+    tAviso = setTimeout(() => t.classList.remove("mostrar"), 2200);
+    if (alvo) {
+      alvo.scrollIntoView({ behavior: "smooth", block: "center" });
+      alvo.classList.remove("falta");
+      void alvo.offsetWidth; // reinicia a animação
+      alvo.classList.add("falta");
+      setTimeout(() => alvo.classList.remove("falta"), 1600);
+    }
+  }
+  $("#btnAvancar").addEventListener("click", () => {
+    if (!valido(passo)) return avisarFalta();
+    if (passo < TOTAL) irPara(passo + 1);
+    else form.requestSubmit();
+  });
+  const voltar = () => irPara(Math.max(1, passo - 1));
+  $("#btnVoltar").addEventListener("click", voltar);
+  $("#btnVoltarTopo").addEventListener("click", voltar);
 
   // ---------- Passo 4: dados ----------
   const form = $("#passoDados");
@@ -1810,34 +2374,63 @@ window.Whats = {
     if (salvo) ["nome", "telefone", "veiculo", "placa"].forEach((k) => (form[k].value = salvo[k] || ""));
   } catch {}
 
-  // Porte do veículo
-  const portes = cfg.portes && cfg.portes.length ? cfg.portes : [{ id: "pm", nome: "Carro pequeno/médio", acrescimo: 0 }];
-  form.porte.innerHTML = portes.map((p) => `<option value="${U.esc(p.id)}">${U.esc(p.nome)}</option>`).join("");
-  form.porte.addEventListener("change", renderResumo);
-  // preço final: combo + porte do veículo
+  // ---------- Leva e traz ----------
+  const lt = cfg.levaTraz || {};
+  if (lt.ativo) {
+    $("#blocoLevaTraz").classList.remove("oculto");
+    $("#bairroLevaTraz").innerHTML =
+      (lt.bairros || []).map((b) => `<option value="${U.esc(b)}">${U.esc(b)}</option>`).join("") +
+      `<option value="__outro">Outro bairro (custo a combinar)</option>`;
+  }
+  $("#querLevaTraz").addEventListener("change", (e) => {
+    $("#camposLevaTraz").classList.toggle("oculto", !e.target.checked);
+    $("#avisoForaArea").classList.toggle("oculto", !e.target.checked || $("#bairroLevaTraz").value !== "__outro");
+  });
+  $("#bairroLevaTraz").addEventListener("change", (e) => $("#avisoForaArea").classList.toggle("oculto", e.target.value !== "__outro"));
+
+  // ---------- Sinal ----------
+  // serviços que ocupam o dia (≥ X min ou pernoite) e veículo grande com serviço além da lavagem simples
+  function valorSinal(p) {
+    const s = cfg.sinal;
+    if (!s?.ativo) return 0;
+    const longo = p.duracao >= (Number(s.minutos) || 180) || selecionados().some((x) => x.pernoite);
+    const grande = (s.tipos || []).includes(escolha.tipo) && selecionados().some((x) => x.id !== "simples");
+    if (!longo && !grande) return 0;
+    const base = p.temConsulta ? 0 : p.total;
+    return Math.max(Number(s.minimo) || 0, Math.round((base * (Number(s.percentual) || 30)) / 100));
+  }
+
+  // preço final: combo + tipo do veículo + estado
   function precoFinal() {
-    const porte = portes.find((p) => p.id === form.porte.value) || portes[0];
-    const consulta = porte.acrescimo === null || porte.acrescimo === undefined || porte.acrescimo === "";
-    const fator = consulta ? 1 : 1 + Number(porte.acrescimo) / 100;
-    return { ...Combo.calcular(cfg, selecionados(), fator), consulta, porte };
+    const p = { ...Combo.calcular(cfg, selecionados(), ctx()), consulta: false, porte: veiculoAtual() || { nome: "" } };
+    p.sinal = valorSinal(p);
+    return p;
   }
 
   function renderResumo() {
+    atualizarBarra();
     if (!escolha.ids.length || !escolha.data || !escolha.hora) {
       $("#resumo").innerHTML = "";
       return;
     }
     const p = precoFinal();
-    const linhas = p.itens
-      .map((it) => `<li><span>${U.esc(it.nome)}${it.descontoCombo && it.preco < it.normal ? ` <small class="tag-combo">${it.descontoCombo}% combo</small>` : ""}</span>
-        <span>${p.consulta ? "" : `${it.preco < it.normal ? `<s>${U.moeda(it.normal)}</s> ` : ""}${U.moeda(it.preco)}`}</span></li>`)
-      .join("");
+    const linhaItem = (it) => `<li><span>${U.esc(it.nome)}${it.descontoCombo && it.preco < it.normal ? ` <small class="tag-combo">${it.descontoCombo}% combo</small>` : ""}</span>
+        <span>${p.consulta ? "" : it.consulta ? "sob consulta" : `${it.preco < it.normal ? `<s>${U.moeda(it.normal)}</s> ` : ""}${U.moeda(it.preco)}`}</span></li>`;
+    const linhas =
+      p.pacotes.map((pk) => `<li><span>📦 Pacote ${U.esc(pk.nome)}</span><span><s>${U.moeda(pk.normal)}</s> ${U.moeda(pk.preco)}</span></li>`).join("") +
+      p.itens.filter((it) => !it.pacote).map(linhaItem).join("");
     const total = p.consulta
       ? `<b>a combinar</b> <small class="dica">(SUV/grande: confirmamos o valor pelo WhatsApp)</small>`
-      : `<b>${U.moeda(p.total)}</b>${p.economia > 0 ? ` <small class="economia">economia de ${U.moeda(p.economia)}</small>` : ""}`;
-    $("#resumo").innerHTML = `<ul class="itens-resumo">${linhas}</ul>
+      : p.temConsulta
+        ? `<b>${p.total > 0 ? U.moeda(p.total) + " + " : ""}a combinar</b> <small class="dica">(confirmamos o valor pelo WhatsApp)</small>`
+        : `<b>${U.moeda(p.total)}</b>${p.economia > 0 ? ` <small class="economia">economia de ${U.moeda(p.economia)}</small>` : ""}`;
+    const pernoite = selecionados().some((s) => s.pernoite);
+    $("#resumo").innerHTML = `<p>${veiculoAtual()?.icone || ""} <b>${U.esc(veiculoAtual()?.nome || "")}</b>${estadoAtual() ? ` · ${U.esc(estadoAtual().nome)}` : ""}</p>
+      <ul class="itens-resumo">${linhas}</ul>
       <p class="total-resumo">Total: ${total}</p>
-      <p>📅 ${U.fmtData(escolha.data)} às <b>${escolha.hora}</b> · ⏱ ${fmtDur(p.duracao)}</p>`;
+      ${p.sinal ? `<p class="aviso-sinal">💵 Este serviço ocupa o dia todo: para garantir o horário pedimos um <b>sinal de ${U.moeda(p.sinal)}</b> por Pix, descontado do valor final.</p>` : ""}
+      <p class="dica">O valor final é confirmado na avaliação do veículo. ${U.esc(cfg.pagamento || "")} ${U.esc(cfg.regras || "")}</p>
+      <p>📅 ${U.fmtData(escolha.data)} às <b>${escolha.hora}</b> · ${pernoite ? "🌙 retirada no dia seguinte" : "⏱ " + fmtDur(p.duracao)}</p>`;
   }
 
   form.addEventListener("submit", async (e) => {
@@ -1846,10 +2439,12 @@ window.Whats = {
     const dados = Object.fromEntries(new FormData(form));
     const tel = dados.telefone.replace(/\D/g, "");
     let msg = "";
-    if (!escolha.ids.length || !escolha.data || !escolha.hora) msg = "Escolha os serviços, o dia e o horário.";
+    if (!escolha.tipo) msg = "Escolha o seu veículo.";
+    else if (!escolha.ids.length || !escolha.data || !escolha.hora) msg = "Escolha os serviços, o dia e o horário.";
     else if (dados.nome.trim().length < 2) msg = "Digite seu nome.";
     else if (tel.length < 10) msg = "Digite um WhatsApp válido com DDD.";
     else if (!dados.veiculo.trim()) msg = "Diga qual é o veículo.";
+    else if (dados.querLevaTraz && !String(dados.enderecoLevaTraz || "").trim()) msg = "Informe o endereço para o leva e traz.";
     if (msg) {
       erro.textContent = msg;
       erro.classList.remove("oculto");
@@ -1874,14 +2469,22 @@ window.Whats = {
       placa: dados.placa.trim().toUpperCase(),
       obs: dados.obs.trim(),
       porte: pr.porte.nome,
-      precoAConfirmar: pr.consulta,
+      tipoVeiculo: escolha.tipo,
+      estado: estadoAtual()?.nome || "",
+      precoAConfirmar: pr.consulta || pr.temConsulta,
       servicoId: pr.itens.map((it) => it.id).join("+"),
       servicoNome: pr.nome,
       itens: pr.itens,
+      pacotes: pr.pacotes.map((pk) => pk.nome),
       preco: pr.total,
       economia: pr.economia,
       duracao: pr.duracao,
       peso: pr.peso,
+      sinal: pr.sinal || 0,
+      sinalPago: false,
+      levaTraz: dados.querLevaTraz
+        ? { bairro: dados.bairro === "__outro" ? "Outro bairro" : dados.bairro, endereco: String(dados.enderecoLevaTraz || "").trim(), foraArea: dados.bairro === "__outro" }
+        : null,
       data: escolha.data,
       hora: escolha.hora,
       origem: "site"
@@ -1891,28 +2494,35 @@ window.Whats = {
     } catch {}
 
     $("#resumoFinal").innerHTML = `<p>👤 ${U.esc(ag.nome)} · ${U.esc(ag.veiculo)} ${U.esc(ag.placa)}</p>
-      <p>🚗 <b>${U.esc(ag.servicoNome)}</b> · ${ag.precoAConfirmar ? "valor a combinar (SUV/grande)" : U.moeda(ag.preco)}${!ag.precoAConfirmar && ag.economia > 0 ? ` <small class="economia">(economia de ${U.moeda(ag.economia)})</small>` : ""}</p>
-      <p>📅 ${U.fmtData(ag.data)} às <b>${ag.hora}</b></p>`;
+      <p>🚗 <b>${U.esc(ag.servicoNome)}</b> · ${ag.precoAConfirmar ? "valor a combinar pelo WhatsApp" : U.moeda(ag.preco)}${!ag.precoAConfirmar && ag.economia > 0 ? ` <small class="economia">(economia de ${U.moeda(ag.economia)})</small>` : ""}</p>
+      <p>📅 ${U.fmtData(ag.data)} às <b>${ag.hora}</b></p>
+      ${ag.levaTraz ? `<p>🚗 Leva e traz: ${U.esc(ag.levaTraz.bairro)} – ${U.esc(ag.levaTraz.endereco)}</p>` : ""}`;
+    const sinalBox = $("#sinalSucesso");
+    if (ag.sinal) {
+      sinalBox.innerHTML = `💵 <b>Sinal de ${U.moeda(ag.sinal)}</b> para garantir o horário.${cfg.pix ? ` Chave Pix: <b>${U.esc(cfg.pix)}</b>` : " Enviamos a chave Pix pelo WhatsApp."} Depois é só mandar o comprovante no WhatsApp.`;
+      sinalBox.classList.remove("oculto");
+    } else sinalBox.classList.add("oculto");
     $("#whatsSucesso").href = Whats.link(cfg.whatsapp, Whats.montar(cfg.mensagens.novoAgendamento, ag, cfg));
     $("#fluxo").classList.add("oculto");
+    $("#barraApp").classList.add("oculto");
     $("#sucesso").classList.remove("oculto");
     $("#agendar").scrollIntoView({ behavior: "smooth" });
   });
 
   $("#novo").addEventListener("click", async () => {
-    Object.assign(escolha, { ids: [], data: null, hora: null });
+    Object.assign(escolha, { tipo: null, estado: null, ids: [], data: null, hora: null });
+    $("#estadoSel").value = "";
     ags = await DB.agendamentos();
-    ["#passoDia", "#passoHora", "#passoDados"].forEach((s) => $(s).classList.add("bloqueado"));
-    $("#dias").innerHTML = $("#horas").innerHTML = "";
+    $("#dias").innerHTML = "";
+    $("#horas").innerHTML = `<p class="vazio">Escolha o dia primeiro 🙂</p>`;
+    renderVeiculo();
     renderServicos();
     renderResumo();
     $("#sucesso").classList.add("oculto");
     $("#fluxo").classList.remove("oculto");
+    $("#barraApp").classList.remove("oculto");
+    irPara(1);
   });
-
-  function liberar(sel) {
-    $(sel).classList.remove("bloqueado");
-  }
 
   // atualiza horários se outra aba mudar a agenda
   DB.aoMudar(async () => {
@@ -1923,7 +2533,10 @@ window.Whats = {
   });
 
   preencherInfo();
+  renderVeiculo();
   renderServicos();
+  irPara(1);
+  window.scrollTo(0, 0);
 })();
 
 </script>
@@ -2089,11 +2702,16 @@ window.Whats = {
       <div class="ag-hora">${a.hora}<small>${fimTexto(a)}</small></div>
       <div class="ag-info">
         <strong>${U.esc(a.nome)}</strong> ${a.origem === "site" ? '<span class="tag" style="display:inline-block">pelo site</span>' : ""}
-        <span>🚗 ${U.esc(a.veiculo || "-")} ${a.placa ? "· " + U.esc(a.placa) : ""} ${a.porte && !/pequeno/i.test(a.porte) ? `<span class="tag" style="display:inline-block">${U.esc(a.porte)}</span>` : ""}</span>
+        <span>🚗 ${U.esc(a.veiculo || "-")} ${a.placa ? "· " + U.esc(a.placa) : ""} ${a.porte && !/pequeno/i.test(a.porte) ? `<span class="tag" style="display:inline-block">${U.esc(a.porte)}</span>` : ""}
+          ${a.estado ? `<span class="tag" style="display:inline-block;${/muito/i.test(a.estado) ? "background:rgba(255,77,79,.15);color:#ff8a8c" : ""}">${U.esc(a.estado)}</span>` : ""}</span>
         <span>🧽 ${U.esc(a.servicoNome)} · ${a.precoAConfirmar
           ? `<b style="color:var(--ouro)">valor a combinar</b> <button class="btn btn-peq btn-claro" data-acao="valor" data-id="${a.id}">Definir valor</button>`
           : `<b>${U.moeda(a.preco)}</b>`}</span>
         <a href="${Whats.link(a.telefone, "")}" target="_blank" rel="noopener">📱 ${U.fmtTelefone(a.telefone)}</a>
+        ${a.levaTraz ? `<span>🚗 <b>Leva e traz</b> · ${U.esc(a.levaTraz.bairro)} – ${U.esc(a.levaTraz.endereco || "")}${a.levaTraz.foraArea ? " <b style='color:var(--ouro)'>(custo a combinar)</b>" : ""}</span>` : ""}
+        ${Number(a.sinal) > 0 ? (a.sinalPago
+          ? `<span>💵 Sinal de ${U.moeda(a.sinal)} <b style="color:var(--verde)">recebido ✓</b></span>`
+          : `<span>💵 <b style="color:var(--vermelho)">Sinal de ${U.moeda(a.sinal)} pendente</b> <button class="btn btn-peq btn-whats" data-acao="sinalPago" data-id="${a.id}">Sinal recebido</button></span>`) : ""}
         ${a.obs ? `<span class="ag-obs">📝 ${U.esc(a.obs)}</span>` : ""}
       </div>
       <div class="ag-acoes">
@@ -2117,6 +2735,10 @@ window.Whats = {
     if (!b || b.tagName === "SELECT") return;
     const id = b.dataset.id;
     if (b.dataset.acao === "msg") await enviarMsg(id, b.dataset.tipo);
+    if (b.dataset.acao === "sinalPago") {
+      await DB.atualizar(id, { sinalPago: true, sinalPagoEm: Date.now() });
+      await recarregar();
+    }
     if (b.dataset.acao === "valor") {
       const v = prompt("Valor combinado (R$):", "");
       const n = Number(String(v || "").replace(/[^\d,.]/g, "").replace(/\.(?=\d{3})/g, "").replace(",", "."));
@@ -2184,6 +2806,11 @@ window.Whats = {
     const ativos = ags.filter((a) => !Agenda.INATIVOS.includes(a.status));
     const ordem = (a, b) => (a.data + a.hora).localeCompare(b.data + b.hora);
     const grupos = [
+      {
+        tipo: "sinal", titulo: "💵 Cobrar sinal",
+        dica: "Serviços que ocupam o dia: o horário só fica garantido com o sinal. Quando receber, marque \"Sinal recebido\" na Agenda.",
+        itens: ativos.filter((a) => Number(a.sinal) > 0 && !a.sinalPago && a.data >= hoje && !a.msgs?.sinal)
+      },
       {
         tipo: "confirmacao", titulo: "✅ Confirmar novos agendamentos",
         dica: "Clientes que agendaram e ainda não receberam a confirmação.",
@@ -2306,7 +2933,7 @@ window.Whats = {
   function renderCampanha() {
     const sel = $("#cpServico");
     const atual = sel.value;
-    sel.innerHTML = cfg.servicos.map((s) => `<option value="${U.esc(s.id)}">${U.esc(s.nome)} (${U.moeda(s.preco)})</option>`).join("");
+    sel.innerHTML = cfg.servicos.filter((s) => Number(s.preco) > 0).map((s) => `<option value="${U.esc(s.id)}">${U.esc(s.nome)} (${U.moeda(s.preco)})</option>`).join("");
     if (atual) sel.value = atual;
     if (!campanhaIniciada) {
       campanhaIniciada = true;
@@ -2398,7 +3025,7 @@ window.Whats = {
   $("#btnNovo").onclick = () => {
     fNovo.reset();
     $("#erroNovo").classList.add("oculto");
-    fNovo.servicoId.innerHTML = cfg.servicos.map((s) => `<option value="${U.esc(s.id)}">${U.esc(s.nome)} – ${U.moeda(Oferta.preco(cfg, s).preco)}</option>`).join("");
+    fNovo.servicoId.innerHTML = cfg.servicos.map((s) => `<option value="${U.esc(s.id)}">${U.esc(s.nome)} – ${Oferta.sobConsulta(s) ? "sob consulta" : U.moeda(Oferta.preco(cfg, s).preco)}</option>`).join("");
     fNovo.data.value = dia;
     atualizarHorasNovo();
     dlg.showModal();
@@ -2419,6 +3046,7 @@ window.Whats = {
     await DB.criar({
       nome: d.nome.trim(), telefone: tel, veiculo: d.veiculo.trim(), placa: d.placa.trim().toUpperCase(), obs: d.obs.trim(),
       servicoId: s.id, servicoNome: s.nome, preco: Oferta.preco(cfg, s).preco, duracao: s.duracao, peso: s.peso || 1,
+      precoAConfirmar: Oferta.sobConsulta(s),
       data: d.data, hora: d.hora, origem: "painel"
     });
     dlg.close();
@@ -2428,6 +3056,7 @@ window.Whats = {
 
   // ---------- Configurações ----------
   const ROT_MSG = {
+    sinal: "Cobrar sinal (Pix)",
     confirmacao: "Confirmação do agendamento",
     lembrete: "Lembrete (dia anterior)",
     pronto: "Carro pronto",
@@ -2442,11 +3071,15 @@ window.Whats = {
       <select data-f="categoria" aria-label="Categoria">${cats.map((c) => `<option value="${U.esc(c.id)}" ${s.categoria === c.id ? "selected" : ""}>${U.esc(c.nome)}</option>`).join("")}</select>
       <input placeholder="Nome" value="${U.esc(s.nome)}" data-f="nome" aria-label="Nome do serviço">
       <input placeholder="Descrição" value="${U.esc(s.descricao)}" data-f="descricao" class="desc" aria-label="Descrição">
-      <input type="number" placeholder="R$" value="${U.esc(s.preco)}" data-f="preco" min="0" step="0.01" aria-label="Preço">
+      <input placeholder="R$" value="${U.esc(s.soMoto ? "" : Number(s.preco) > 0 ? s.preco : s.id ? "?" : "")}" data-f="preco" aria-label="Preço carro pequeno/médio">
       <input type="number" placeholder="Promo" value="${U.esc(s.precoOferta ?? "")}" data-f="precoOferta" min="0" step="0.01" aria-label="Preço promocional">
       <input type="number" placeholder="min" value="${U.esc(s.duracao)}" data-f="duracao" min="10" step="10" aria-label="Duração em minutos">
       <input type="number" placeholder="vagas" value="${U.esc(s.peso ?? 1)}" data-f="peso" min="0.5" step="0.5" aria-label="Vagas que ocupa">
       <button type="button" class="btn btn-peq btn-perigo" data-remover-serv aria-label="Remover">✕</button>
+      <div class="serv-precos">
+        ${(cfg.veiculos || []).filter((v) => v.id !== "carro").map((v) => `<label>${v.icone || ""} ${U.esc(v.nome)}
+          <input data-pv="${U.esc(v.id)}" value="${U.esc(s.precos?.[v.id] ?? "")}" placeholder="não faz"></label>`).join("")}
+      </div>
     </div>`;
   }
   function renderConfig() {
@@ -2475,8 +3108,6 @@ window.Whats = {
     $("#cfgFechados").textContent = fech.length
       ? `Dias fechados (feriados/folgas): ${fech.map(U.fmtDataCurta).join(", ")}. Para reabrir, vá no dia na Agenda.`
       : "Feriado ou folga? Vá no dia na Agenda e clique em “Fechar este dia”.";
-    const g = (cfg.portes || []).find((x) => x.id === "g");
-    f.acrescimoG.value = g && g.acrescimo !== null && g.acrescimo !== undefined ? g.acrescimo : "";
     const o = cfg.oferta || {};
     f.ofertaAtiva.checked = !!o.ativa;
     f.ofertaTitulo.value = o.titulo || "";
@@ -2487,7 +3118,24 @@ window.Whats = {
     f.comboD2.value = (cb.descontos || [])[1] ?? 15;
     f.comboD3.value = (cb.descontos || [])[2] ?? 20;
     f.comboAcumula.checked = !!cb.acumulaComOferta;
-    $("#cfgServicos").innerHTML = `<div class="serv-linha dica"><span>Grupo</span><span>Serviço</span><span class="desc">Descrição</span><span>Preço</span><span>Preço promo</span><span>Minutos</span><span>Vagas</span><span></span></div>` +
+    const nomeServ = (id) => cfg.servicos.find((s) => s.id === id)?.nome || id;
+    $("#cfgPacotes").innerHTML = (cfg.pacotes || [])
+      .map((pk, i) => `<div class="linha" data-pacote="${i}" style="margin-bottom:.5rem">
+        <label class="check" style="padding:0"><input type="checkbox" data-pk="ativo" ${pk.ativo !== false ? "checked" : ""}> ${U.esc((pk.ids || []).map(nomeServ).join(" + "))}</label>
+        <label style="flex-direction:row;align-items:center;gap:.4rem">R$ <input type="number" data-pk="preco" value="${U.esc(pk.preco)}" min="0" step="1" style="width:110px"></label>
+      </div>`)
+      .join("") || `<p class="dica">Nenhum pacote cadastrado.</p>`;
+    const sn = cfg.sinal || {};
+    f.pagamento.value = cfg.pagamento || "";
+    f.pix.value = cfg.pix || "";
+    f.sinalAtivo.checked = !!sn.ativo;
+    f.sinalPct.value = sn.percentual ?? 30;
+    f.sinalMin.value = sn.minimo ?? 50;
+    f.sinalMinutos.value = sn.minutos ?? 180;
+    f.ltAtivo.checked = !!cfg.levaTraz?.ativo;
+    f.ltBairros.value = (cfg.levaTraz?.bairros || []).join("\n");
+    f.regras.value = cfg.regras || "";
+    $("#cfgServicos").innerHTML = `<div class="serv-linha dica"><span>Grupo</span><span>Serviço</span><span class="desc">Descrição</span><span>🚗 Carro P/M</span><span>Promo carro</span><span>Minutos</span><span>Vagas</span><span></span></div>` +
       cfg.servicos.map(linhaServico).join("");
     $("#cfgMsgs").innerHTML = Object.entries(ROT_MSG)
       .map(([k, r]) => `<label style="margin-bottom:.8rem">${r}<textarea data-msg="${k}" rows="3">${U.esc(cfg.mensagens[k] || "")}</textarea></label>`)
@@ -2527,15 +3175,36 @@ window.Whats = {
       descontos: [0, Math.min(90, Math.max(0, Number(f.comboD2.value) || 0)), Math.min(90, Math.max(0, Number(f.comboD3.value) || 0))],
       acumulaComOferta: f.comboAcumula.checked
     };
-    const acr = f.acrescimoG.value.trim();
-    novo.portes = (cfg.portes || []).map((p) => (p.id === "g" ? { ...p, acrescimo: acr === "" ? null : Number(acr) } : p));
+    novo.pacotes = (cfg.pacotes || []).map((pk, i) => {
+      const l = $(`#cfgPacotes [data-pacote="${i}"]`);
+      return l ? { ...pk, ativo: $('[data-pk="ativo"]', l).checked, preco: U.num($('[data-pk="preco"]', l).value) } : pk;
+    });
+    novo.pagamento = f.pagamento.value.trim();
+    novo.pix = f.pix.value.trim();
+    novo.sinal = { ...(cfg.sinal || {}), ativo: f.sinalAtivo.checked, percentual: U.num(f.sinalPct.value), minimo: U.num(f.sinalMin.value), minutos: U.num(f.sinalMinutos.value) || 180 };
+    novo.levaTraz = { ativo: f.ltAtivo.checked, bairros: f.ltBairros.value.split("\n").map((x) => x.trim()).filter(Boolean) };
+    novo.regras = f.regras.value.trim();
     novo.servicos = $$("#cfgServicos .serv-linha[data-id]")
       .map((l) => {
         const v = (k) => $(`[data-f="${k}"]`, l).value.trim();
         const nome = v("nome");
         if (!nome) return null;
         const id = l.dataset.id || nome.toLowerCase().normalize("NFD").replace(/[^\w]+/g, "-") + "-" + Date.now().toString(36);
-        return { id, categoria: v("categoria"), nome, descricao: v("descricao"), preco: Number(v("preco")) || 0, precoOferta: Number(v("precoOferta")) || null, duracao: Math.max(10, Number(v("duracao")) || 30), peso: Math.max(0.5, Number(v("peso")) || 1) };
+        const antigo = cfg.servicos.find((s) => s.id === l.dataset.id) || {};
+        // carro: número = preço · "?" = a combinar · vazio = não faz para carro
+        const carro = v("preco");
+        const precos = {};
+        $$("[data-pv]", l).forEach((i) => {
+          const val = i.value.trim();
+          if (val) precos[i.dataset.pv] = val === "?" ? "?" : Precos.faixa(val) ? val : U.num(val);
+        });
+        return {
+          ...antigo, id, categoria: v("categoria"), nome, descricao: v("descricao"),
+          preco: carro === "?" ? 0 : U.num(carro), soMoto: carro === "",
+          precoOferta: Number(v("precoOferta")) || null,
+          duracao: Math.max(10, Number(v("duracao")) || 30), peso: Math.max(0.5, Number(v("peso")) || 1),
+          precos
+        };
       })
       .filter(Boolean);
     novo.mensagens = { ...cfg.mensagens };
@@ -2651,13 +3320,19 @@ window.Whats = {
   const FEITOS = ["entregue", "pronto"]; // carros que já usaram produto
   let cfg, ags, produtos = [], contas = [];
 
+  // Só carrega quando o dono está logado (online) – visitante do site não tem acesso a produtos e contas
   async function carregar() {
-    cfg = await DB.config();
-    ags = await DB.agendamentos();
-    produtos = await DB.lista("produtos");
-    contas = await DB.lista("contas");
-    renderProdutos();
-    renderContas();
+    try {
+      if (DB.nuvem && !(await DB.logado())) return;
+      cfg = await DB.config();
+      ags = await DB.agendamentos();
+      produtos = await DB.lista("produtos");
+      contas = await DB.lista("contas");
+      renderProdutos();
+      renderContas();
+    } catch (e) {
+      console.warn("Produtos/contas não carregados:", e?.message || e);
+    }
   }
 
   // ---------- Fotos ----------
