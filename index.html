@@ -633,6 +633,98 @@ body { padding-bottom: 92px; }
   40%, 80% { box-shadow: 0 0 0 3px rgba(255,193,7,.15); }
 }
 
+/* ================= TOPO NOVO (identidade dos panfletos) ================= */
+.logo-img { width: 42px; height: 42px; border-radius: 50%; box-shadow: 0 0 12px rgba(255,193,7,.35); flex: 0 0 auto; }
+.hero.hero2 { background: #050505; padding: 0; border-bottom: 2px solid var(--ouro); position: relative; overflow: hidden; }
+.hero.hero2::after { display: none; }
+/* pontinhos dourados (meio-tom), como nos panfletos */
+.pontos { position: absolute; width: 260px; height: 260px; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(circle, #e9b93a 2.3px, transparent 2.8px); background-size: 13px 13px; opacity: .9; }
+.pontos-a { top: -40px; right: -40px; -webkit-mask: radial-gradient(circle at 100% 0, #000 20%, transparent 70%); mask: radial-gradient(circle at 100% 0, #000 20%, transparent 70%); }
+.pontos-b { bottom: -40px; left: -40px; -webkit-mask: radial-gradient(circle at 0 100%, #000 20%, transparent 70%); mask: radial-gradient(circle at 0 100%, #000 20%, transparent 70%); }
+.hero2-grade { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.05fr; gap: 2.5rem; align-items: center; padding: 3.2rem 0; }
+.hero2-foto { order: 2; position: relative; border-radius: 22px; overflow: hidden; border: 2px solid rgba(255,193,7,.6); box-shadow: 0 0 40px rgba(255,193,7,.18), 0 20px 50px rgba(0,0,0,.6); aspect-ratio: 4 / 3.4; }
+.hero2-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; display: block; }
+.hero2-texto { order: 1; }
+.hero2-logo { width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 0 0 3px #050505, 0 0 30px rgba(255,193,7,.45); display: block; margin-bottom: 1rem; }
+.hero2-lema { font-family: var(--titulo); font-style: italic; font-weight: 700; text-transform: uppercase; color: var(--ouro); letter-spacing: .04em; margin: 0 0 .4rem; font-size: 1.05rem; }
+.hero.hero2 h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 14ch; margin-bottom: .8rem; }
+.hero2-slogan { color: #cfcfcf; max-width: 44ch; margin: 0; }
+.hero.hero2 .acoes { margin-top: 1.3rem; }
+
+@media (max-width: 760px) {
+  .hero2-grade { grid-template-columns: 1fr; gap: 0; padding: 0 0 2rem; width: 100%; }
+  /* no celular o carro vem primeiro, grande e sem camada escura */
+  .hero2-foto { order: 1; border-radius: 0; border: 0; border-bottom: 2px solid rgba(255,193,7,.55); box-shadow: none; aspect-ratio: 4 / 3.3; }
+  .hero2-foto::after { content: ""; position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(transparent, rgba(5,5,5,.85)); }
+  .hero2-texto { order: 2; text-align: center; padding: 0 16px; margin-top: -58px; position: relative; z-index: 2; }
+  .hero2-logo { width: 104px; height: 104px; margin: 0 auto .8rem; }
+  .hero.hero2 h1 { max-width: none; font-size: 2.35rem; }
+  .hero2-slogan { margin: 0 auto; font-size: .95rem; }
+  .hero.hero2 .acoes { justify-content: center; }
+  .hero.hero2 .info-hero { text-align: center; }
+  .pontos { width: 170px; height: 170px; }
+  .pontos-a { top: auto; bottom: 30%; right: -60px; opacity: .55; }
+}
+
+/* ================= NOSSOS COMBOS ================= */
+.combos-secao { padding: 2.8rem 0 1rem; position: relative; }
+.combos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.combo-card { --cor: #cd7f32; --cor2: #8a5523; background: linear-gradient(180deg, #171717, #0c0c0c); border: 1px solid color-mix(in srgb, var(--cor) 60%, transparent); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.combo-prata { --cor: #cfd6de; --cor2: #7d8791; }
+.combo-ouro { --cor: #ffc107; --cor2: #b07d00; border-width: 2px; box-shadow: 0 0 0 1px rgba(255,193,7,.35), 0 0 34px rgba(255,193,7,.2), 0 10px 30px rgba(0,0,0,.45); }
+.combo-foto { height: 150px; background: #222 center / cover no-repeat; position: relative; }
+.combo-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, #171717); }
+.combo-corpo { padding: 0 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; margin-top: -28px; position: relative; }
+.combo-medalha { font-size: 2.4rem; line-height: 1; filter: drop-shadow(0 4px 10px rgba(0,0,0,.6)); }
+.combo-card h3 { font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: 1.8rem; margin: 0; color: var(--cor); }
+.combo-sub { margin: -.2rem 0 .2rem; color: #cfcfcf; font-size: .88rem; }
+.combo-card ul { list-style: none; padding: 0; margin: 0 0 .4rem; display: flex; flex-direction: column; gap: .3rem; font-size: .9rem; }
+.combo-card li::before { content: "✓"; color: var(--cor); font-weight: 800; margin-right: .45rem; }
+.combo-precos { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: auto; }
+.combo-precos div { background: #f4f4f4; color: #111; border-radius: 12px; padding: .5rem .6rem; text-align: center; }
+.combo-precos small { display: block; font-size: .7rem; color: #555; }
+.combo-precos b { font-family: var(--titulo); font-style: italic; font-weight: 800; font-size: 1.45rem; color: #111; display: block; line-height: 1.1; }
+.combo-precos s { font-size: .72rem; color: #888; }
+.combo-card .btn { margin-top: .6rem; }
+@media (max-width: 860px) { .combos { grid-template-columns: 1fr; } .combo-foto { height: 170px; } }
+
+/* combos na lista do agendamento */
+.servico.serv-item.medalha-bronze { border-color: rgba(205,127,50,.55); }
+.servico.serv-item.medalha-prata { border-color: rgba(207,214,222,.5); }
+.servico.serv-item.medalha-ouro { border-color: rgba(255,193,7,.7); }
+.si-txt small.si-itens { color: var(--suave); font-weight: 400; }
+
+/* faixa da promoção numa linha só no celular */
+@media (max-width: 640px) {
+  .faixa-oferta { flex-wrap: nowrap; font-size: .76rem; padding: .45rem 10px; gap: .35rem; white-space: nowrap; }
+  .faixa-oferta b { font-size: .95rem; }
+  .faixa-oferta span { display: none; }
+}
+/* barra do agendamento só aparece quando chega no agendamento */
+.barra-app { transition: transform .25s ease; }
+.barra-app.escondida { transform: translateY(110%); }
+body { padding-bottom: 0; }
+body.com-barra { padding-bottom: 92px; }
+
+/* combos no celular: deslizar para o lado (não empurra o agendamento) */
+@media (max-width: 860px) {
+  .combos { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .6rem; gap: .8rem; }
+  .combo-card { scroll-snap-align: center; }
+  .combo-foto { height: 120px; }
+  .combo-card ul { font-size: .84rem; }
+}
+.combos-dica { display: none; text-align: center; color: var(--suave); font-size: .8rem; margin-top: .3rem; }
+@media (max-width: 860px) { .combos-dica { display: block; } }
+
+/* ---- aba Estratégia do painel ---- */
+.frame-estrategia { width: 100%; height: calc(100vh - 170px); min-height: 560px; border: 0; border-radius: 14px; background: #0b0b0b; display: block; }
+
+/* ---- selo Mais escolhido ---- */
+.combo-card { position: relative; }
+.combo-selo { position: absolute; top: 10px; right: 10px; z-index: 2; background: linear-gradient(180deg,#f5c542,#d4a017); color: #111; font-weight: 800; font-size: .75rem; padding: 5px 10px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+.si-selo { color: #f5c542 !important; font-weight: 700; }
+
 </style>
 </head>
 <body>
@@ -641,23 +733,39 @@ body { padding-bottom: 92px; }
 
   <header class="topo">
     <div class="container">
-      <a class="logo" href="#"><span class="logo-icone">2L</span><span class="logo-txt"><span data-cfg="nome">2L Estética Automotiva</span><small data-cfg="lema"></small></span></a>
+      <a class="logo" href="#"><img class="logo-img" src="img/logo-2l.png" alt="" width="42" height="42"><span class="logo-txt"><span data-cfg="nome">2L Estética Automotiva</span><small data-cfg="lema"></small></span></a>
       <a class="btn btn-vermelho btn-peq" href="#agendar">Agendar</a>
     </div>
   </header>
 
   <a class="faixa-oferta oculto" id="faixaOferta" href="#agendar"></a>
 
-  <section class="hero">
-    <div class="bolhas" aria-hidden="true"></div>
-    <div class="container">
-      <h1>Seu carro sempre com <em>cara de novo.</em></h1>
-      <p data-cfg="slogan"></p>
-      <div class="acoes">
-        <a class="btn btn-vermelho" href="#agendar">Agendar agora</a>
-        <a class="btn btn-whats" id="whatsTopo" target="_blank" rel="noopener">WhatsApp</a>
+  <section class="hero hero2">
+    <span class="pontos pontos-a" aria-hidden="true"></span>
+    <span class="pontos pontos-b" aria-hidden="true"></span>
+    <div class="container hero2-grade">
+      <div class="hero2-foto">
+        <img id="fotoTopoImg" src="img/carro-civic-brilho.jpg" alt="Carro brilhando no box da 2L Estética Automotiva">
       </div>
-      <p class="info-hero"><span id="chipHorario"></span><br>📍 <span data-cfg="endereco"></span></p>
+      <div class="hero2-texto">
+        <img class="hero2-logo" src="img/logo-2l.png" alt="2L Estética Automotiva" width="120" height="120">
+        <p class="hero2-lema" data-cfg="lema"></p>
+        <h1>Seu carro sempre com <em>cara de novo.</em></h1>
+        <p class="hero2-slogan" data-cfg="slogan"></p>
+        <div class="acoes">
+          <a class="btn btn-vermelho" href="#agendar">Agendar agora</a>
+          <a class="btn btn-whats" id="whatsTopo" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <p class="info-hero"><span id="chipHorario"></span><br>📍 <span data-cfg="endereco"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="combos-secao oculto" id="secCombos">
+    <div class="container">
+      <div class="secao-titulo"><h2>Nossos combos</h2><p>Escolha o nível de cuidado do seu carro.</p></div>
+      <div class="combos" id="combos"></div>
+      <p class="combos-dica">👉 arraste para ver Prata e Ouro</p>
     </div>
   </section>
 
@@ -840,6 +948,7 @@ body { padding-bottom: 92px; }
           <button class="aba" data-aba="produtos">📦 Produtos<span class="badge oculto" id="badgeProd"></span></button>
           <button class="aba" data-aba="contas">💸 Contas<span class="badge oculto" id="badgeContas"></span></button>
           <button class="aba" data-aba="campanha">📣 Dia vazio</button>
+          <button class="aba" data-aba="estrategia">📘 Estratégia</button>
           <button class="aba" data-aba="config">⚙️ Configurações</button>
         </nav>
       </div>
@@ -930,6 +1039,340 @@ body { padding-bottom: 92px; }
         <div id="cpLista"></div>
       </section>
 
+      <!-- ESTRATÉGIA (guia do dono) -->
+      <section data-secao="estrategia" class="oculto">
+        <iframe id="frameEstrategia" class="frame-estrategia" title="Estratégia da 2L" allow="clipboard-write"></iframe>
+        <template id="tplEstrategia"><title>Estratégia 2L Estética</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: uma coluna de leitura (≈760px), blocos numerados porque é um passo a passo real; identidade preto + dourado da 2L (tema único, escuro, de propósito) */
+:root {
+  --fundo: #0b0b0a;
+  --cartao: #161513;
+  --linha: #2c2a25;
+  --texto: #f2efe8;
+  --suave: #a8a294;
+  --ouro: #f2bd2c;
+  --ouro-escuro: #b8860b;
+  --verde: #5fd69a;
+  --vermelho: #ff7a70;
+  --bronze: #cd8a4a;
+  --prata: #c9d1da;
+  --titulo: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --corpo: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 15px/1.6 var(--corpo); }
+.pagina { max-width: 800px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 22px; }
+h1, h2, h3 { font-family: var(--titulo); font-style: italic; font-weight: 800; text-transform: uppercase; line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: .01em; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); }
+h1 em { font-style: italic; color: var(--ouro); }
+h2 { font-size: 1.75rem; color: var(--ouro); }
+h3 { font-size: 1.25rem; }
+p { margin: 0; }
+.sub { color: var(--suave); max-width: 62ch; }
+.topo { border-bottom: 2px solid var(--ouro); padding-bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
+.selo { align-self: flex-start; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #111; background: var(--ouro); padding: 3px 10px; border-radius: 999px; }
+.resumo { background: linear-gradient(135deg, #2a2208, #141209); border: 1px solid var(--ouro-escuro); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.resumo b { color: var(--ouro); }
+.bloco { display: flex; flex-direction: column; gap: 12px; padding-top: 6px; }
+.num { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--ouro); color: #111; font: 800 1rem var(--titulo); font-style: italic; margin-right: 8px; vertical-align: 3px; }
+.cartao { background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.explica { border-left: 3px solid var(--ouro); padding: 4px 0 4px 12px; color: #ded8ca; }
+.explica b { color: var(--texto); }
+ul.lista { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 4px; }
+ul.lista li::marker { color: var(--ouro); }
+
+/* gráfico de barras: R$ por hora */
+.grafico { display: flex; flex-direction: column; gap: 9px; }
+.barra { display: grid; grid-template-columns: 150px 1fr 74px; align-items: center; gap: 10px; font-size: .88rem; }
+.barra .trilho { height: 22px; background: #22201b; border-radius: 6px; overflow: hidden; }
+.barra .valor { height: 100%; border-radius: 6px; background: var(--cor, var(--ouro)); }
+.barra b { font-variant-numeric: tabular-nums; text-align: right; }
+.barra.est .valor { background: linear-gradient(90deg, #d79a12, var(--ouro)); }
+.barra.lav .valor { background: #6f6a5f; }
+.barra.prata .valor { background: var(--vermelho); opacity: .8; }
+.legenda { display: flex; flex-wrap: wrap; gap: 14px; font-size: .8rem; color: var(--suave); }
+.legenda span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; background: var(--c); }
+
+/* comparação de dias */
+.dias { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.dia { background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.dia.bom { border-color: var(--ouro-escuro); background: linear-gradient(180deg, #1f1a0a, var(--cartao)); }
+.dia .total { font: 800 2rem var(--titulo); font-style: italic; color: var(--texto); }
+.dia.bom .total { color: var(--ouro); }
+.dia small { color: var(--suave); }
+
+/* tabelas */
+.rolar { overflow-x: auto; border: 1px solid var(--linha); border-radius: 12px; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .88rem; }
+th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--linha); }
+th { background: #1d1b17; color: var(--suave); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+.novo { color: var(--ouro); font-weight: 700; }
+.riscado { color: var(--suave); text-decoration: line-through; font-size: .8em; margin-right: 4px; }
+.bronze { color: var(--bronze); } .prata { color: var(--prata); } .ouro { color: var(--ouro); }
+
+/* linha do tempo do dia modelo */
+.agenda { display: flex; flex-direction: column; gap: 6px; }
+.slot { display: grid; grid-template-columns: 62px 1fr; gap: 10px; align-items: stretch; }
+.slot .h { font: 700 1.05rem var(--titulo); font-style: italic; color: var(--suave); padding-top: 9px; font-variant-numeric: tabular-nums; }
+.slot .o { border-radius: 10px; padding: 8px 12px; background: #22201b; border: 1px solid var(--linha); font-size: .88rem; }
+.slot .o b { display: block; }
+.slot.res .o { background: linear-gradient(90deg, #2a2208, #1a160a); border-color: var(--ouro-escuro); }
+.slot.res .h { color: var(--ouro); }
+.slot.pausa .o { background: transparent; border-style: dashed; color: var(--suave); }
+
+/* combos */
+.combos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.combo { background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+.combo h3 { font-size: 1.35rem; }
+.combo .papel { font-size: .8rem; color: var(--suave); }
+.combo .preco { font: 800 1.6rem var(--titulo); font-style: italic; }
+.combo.c-ouro { border: 2px solid var(--ouro); }
+.combo .tag { align-self: flex-start; font-size: .68rem; font-weight: 700; background: var(--ouro); color: #111; padding: 2px 8px; border-radius: 999px; }
+
+/* mensagens prontas */
+.msg { background: #0f2a1b; border: 1px solid #1f5a3a; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.msg pre { margin: 0; white-space: pre-wrap; font: .88rem/1.5 var(--corpo); color: #dff5e8; }
+.msg .quando { font-size: .75rem; font-weight: 700; color: var(--verde); text-transform: uppercase; letter-spacing: .06em; }
+.copiar { align-self: flex-start; font: 600 .8rem var(--corpo); color: #0b2416; background: var(--verde); border: 0; border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.copiar:focus-visible, button:focus-visible { outline: 2px solid var(--ouro); outline-offset: 2px; }
+
+/* metas */
+.metas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.meta { background: var(--cartao); border: 1px solid var(--linha); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+.meta b { font: 800 1.7rem var(--titulo); font-style: italic; color: var(--ouro); }
+.meta span { font-size: .82rem; color: var(--suave); }
+
+.checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.checklist li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; }
+.checklist li::before { content: "☐"; color: var(--ouro); font-size: 1.1rem; line-height: 1.3; }
+.rodape { color: var(--suave); font-size: .8rem; border-top: 1px solid var(--linha); padding-top: 14px; }
+
+@media (max-width: 640px) {
+  .barra { grid-template-columns: 108px 1fr 58px; font-size: .8rem; }
+  .dias, .combos, .metas { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<main class="pagina">
+
+  <header class="topo">
+    <span class="selo">Plano para a 2L Estética Automotiva</span>
+    <h1>Mais <em>estética</em>, menos box parado</h1>
+    <p class="sub">Tudo o que combinamos para a 2L vender mais estética, encher a agenda e fazer o cliente voltar. Escrito para ler em 5 minutos.</p>
+  </header>
+
+  <section class="resumo">
+    <p><b>A ideia em uma frase:</b> a lavagem traz o cliente, a estética dá o lucro, e o sistema faz ele voltar.</p>
+    <p>Por isso os <b>primeiros horários do dia ficam guardados para estética</b>, a lavagem preenche o resto, e cada lavagem é uma chance de vender um serviço de estética.</p>
+  </section>
+
+  <!-- 1 -->
+  <section class="bloco">
+    <h2><span class="num">1</span>Por que focar em estética</h2>
+    <div class="explica">Para comparar serviços de tempos diferentes, a conta certa é <b>quanto cada um paga por hora de trabalho</b>. É como comparar salário por hora, e não o salário do mês.</div>
+    <div class="cartao">
+      <h3>Quanto cada serviço rende por hora (carro P/M)</h3>
+      <div class="grafico" role="img" aria-label="Gráfico de reais por hora de cada serviço">
+        <div class="barra est"><span>Cristalização</span><div class="trilho"><div class="valor" style="width:100%"></div></div><b>R$ 90/h</b></div>
+        <div class="barra est"><span>Polimento</span><div class="trilho"><div class="valor" style="width:100%"></div></div><b>R$ 90/h</b></div>
+        <div class="barra est"><span>Farol</span><div class="trilho"><div class="valor" style="width:100%"></div></div><b>R$ 90/h</b></div>
+        <div class="barra est"><span>Higienização</span><div class="trilho"><div class="valor" style="width:85.2%"></div></div><b>R$ 77/h</b></div>
+        <div class="barra lav"><span>Combo Ouro</span><div class="trilho"><div class="valor" style="width:61.1%"></div></div><b>R$ 55/h</b></div>
+        <div class="barra lav"><span>Combo Bronze</span><div class="trilho"><div class="valor" style="width:58.3%"></div></div><b>R$ 52/h</b></div>
+        <div class="barra prata"><span>Combo Prata</span><div class="trilho"><div class="valor" style="width:41.7%"></div></div><b>R$ 37/h</b></div>
+      </div>
+      <div class="legenda"><span style="--c:#f2bd2c">Estética</span><span style="--c:#6f6a5f">Combos de lavagem</span><span style="--c:#ff7a70">Abaixo do ideal</span></div>
+      <p class="sub" style="font-size:.82rem">Conta: preço ÷ tempo que o dono informou (ex.: polimento R$ 450 ÷ 5h = R$ 90 por hora). Não desconta o custo de produto.</p>
+    </div>
+    <div class="explica"><b>Em palavras simples:</b> uma hora fazendo polimento, farol ou cristalização vale quase <b>o dobro</b> de uma hora lavando carro.</div>
+
+    <h3 style="margin-top:6px">O mesmo dia, de dois jeitos (1 pessoa trabalhando)</h3>
+    <div class="dias">
+      <div class="dia">
+        <small>Dia só de lavagem</small>
+        <span class="total">≈ R$ 420</span>
+        <small>6 Combos Bronze (R$ 70) em ~8h de trabalho</small>
+      </div>
+      <div class="dia bom">
+        <small>Dia com estética de manhã</small>
+        <span class="total">≈ R$ 660</span>
+        <small>1 polimento de manhã (R$ 450) + 3 Bronze à tarde (R$ 210)</small>
+      </div>
+    </div>
+    <p class="sub" style="font-size:.82rem">Exemplo ilustrativo, com preços normais (sem Black Friday) e sem custo de produto. Com um ajudante, os dois acontecem ao mesmo tempo e o dia rende ainda mais.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="bloco">
+    <h2><span class="num">2</span>Manhã reservada para estética</h2>
+    <div class="explica">Os <b>2 primeiros horários de cada dia</b> só aparecem para quem escolhe estética (polimento, higienização, farol, cristalização, vitrificação) ou o Combo Ouro. Lavagem simples não consegue marcar nesses horários.</div>
+    <div class="cartao">
+      <h3>Como fica um dia (terça a sexta)</h3>
+      <div class="agenda">
+        <div class="slot res"><span class="h">08:00</span><div class="o"><b>⭐ Reservado para estética</b>Polimento, higienização, Combo Ouro…</div></div>
+        <div class="slot res"><span class="h">09:30</span><div class="o"><b>⭐ Reservado para estética</b>Farol, cristalização, vitrificação…</div></div>
+        <div class="slot"><span class="h">11:00</span><div class="o"><b>Livre para todos</b>Combo Bronze ou Prata</div></div>
+        <div class="slot pausa"><span class="h">12:00</span><div class="o">Pausa (até 12:40)</div></div>
+        <div class="slot"><span class="h">14:00</span><div class="o"><b>Livre para todos</b></div></div>
+        <div class="slot"><span class="h">15:30</span><div class="o"><b>Livre para todos</b></div></div>
+        <div class="slot"><span class="h">17:00</span><div class="o"><b>Último carro do dia</b></div></div>
+      </div>
+      <p class="sub" style="font-size:.84rem">Segunda começa às 9h30, então os reservados são 9h30 e 11h. Sábado: 8h e 9h30.</p>
+    </div>
+    <div class="cartao">
+      <h3>E se ninguém marcar estética?</h3>
+      <p>O horário <b>não fica parado</b>: se faltando <b>24 horas</b> ninguém pegou, ele libera sozinho para lavagem. O dono muda isso em <i>Configurações → Horários reservados para estética</i> (quantos horários e quantas horas antes liberar).</p>
+    </div>
+    <div class="explica"><b>Por que funciona:</b> o serviço longo começa cedo, termina no mesmo dia, e as lavagens rápidas encaixam ao redor dele.</div>
+  </section>
+
+  <!-- 3 -->
+  <section class="bloco">
+    <h2><span class="num">3</span>A escada dos combos</h2>
+    <div class="explica">Cada combo tem um papel. O <b>Bronze</b> traz o cliente, o <b>Prata</b> serve de comparação e o <b>Ouro</b> é onde está o melhor valor. Quando o cliente vê os três lado a lado, o Ouro parece o melhor negócio.</div>
+    <div class="combos">
+      <div class="combo"><h3 class="bronze">🥉 Bronze</h3><span class="papel">Atrair (porta de entrada)</span><span class="preco">R$ 70</span><span class="papel">Lavagem, aspiração, plásticos, pretinho</span></div>
+      <div class="combo"><h3 class="prata">🥈 Prata</h3><span class="papel">Comparar</span><span class="preco">R$ 170</span><span class="papel">Detalhamento interno + cera de carnaúba</span></div>
+      <div class="combo c-ouro"><span class="tag">⭐ Mais escolhido</span><h3 class="ouro">🥇 Ouro</h3><span class="papel">Lucrar</span><span class="preco">R$ 330</span><span class="papel">Detalhamento completo, descontaminação, cristalização e enceramento de 12 meses</span></div>
+    </div>
+
+    <h3 style="margin-top:6px">Tabela de preços (já aplicada no site)</h3>
+    <div class="rolar">
+      <table>
+        <thead><tr><th>Serviço</th><th class="n">Carro P/M</th><th class="n">SUV</th><th class="n">Caminhonete</th></tr></thead>
+        <tbody>
+          <tr><td class="bronze">🥉 Combo Bronze</td><td class="n">R$ 70</td><td class="n">R$ 80–90</td><td class="n">R$ 120</td></tr>
+          <tr><td class="prata">🥈 Combo Prata</td><td class="n"><span class="riscado">150</span><span class="novo">R$ 170</span></td><td class="n"><span class="riscado">180</span><span class="novo">R$ 200</span></td><td class="n"><span class="novo">R$ 240</span></td></tr>
+          <tr><td class="ouro">🥇 Combo Ouro</td><td class="n">R$ 330</td><td class="n"><span class="riscado">350</span><span class="novo">R$ 390</span></td><td class="n"><span class="novo">R$ 460</span></td></tr>
+          <tr><td>Polimento comercial</td><td class="n">R$ 450</td><td class="n">a combinar</td><td class="n">a combinar</td></tr>
+          <tr><td>Higienização completa</td><td class="n">R$ 460</td><td class="n">a combinar</td><td class="n">a combinar</td></tr>
+          <tr><td>Restauração de farol</td><td class="n">R$ 270</td><td class="n">a combinar</td><td class="n">a combinar</td></tr>
+          <tr><td>Cristalização do para-brisa</td><td class="n">R$ 90</td><td class="n">a combinar</td><td class="n">a combinar</td></tr>
+          <tr><td>Vitrificação</td><td class="n">sob consulta</td><td class="n">sob consulta</td><td class="n">sob consulta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub" style="font-size:.82rem"><span class="novo">Dourado</span> = preço novo, já no site (riscado = preço antigo). Regra sugerida: SUV +20% e caminhonete +40% sobre o carro P/M, igual em todos os combos.</p>
+    <div class="explica"><b>Por que subimos o Prata:</b> ele leva 4h e rendia só R$ 37 por hora, o pior de todos. A R$ 170, o cliente pensa "por mais R$ 160 levo o Ouro", e muita gente sobe para o Ouro.</div>
+  </section>
+
+  <!-- 4 -->
+  <section class="bloco">
+    <h2><span class="num">4</span>Vender mais na mesma visita</h2>
+    <div class="cartao">
+      <ul class="lista">
+        <li><b>Combo + estética = desconto:</b> quem leva um combo ganha <b>15% OFF</b> no 1º serviço de estética e <b>20% OFF</b> no 2º. O site calcula sozinho.</li>
+        <li><b>Pacotes de preço fechado:</b> Higienização + Polimento por <b>R$ 750</b> (em vez de R$ 910) e Bronze + Cristalização por <b>R$ 100</b> (sugestão: R$ 110 depois da Black Friday).</li>
+        <li><b>Sugestão automática:</b> quem escolhe só lavagem vê na hora: <i>"adicione Cristalização por apenas + R$ 40"</i>.</li>
+        <li><b>No balcão:</b> enquanto o carro lava, o dono mostra o farol amarelado ou o vidro sem cristalização e oferece. É a venda mais fácil do dia.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="bloco">
+    <h2><span class="num">5</span>Sinal: o dia não se perde com falta</h2>
+    <div class="cartao">
+      <p>Serviços que <b>ocupam o dia</b> (3h ou mais, ou vitrificação) e <b>SUV/caminhonete</b> com serviço além do Bronze pedem um <b>sinal de 30%</b> (mínimo R$ 50) por Pix. Ele é descontado do valor final.</p>
+      <ul class="lista">
+        <li>O site já avisa o cliente na hora de agendar.</li>
+        <li>No painel aparece <b>"Sinal pendente"</b>. Quando o Pix cair, o dono clica em <b>"Sinal recebido"</b>.</li>
+        <li>Na aba <b>Mensagens</b> já existe a cobrança pronta do sinal.</li>
+        <li>Regra combinada: cancelar ou remarcar até <b>1 dia antes</b>, com tolerância de <b>10 minutos</b> de atraso.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="bloco">
+    <h2><span class="num">6</span>Fazer o cliente voltar</h2>
+    <div class="cartao">
+      <ul class="lista">
+        <li><b>Lembrete no dia anterior</b> (aba Mensagens): reduz faltas.</li>
+        <li><b>"Carro pronto" + pedido de avaliação no Google:</b> cada avaliação traz cliente novo de graça.</li>
+        <li><b>Clientes sumidos (30 dias sem vir):</b> botão "Chamar de volta" na aba Clientes.</li>
+        <li><b>Depois do Combo Ouro:</b> em 30 dias, convidar para a manutenção com o Bronze, para manter o enceramento.</li>
+        <li><b>Dia fraco:</b> aba "Dia vazio" manda uma oferta com número de vagas para quem veio no último mês.</li>
+        <li><b>Plano mensal (a decidir):</b> 4 Bronze por R$ 220/mês, um por semana com horário fixo. É dinheiro garantido todo mês.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="bloco">
+    <h2><span class="num">7</span>Mensagens prontas para WhatsApp</h2>
+    <div class="msg">
+      <span class="quando">Oferecer estética no balcão / depois da lavagem</span>
+      <pre id="m1">Seu carro já está lavando! 🚗 Reparei que o farol está um pouco amarelado. Hoje consigo fazer a restauração com 15% OFF, porque você já está com um combo. Quer aproveitar? Fica com cara de novo e melhora a visão à noite. 😉</pre>
+      <button class="copiar" type="button" data-alvo="m1">Copiar mensagem</button>
+    </div>
+    <div class="msg">
+      <span class="quando">Manutenção 30 dias depois do Combo Ouro</span>
+      <pre id="m2">Oi! Faz 1 mês do seu Combo Ouro aqui na 2L ✨ Para o enceramento durar os 12 meses, o ideal é uma lavagem de manutenção. Tenho horário essa semana no Combo Bronze. Quer que eu reserve?</pre>
+      <button class="copiar" type="button" data-alvo="m2">Copiar mensagem</button>
+    </div>
+    <div class="msg">
+      <span class="quando">Encher um dia fraco</span>
+      <pre id="m3">Oi! 🚗 Segunda até 12h tem Combo Bronze por R$ 59,90 aqui na 2L. São só 4 vagas, responde aqui para garantir a sua!</pre>
+      <button class="copiar" type="button" data-alvo="m3">Copiar mensagem</button>
+    </div>
+    <p class="sub" style="font-size:.82rem">As mensagens de confirmação, lembrete, carro pronto, avaliação e cobrança do sinal já saem prontas pelo painel, com nome, dia e valor de cada cliente.</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="bloco">
+    <h2><span class="num">8</span>Metas para acompanhar</h2>
+    <div class="metas">
+      <div class="meta"><b>8 de 10</b><span>manhãs com estética marcada (os horários reservados ocupados)</span></div>
+      <div class="meta"><b>1 em 4</b><span>clientes de lavagem levando algum serviço de estética</span></div>
+      <div class="meta"><b>+5 por mês</b><span>avaliações novas no Google</span></div>
+    </div>
+    <p class="sub" style="font-size:.84rem">Tudo dá para ver no painel: a <b>Agenda</b> mostra o que foi vendido, <b>Clientes</b> mostra quem voltou e <b>Contas</b> mostra o resultado do mês.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="bloco">
+    <h2><span class="num">9</span>O que o dono precisa decidir</h2>
+    <div class="cartao">
+      <ul class="checklist">
+        <li>✅ <b>Já aplicado:</b> Prata R$ 170 (SUV R$ 200, caminhonete R$ 240), Ouro SUV R$ 390 e caminhonete R$ 460, selo "⭐ Mais escolhido" no Ouro.</li>
+        <li>Pacote Bronze + Cristalização: <b>R$ 110</b> depois da Black Friday?</li>
+        <li>Preço da <b>vitrificação</b> e preços de SUV para polimento, higienização, farol e cristalização.</li>
+        <li>Lançar o <b>plano mensal</b> (4 Bronze por R$ 220)?</li>
+        <li>Chave <b>Pix</b> e link de <b>avaliação do Google</b> no painel.</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="rodape">2L Estética Automotiva · Rua Piraquara Clube, nº 450 – Vila Sinhá · site: 2lestetica.meupilar.tech · Valores com base nas informações do dono em novembro/2026.</p>
+</main>
+
+<script>
+document.querySelectorAll(".copiar").forEach((b) => {
+  b.addEventListener("click", () => {
+    const el = document.getElementById(b.dataset.alvo);
+    const texto = el.textContent;
+    const ok = () => { b.textContent = "Copiado ✓"; setTimeout(() => (b.textContent = "Copiar mensagem"), 1800); };
+    try {
+      navigator.clipboard.writeText(texto).then(ok, () => selecionar(el));
+    } catch (e) { selecionar(el); }
+  });
+});
+function selecionar(el) {
+  const r = document.createRange(); r.selectNodeContents(el);
+  const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+}
+</script>
+</template>
+      </section>
+
       <!-- CONFIG -->
       <section data-secao="config" class="oculto">
         <form id="formCfg">
@@ -995,6 +1438,13 @@ body { padding-bottom: 92px; }
               <label>Fim<input type="time" name="pausaFim"></label>
             </div>
             <div class="dias-check" id="cfgPausaDias" style="margin-top:.6rem"></div>
+            <p style="margin:1rem 0 .4rem;font-weight:600;font-size:.9rem">⭐ Horários reservados para estética</p>
+            <div class="campos">
+              <label class="check"><input type="checkbox" name="reservaAtivo"> Reservar os primeiros horários do dia</label>
+              <label>Quantos horários (do início do dia)<input type="number" name="reservaQtd" min="1" max="6" step="1"></label>
+              <label>Libera para lavagem se ninguém pegar até (horas antes)<input type="number" name="reservaHoras" min="0" step="1"></label>
+            </div>
+            <p class="dica">Só estética (polimento, higienização, farol, cristalização, vitrificação) e Combo Ouro podem marcar nesses horários. Se ninguém pegar até o prazo, o horário abre para qualquer serviço. Coloque 0 para nunca liberar.</p>
             <div class="campos" style="margin-top:1rem">
               <label>Vagas (lavagens ao mesmo tempo)<input type="number" name="vagas" min="1" step="0.5"></label>
               <label>Intervalo entre horários (min)<input type="number" name="intervalo" min="10" step="5"></label>
@@ -1125,12 +1575,12 @@ body { padding-bottom: 92px; }
 // Configuração padrão do lava rápido.
 // Tudo isso pode ser alterado depois pelo Painel > Configurações.
 window.CONFIG_PADRAO = {
-  versao: 10, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
+  versao: 13, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
   nome: "2L Estética Automotiva",
   lema: "Cuidado que se vê, qualidade que fica!",
   slogan: "Polimento, higienização, restauração de farol e cristalização de para-brisa. Combine serviços e ganhe até 20% OFF.",
   whatsapp: "12997904704", // número principal (recebe os agendamentos)
-  whatsapp2: "12988961606",
+  whatsapp2: "12997364024",
   instagram: "2l.esteticaautomotiva",
   endereco: "Rua Piraquara Clube, nº 450 – Vila Sinhá",
   // Horário por dia (0=Dom ... 6=Sáb). null = fechado. ultima = último horário para receber carro
@@ -1146,6 +1596,9 @@ window.CONFIG_PADRAO = {
   // Pausa (dono leva o filho na escola): ninguém agenda entrada nesse intervalo
   pausa: { inicio: "12:00", fim: "12:40", dias: [1, 2, 3, 4, 5] },
   fechados: [], // dias fechados (feriados): "2026-12-25"
+  // Primeiros horários do dia reservados para estética (e Combo Ouro).
+  // Se ninguém pegar até X horas antes, o horário libera para qualquer serviço.
+  reserva: { ativo: true, quantidade: 2, liberarHorasAntes: 24, categorias: ["estetica"], ids: ["ouro"] },
   intervalo: 90, // janela entre horários: 1h30 (pedido do dono)
   vagas: 5, // capacidade: até 5 lavagens ao mesmo tempo (serviço pesado ocupa mais de 1 vaga)
   diasAntecedencia: 7, // até quantos dias à frente o cliente pode agendar
@@ -1173,7 +1626,7 @@ window.CONFIG_PADRAO = {
   // Pacotes com preço fechado (valem no lugar do desconto de combo quando o cliente marca todos os serviços do pacote)
   pacotes: [
     { id: "hig-pol", nome: "Higienização + Polimento", ids: ["higienizacao", "polimento"], preco: 750, tipos: ["carro"], ativo: true },
-    { id: "lav-crist", nome: "Lavagem + Cristalização", ids: ["simples", "parabrisa"], preco: 100, tipos: ["carro"], ativo: true }
+    { id: "lav-crist", nome: "Combo Bronze + Cristalização", ids: ["simples", "parabrisa"], preco: 100, tipos: ["carro"], ativo: true }
   ],
   // Formas de pagamento (aparece nas dúvidas e no resumo)
   pagamento: "Pix ou cartão – parcelamos em até 2x sem juros.",
@@ -1184,6 +1637,7 @@ window.CONFIG_PADRAO = {
   levaTraz: { ativo: true, bairros: ["Altos da Ponte", "Minas Gerais", "Altos de Santana", "Telespark", "Santana"] },
   regras: "Cancelamento ou remarcação até 1 dia antes. Tolerância de 10 minutos de atraso.",
   categorias: [
+    { id: "combo", nome: "Combos 2L", subtitulo: "escolha 1", escolhaUnica: true, destaque: true },
     { id: "estetica", nome: "Estética automotiva", subtitulo: "Seu veículo com cara de novo" },
     { id: "lavagem", nome: "Lavagem", subtitulo: "escolha 1", escolhaUnica: true }
   ],
@@ -1221,9 +1675,16 @@ window.CONFIG_PADRAO = {
     { id: "vitrificacao", foto: "img/carro-fox-preto.jpg", categoria: "estetica", nome: "Vitrificação de pintura", descricao: "Proteção de longa duração: brilho intenso e a água escorre. Retirada no dia seguinte.", preco: 0, precoOferta: null, duracao: 600, peso: 2, pernoite: true, precos: { suv: "?", caminhonete: "?" } },
     { id: "farol", foto: "img/farol-civic-frente.jpg", categoria: "estetica", nome: "Restauração de farol (o par)", descricao: "Tira o amarelado: mais segurança e visibilidade à noite", preco: 270, precoOferta: 229.5, duracao: 180, peso: 2, precos: { suv: "?", caminhonete: "?" } },
     { id: "parabrisa", foto: "img/cristalizacao-parabrisa.jpg", categoria: "estetica", nome: "Cristalização de para-brisa", descricao: "Água escorre e a visibilidade na chuva melhora", preco: 90, precoOferta: 76.5, duracao: 60, peso: 1, precos: { suv: "?", caminhonete: "?" } },
-    { id: "simples", foto: "img/carro-bravo-vermelho.jpg", categoria: "lavagem", nome: "Lavagem simples", descricao: "Externa, aspiração interna, rodas e pneus, finalização com brilho", preco: 70, precoOferta: 59.99, duracao: 80, peso: 1, precos: { suv: "80-90", caminhonete: 120 } },
-    { id: "cera", foto: "img/carro-kicks-branco.jpg", categoria: "lavagem", nome: "Lavagem simples com cera de carnaúba", descricao: "Lavagem simples + proteção e brilho com cera de carnaúba", preco: 105, precoOferta: 89.25, duracao: 90, peso: 1, precos: { suv: "?", caminhonete: "?" } },
-    { id: "detalhada", foto: "img/interior-kicks-couro.jpg", categoria: "lavagem", nome: "Lavagem detalhada", descricao: "Limpeza minuciosa por dentro e por fora", preco: 150, precoOferta: 127.5, duracao: 240, peso: 1.5, precos: { suv: "?", caminhonete: "?" } },
+    // ===== COMBOS (panfletos Bronze / Prata / Ouro) – substituem as lavagens =====
+    { id: "simples", foto: "img/carro-bravo-vermelho.jpg", categoria: "combo", medalha: "bronze", nome: "Combo Bronze", subtitulo: "Ideal para manutenção do veículo",
+      itens: ["Lavagem simples", "Aspiração", "Limpeza e revitalização dos plásticos", "Pretinho nos pneus"],
+      descricao: "Lavagem simples, aspiração, plásticos e pretinho", preco: 70, precoOferta: 59.99, duracao: 80, peso: 1, precos: { suv: "80-90", caminhonete: 120 } },
+    { id: "prata", foto: "img/interior-kicks-couro.jpg", categoria: "combo", medalha: "prata", nome: "Combo Prata", subtitulo: "Revitalização – aparência de novo",
+      itens: ["Detalhamento interno", "Limpeza das borrachas", "Hidratação dos plásticos", "Limpeza dos vidros", "Finalização com cera de carnaúba"],
+      descricao: "Detalhamento interno + cera de carnaúba", preco: 170, precoOferta: 144.5, duracao: 240, peso: 1.5, precos: { suv: 200, caminhonete: 240 } },
+    { id: "ouro", foto: "img/carro-civic-brilho.jpg", categoria: "combo", medalha: "ouro", nome: "Combo Ouro", subtitulo: "Brilho premium, seu carro como novo",
+      itens: ["Detalhamento completo", "Limpeza e restauração dos plásticos", "Descontaminação da pintura", "Cristalização do para-brisa", "Enceramento profissional (proteção de até 12 meses)"],
+      descricao: "Detalhamento completo, descontaminação, cristalização e enceramento", preco: 330, precoOferta: 280.5, duracao: 360, peso: 2, selo: "⭐ Mais escolhido", precos: { suv: 390, caminhonete: 460 } },
     // Motos (tempos estimados – confirmar com o dono)
     { id: "moto-lavagem", foto: "img/moto-ninja.jpg", categoria: "lavagem", nome: "Lavagem de moto", descricao: "Lavagem completa com secagem", preco: 0, soMoto: true, duracao: 60, peso: 0.5, precos: { moto: 30, motoG: 40 } },
     { id: "moto-hig", foto: "img/moto-xre.jpg", categoria: "estetica", nome: "Higienização de moto (sem desmontar)", descricao: "Limpeza profunda de motor, rodas, carenagem e banco", preco: 0, soMoto: true, duracao: 180, peso: 1, precos: { moto: 120, motoG: 150 } },
@@ -1233,7 +1694,8 @@ window.CONFIG_PADRAO = {
   // Dúvidas frequentes no site (só fatos confirmados; complete com as respostas do dono)
   faq: [
     { p: "Como funciona o agendamento?", r: "Você escolhe um ou mais serviços, o dia e o horário aqui no site e confirma pelo WhatsApp. Pode agendar com até 7 dias de antecedência." },
-    { p: "Como funciona o desconto de combo?", r: "Os serviços de estética (polimento, higienização, restauração de farol e cristalização de para-brisa) ganham desconto quando combinados: junto com uma lavagem, o 1º serviço de estética sai com 15% OFF e os seguintes com 20% OFF. Só estética: o de maior valor sai pelo preço normal, o 2º com 15% e o 3º com 20%. Em promoções, vale o maior desconto." },
+    { p: "Qual a diferença dos combos Bronze, Prata e Ouro?", r: "Bronze é a manutenção (lavagem, aspiração, plásticos e pretinho). Prata é a revitalização (detalhamento interno, borrachas, plásticos, vidros e cera de carnaúba). Ouro é o brilho premium (detalhamento completo, descontaminação, cristalização do para-brisa e enceramento com proteção de até 12 meses)." },
+    { p: "Como funciona o desconto?", r: "Combinando um combo com serviços de estética (polimento, higienização, farol, cristalização), a estética sai com 15% OFF – e a 2ª com 20% OFF. Em promoções, vale o maior desconto." },
     { p: "Até que horas vocês recebem o carro?", r: "De segunda a sexta, até as 17h. Aos sábados, até as 12h." },
     { p: "Atendem SUV, caminhonete e moto?", r: "Sim! Escolha o seu veículo no agendamento que os preços aparecem. Alguns serviços para veículos grandes são combinados pelo WhatsApp." },
     { p: "Por que perguntam como está o veículo?", r: "Um veículo muito sujo (barro, areia, pelo de animal) leva mais tempo e produto. O valor final é confirmado na avaliação, quando você chega." },
@@ -1482,7 +1944,17 @@ window.NUVEM = {
       const base = clonar(window.CONFIG_PADRAO);
       const s = d?.dados;
       if (!s || !Object.keys(s).length) return base;
-      // o que o dono salvou vale; campos novos do sistema vêm do padrão
+      // Atualização do sistema (versão nova): serviços/preços/estrutura vêm da versão nova,
+      // mas o que é operação do dono (Pix, horários, mensagens, promoção...) é mantido
+      if (s.versao !== base.versao) {
+        const MANTER = ["pix", "linkAvaliacao", "horarios", "pausa", "fechados", "reserva", "pagamento", "regras", "sinal", "levaTraz",
+          "oferta", "whatsapp", "endereco", "vagas", "intervalo", "diasAntecedencia", "diasSumido", "pin"];
+        const out = { ...base };
+        MANTER.forEach((k) => { if (k in s) out[k] = s[k]; });
+        out.mensagens = { ...base.mensagens, ...(s.mensagens || {}) };
+        return out;
+      }
+      // mesma versão: o que o dono salvou vale; campos novos do sistema vêm do padrão
       return { ...base, ...s, mensagens: { ...base.mensagens, ...(s.mensagens || {}) }, combo: { ...base.combo, ...(s.combo || {}) } };
     },
     async salvarConfig(cfg) {
@@ -1810,7 +2282,8 @@ window.Combo = {
       pacotes,
       nome: itens.map((it) => it.nome).join(" + "),
       duracao: servicos.reduce((t, s) => t + (Number(s.duracao) || 30), 0),
-      peso: Math.max(...servicos.map((s) => Number(s.peso) || 1))
+      peso: Math.max(...servicos.map((s) => Number(s.peso) || 1)),
+      premium: servicos.some((s) => Agenda.ehPremium(cfg, s))
     };
   }
 };
@@ -1882,6 +2355,8 @@ window.Agenda = {
       agora = n.getHours() * 60 + n.getMinutes();
     }
     const res = [];
+    const rv = cfg.reserva;
+    let indice = 0; // posição do horário no dia (sem contar a pausa)
     for (let t = e.ab; t <= e.ultima; t += passo) {
       if (Agenda.emPausa(cfg, data, t)) continue;
       let livre = t > agora;
@@ -1889,9 +2364,29 @@ window.Agenda = {
       for (let b = t; livre && b < Math.min(t + duracao, e.fe); b += passo) {
         if (Agenda.lotacao(doDia, b, b + passo) + peso > cfg.vagas + 1e-9) livre = false;
       }
-      res.push({ hora: U.hora(t), livre });
+      // primeiros horários do dia reservados para estética (liberam X horas antes se ninguém pegar)
+      let reservado = false;
+      if (rv?.ativo && indice < (Number(rv.quantidade) || 0) && !servico.premium && !Agenda.reservaLiberada(cfg, data, t)) {
+        reservado = true;
+        livre = false;
+      }
+      res.push({ hora: U.hora(t), livre, reservado });
+      indice++;
     }
     return res;
+  },
+  // horário reservado já liberou? (faltam menos de X horas para ele)
+  reservaLiberada(cfg, data, minutos) {
+    const horas = Number(cfg.reserva?.liberarHorasAntes);
+    if (!(horas > 0)) return false;
+    const d = U.dataObj(data);
+    d.setMinutes(minutos);
+    return d.getTime() - Date.now() <= horas * 3600000;
+  },
+  // serviço que pode usar os horários reservados (estética + combos premium)
+  ehPremium(cfg, s) {
+    const rv = cfg.reserva || {};
+    return (rv.categorias || []).includes(s.categoria) || (rv.ids || []).includes(s.id);
   },
   livres(cfg, ags, data, servico) {
     return Agenda.grade(cfg, ags, data, servico).filter((h) => h.livre).map((h) => h.hora);
@@ -2052,9 +2547,36 @@ window.Whats = {
       desenhar();
       $("#secFotos").classList.remove("oculto");
     }
-    if (cfg.fotoTopo) {
-      document.querySelector(".hero").style.setProperty("--foto-topo", `url("${cfg.fotoTopo}")`);
-      document.querySelector(".hero").classList.add("com-foto");
+    if (cfg.fotoTopo && $("#fotoTopoImg")) $("#fotoTopoImg").src = cfg.fotoTopo;
+
+    // Nossos combos (Bronze / Prata / Ouro) em destaque
+    const combos = cfg.servicos.filter((s) => s.categoria === "combo");
+    if (combos.length) {
+      const precoTxt = (s, tipo) => {
+        const p = Precos.calc(cfg, s, { tipo });
+        if (!p) return "";
+        if (p.consulta) return `<b>sob consulta</b>`;
+        const v = p.faixa ? p.faixa[0] : p.oferta;
+        return `${p.oferta < p.normal ? `<s>${U.moeda(p.normal)}</s>` : ""}<b>${U.moeda(v)}</b>`;
+      };
+      $("#combos").innerHTML = combos
+        .map((s) => `<article class="combo-card combo-${U.esc(s.medalha || "bronze")}">
+          <div class="combo-foto" style="background-image:url('${U.esc(s.foto || "")}')"></div>
+          ${s.selo ? `<span class="combo-selo">${U.esc(s.selo)}</span>` : ""}
+          <div class="combo-corpo">
+            <span class="combo-medalha">${s.medalha === "ouro" ? "🥇" : s.medalha === "prata" ? "🥈" : "🥉"}</span>
+            <h3>${U.esc(s.nome)}</h3>
+            <p class="combo-sub">${U.esc(s.subtitulo || "")}</p>
+            <ul>${(s.itens || []).map((i) => `<li>${U.esc(i)}</li>`).join("")}</ul>
+            <div class="combo-precos">
+              <div><small>P&amp;M a partir de</small>${precoTxt(s, "carro")}</div>
+              <div><small>SUV a partir de</small>${precoTxt(s, "suv")}</div>
+            </div>
+            <button type="button" class="btn btn-vermelho btn-bloco" data-combo="${U.esc(s.id)}">Agendar ${U.esc(s.nome)}</button>
+          </div>
+        </article>`)
+        .join("");
+      $("#secCombos").classList.remove("oculto");
     }
 
     // Antes e depois (aparece quando houver fotos)
@@ -2069,17 +2591,6 @@ window.Whats = {
       $("#secGaleria").classList.remove("oculto");
     }
 
-    // bolhas animadas no topo
-    const b = document.querySelector(".bolhas");
-    for (let i = 0; i < 14; i++) {
-      const s = document.createElement("span");
-      const t = 8 + Math.random() * 28;
-      Object.assign(s.style, {
-        width: t + "px", height: t + "px", left: Math.random() * 100 + "%",
-        bottom: -Math.random() * 60 + "px", animationDelay: Math.random() * 9 + "s"
-      });
-      b.appendChild(s);
-    }
   }
 
   // ---------- Passo 1: veículo e estado ----------
@@ -2124,7 +2635,7 @@ window.Whats = {
     const lista = selecionados();
     if (!lista.length) return null;
     const c = Combo.calcular(cfg, lista, ctx());
-    return { duracao: c.duracao, peso: c.peso, nome: c.nome };
+    return { duracao: c.duracao, peso: c.peso, nome: c.nome, premium: c.premium };
   }
   const fmtDur = (m) => (m >= 60 ? `${Math.floor(m / 60)}h${m % 60 ? String(m % 60).padStart(2, "0") : ""}` : `${m} min`);
 
@@ -2155,9 +2666,10 @@ window.Whats = {
         else if (precoCombo) tag = `🎁 ${sel.descontoCombo}% OFF no combo`;
         else if (de) tag = `🔥 ${Math.ceil((1 - p.oferta / de) * 100 - 0.01)}% OFF`;
       }
-      return `<button type="button" class="servico serv-item ${unico ? "unico" : ""} ${sel ? "ativo" : ""}" data-id="${U.esc(s.id)}" aria-pressed="${!!sel}">
+      const medalha = s.medalha === "ouro" ? "🥇 " : s.medalha === "prata" ? "🥈 " : s.medalha === "bronze" ? "🥉 " : "";
+      return `<button type="button" class="servico serv-item ${unico ? "unico" : ""} ${sel ? "ativo" : ""} ${s.medalha ? "medalha-" + U.esc(s.medalha) : ""}" data-id="${U.esc(s.id)}" aria-pressed="${!!sel}">
         <span class="si-foto" ${s.foto ? `style="background-image:url('${U.esc(s.foto)}')"` : ""}></span>
-        <span class="si-txt"><b>${U.esc(s.nome)}</b>${tag ? `<small>${U.esc(tag)}</small>` : ""}</span>
+        <span class="si-txt"><b>${medalha}${U.esc(s.nome)}</b>${s.selo ? `<small class="si-selo">${U.esc(s.selo)}</small>` : ""}${s.itens ? `<small class="si-itens">${U.esc(s.descricao || "")}</small>` : ""}${tag ? `<small>${U.esc(tag)}</small>` : ""}</span>
         <span class="si-preco">${precoHtml}</span>
         <span class="si-check">${sel ? "✓" : ""}</span>
       </button>`;
@@ -2216,6 +2728,23 @@ window.Whats = {
     sug.classList.remove("oculto");
   }
 
+  // botão "Agendar Combo X" da seção Nossos combos → já marca o combo e vai para o agendamento
+  $("#combos").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-combo]");
+    if (!b) return;
+    const id = b.dataset.combo;
+    const s = cfg.servicos.find((x) => x.id === id);
+    if (escolha.tipo && !Precos.oferece(s, escolha.tipo)) escolha.tipo = null;
+    escolha.ids = escolha.ids.filter((x) => cfg.servicos.find((y) => y.id === x)?.categoria !== "combo");
+    escolha.ids.push(id);
+    escolha.hora = null;
+    renderVeiculo();
+    renderServicos();
+    if (escolha.ids.length) renderDias();
+    renderResumo();
+    irPara(1);
+    setTimeout(() => $("#fluxo").scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+  });
   $("#sugestao").addEventListener("click", (e) => {
     const b = e.target.closest("[data-add]");
     if (b) $(`.servico[data-id="${CSS.escape(b.dataset.add)}"]`)?.click();
@@ -2536,6 +3065,17 @@ window.Whats = {
   renderVeiculo();
   renderServicos();
   irPara(1);
+
+  // barra fixa só aparece quando o agendamento está na tela (ou já tem algo escolhido)
+  const barraApp = $("#barraApp");
+  const mostrarBarra = (sim) => {
+    barraApp.classList.toggle("escondida", !sim);
+    document.body.classList.toggle("com-barra", sim);
+  };
+  if ("IntersectionObserver" in window) {
+    mostrarBarra(false);
+    new IntersectionObserver((ent) => mostrarBarra(ent[0].isIntersecting || escolha.ids.length > 0), { rootMargin: "0px 0px -35% 0px" }).observe($("#agendar"));
+  }
   window.scrollTo(0, 0);
 })();
 
@@ -2637,7 +3177,18 @@ window.Whats = {
     $$(".aba").forEach((x) => x.classList.toggle("ativo", x === b));
     $$("[data-secao]").forEach((s) => s.classList.toggle("oculto", s.dataset.secao !== b.dataset.aba));
     if (b.dataset.aba === "config") renderConfig();
+    if (b.dataset.aba === "estrategia") abrirEstrategia();
   });
+
+  // Guia de estratégia: no site publicado vem embutido; no computador abre o arquivo ao lado
+  function abrirEstrategia() {
+    const f = $("#frameEstrategia");
+    if (!f || f.dataset.ok) return;
+    const html = ($("#tplEstrategia")?.innerHTML || "").trim();
+    if (html && !html.startsWith("<!--")) f.srcdoc = html;
+    else f.src = "ESTRATEGIA-2L.html";
+    f.dataset.ok = "1";
+  }
 
   // ---------- Agenda ----------
   function renderAgenda() {
@@ -3015,9 +3566,9 @@ window.Whats = {
   function atualizarHorasNovo() {
     const s = cfg.servicos.find((x) => x.id === fNovo.servicoId.value);
     if (!s || !fNovo.data.value) return;
-    const grade = Agenda.grade(cfg, ags, fNovo.data.value, s);
+    const grade = Agenda.grade(cfg, ags, fNovo.data.value, { ...s, premium: Agenda.ehPremium(cfg, s) });
     fNovo.hora.innerHTML = grade.length
-      ? grade.map((h) => `<option value="${h.hora}">${h.hora}${h.livre ? "" : " (lotado/encaixe)"}</option>`).join("")
+      ? grade.map((h) => `<option value="${h.hora}">${h.hora}${h.livre ? "" : h.reservado ? " (reservado p/ estética – encaixe)" : " (lotado/encaixe)"}</option>`).join("")
       : `<option value="">Fechado neste dia</option>`;
     const primeiro = grade.find((h) => h.livre);
     if (primeiro) fNovo.hora.value = primeiro.hora;
@@ -3098,6 +3649,10 @@ window.Whats = {
         </div>`;
       })
       .join("");
+    const rv = cfg.reserva || {};
+    f.reservaAtivo.checked = !!rv.ativo;
+    f.reservaQtd.value = rv.quantidade ?? 2;
+    f.reservaHoras.value = rv.liberarHorasAntes ?? 24;
     const p = cfg.pausa || {};
     f.pausaInicio.value = p.inicio || "";
     f.pausaFim.value = p.fim || "";
@@ -3169,6 +3724,12 @@ window.Whats = {
     if (erroHorario) return alert(erroHorario);
     novo.horarios = horarios;
     novo.pausa = { inicio: f.pausaInicio.value, fim: f.pausaFim.value, dias: $$("#cfgPausaDias input:checked").map((i) => Number(i.value)) };
+    novo.reserva = {
+      ...(cfg.reserva || {}),
+      ativo: f.reservaAtivo.checked,
+      quantidade: Math.max(0, Math.min(6, Number(f.reservaQtd.value) || 0)),
+      liberarHorasAntes: Math.max(0, Number(f.reservaHoras.value) || 0)
+    };
     novo.combo = {
       ...(cfg.combo || {}),
       ativo: f.comboAtivo.checked,
