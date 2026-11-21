@@ -1575,10 +1575,10 @@ function selecionar(el) {
 // Configuração padrão do lava rápido.
 // Tudo isso pode ser alterado depois pelo Painel > Configurações.
 window.CONFIG_PADRAO = {
-  versao: 13, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
+  versao: 14, // ao mudar a estrutura, configs antigas salvas no navegador são descartadas
   nome: "2L Estética Automotiva",
   lema: "Cuidado que se vê, qualidade que fica!",
-  slogan: "Polimento, higienização, restauração de farol e cristalização de para-brisa. Combine serviços e ganhe até 20% OFF.",
+  slogan: "Lavagens, polimento, higienização, restauração de farol e cristalização de para-brisa. Combine serviços e ganhe até 20% OFF.",
   whatsapp: "12997904704", // número principal (recebe os agendamentos)
   whatsapp2: "12997364024",
   instagram: "2l.esteticaautomotiva",
@@ -1638,8 +1638,8 @@ window.CONFIG_PADRAO = {
   regras: "Cancelamento ou remarcação até 1 dia antes. Tolerância de 10 minutos de atraso.",
   categorias: [
     { id: "combo", nome: "Combos 2L", subtitulo: "escolha 1", escolhaUnica: true, destaque: true },
-    { id: "estetica", nome: "Estética automotiva", subtitulo: "Seu veículo com cara de novo" },
-    { id: "lavagem", nome: "Lavagem", subtitulo: "escolha 1", escolhaUnica: true }
+    { id: "lavagem", nome: "Lavagens", subtitulo: "escolha 1", escolhaUnica: true },
+    { id: "estetica", nome: "Estética automotiva", subtitulo: "Seu veículo com cara de novo" }
   ],
   // Oferta ativa: mostra "De / Por" usando o precoOferta de cada serviço
   oferta: { ativa: true, titulo: "Black Friday", texto: "15% OFF em todos os serviços", ate: "2026-11-30" },
@@ -1685,6 +1685,9 @@ window.CONFIG_PADRAO = {
     { id: "ouro", foto: "img/carro-civic-brilho.jpg", categoria: "combo", medalha: "ouro", nome: "Combo Ouro", subtitulo: "Brilho premium, seu carro como novo",
       itens: ["Detalhamento completo", "Limpeza e restauração dos plásticos", "Descontaminação da pintura", "Cristalização do para-brisa", "Enceramento profissional (proteção de até 12 meses)"],
       descricao: "Detalhamento completo, descontaminação, cristalização e enceramento", preco: 330, precoOferta: 280.5, duracao: 360, peso: 2, selo: "⭐ Mais escolhido", precos: { suv: 390, caminhonete: 460 } },
+    // Lavagens avulsas (carro / SUV / caminhonete)
+    { id: "cera", foto: "img/carro-kicks-branco.jpg", categoria: "lavagem", nome: "Lavagem com cera de carnaúba", descricao: "Lavagem simples + proteção e brilho com cera de carnaúba", preco: 105, precoOferta: 89.25, duracao: 90, peso: 1, precos: { suv: "?", caminhonete: "?" } },
+    { id: "detalhada", foto: "img/lavagem-por-baixo.jpg", categoria: "lavagem", nome: "Lavagem detalhada", descricao: "Limpeza minuciosa por dentro e por fora", preco: 150, precoOferta: 127.5, duracao: 240, peso: 1.5, precos: { suv: "?", caminhonete: "?" } },
     // Motos (tempos estimados – confirmar com o dono)
     { id: "moto-lavagem", foto: "img/moto-ninja.jpg", categoria: "lavagem", nome: "Lavagem de moto", descricao: "Lavagem completa com secagem", preco: 0, soMoto: true, duracao: 60, peso: 0.5, precos: { moto: 30, motoG: 40 } },
     { id: "moto-hig", foto: "img/moto-xre.jpg", categoria: "estetica", nome: "Higienização de moto (sem desmontar)", descricao: "Limpeza profunda de motor, rodas, carenagem e banco", preco: 0, soMoto: true, duracao: 180, peso: 1, precos: { moto: 120, motoG: 150 } },
